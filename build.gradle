@@ -1,0 +1,71 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RC2'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'net.omisoft'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+ext {
+	swaggerVersion = '2.7.0'
+	mapStructVersion = '1.2.0.Final'
+}
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+
+	//Spring Boot
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	//compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile('org.springframework.boot:spring-boot-starter-security')
+
+	//Database
+	compile('org.liquibase:liquibase-core')
+	runtime('com.h2database:h2')
+	runtime('org.postgresql:postgresql')
+	//runtime('mysql:mysql-connector-java')
+
+	//Swagger
+	compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+	compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+
+	//Lombok
+	compileOnly('org.projectlombok:lombok')
+
+	//MapStruct
+	compile("org.mapstruct:mapstruct-jdk8:${mapStructVersion}")
+	compileOnly("org.mapstruct:mapstruct-processor:${mapStructVersion}")
+
+	//Develop
+	runtime('org.springframework.boot:spring-boot-devtools')
+
+	//Testing
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.security:spring-security-test')
+
+	//Frontend
+	//compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+}
