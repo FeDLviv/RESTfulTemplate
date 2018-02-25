@@ -59,8 +59,11 @@
 
 * Spring Boot
 	* books
-		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/html)
+		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/pdf/spring-boot-reference.pdf)
 		* Beginning Spring Boot 2: Applications and Microservices with the Spring Framework
+	* cheat sheet
+		* [Spring Framework 4 Cheat Sheet by danielfc](https://www.cheatography.com/danielfc/cheat-sheets/spring-framework-4)
+		* [Spring Framework Annotations cheat sheet](http://files.zeroturnaround.com/pdf/zt_spring_annotations_cheat_sheet.pdf)
 	* blogs
 		* [Блог Александра Косарева](https://alexkosarev.name)
     	* [Java master](http://java-master.com)
