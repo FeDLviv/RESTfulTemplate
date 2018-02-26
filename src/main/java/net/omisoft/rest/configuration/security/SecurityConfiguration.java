@@ -1,5 +1,6 @@
 package net.omisoft.rest.configuration.security;
 
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -7,7 +8,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 
 @Configuration
+@AllArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    private final RestAuthenticationEntryPoint authenticationEntryPoint;
 
     private static final String[] SWAGGER_PATH = {
             "/swagger-resources/**",
@@ -25,7 +29,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(SWAGGER_PATH).permitAll()
                 //TODO permission only ADMIN
                 .antMatchers(API_V1_BASE_PATH + "**").hasRole("ADMIN")
-                .anyRequest().permitAll();
+                .anyRequest().permitAll()
+                .and()
+                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
     }
 
 }
