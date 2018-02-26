@@ -47,6 +47,11 @@
 
 ## Useful resources
 
+* RESTful
+    * posts
+        * [Создание RESTful API](http://anton.shevchuk.name/php/create-restful-api)
+        * [Разработка web API](https://habrahabr.ru/post/181988)
+
 * Java SE
 	* blogs
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
