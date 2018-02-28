@@ -45,6 +45,12 @@
 * [Lombok](https://projectlombok.org/)
 * [MapStruct](http://mapstruct.org/)
 
+***
+
+* [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
+* [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
+* [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
+
 ## Useful resources
 
 * RESTful
@@ -59,6 +65,10 @@
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
+
+* IntelliJ IDEA
+    * cheat sheet
+        * [IntelliJ IDEA default keymap](https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf)
 		
 * Gradle
 	* videos
@@ -68,11 +78,13 @@
 	* books
 		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/pdf/spring-boot-reference.pdf)
 		* Beginning Spring Boot 2: Applications and Microservices with the Spring Framework
-		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/pdf/spring-data-jpa-reference.pdf)
+		* Building a REST API with Spring 4 (Spring)
+		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/pdf/spring-data-jpa-reference.pdf) (Spring)
 	* cheat sheet
 		* [Spring Framework 4 Cheat Sheet by danielfc](https://www.cheatography.com/danielfc/cheat-sheets/spring-framework-4)
 		* [Spring Framework Annotations cheat sheet](http://files.zeroturnaround.com/pdf/zt_spring_annotations_cheat_sheet.pdf)
 	* blogs
+	    * [Baeldung](http://www.baeldung.com)
 		* [Блог Александра Косарева](https://alexkosarev.name)
     	* [Java master](http://java-master.com)
     	* [Блог Анатолия Корсакова](https://akorsa.ru)
