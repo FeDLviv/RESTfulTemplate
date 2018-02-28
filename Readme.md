@@ -49,8 +49,10 @@
 
 * RESTful
     * posts
+        * [Understanding REST](https://spring.io/understanding/REST)
         * [Создание RESTful API](http://anton.shevchuk.name/php/create-restful-api)
         * [Разработка web API](https://habrahabr.ru/post/181988)
+        * [Шпаргалка по кодам відповіді стану HTTP](https://sebweo.com/shpargalka-po-kodam-vidpovidi-stanu-http)
 
 * Java SE
 	* blogs
@@ -66,6 +68,7 @@
 	* books
 		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/pdf/spring-boot-reference.pdf)
 		* Beginning Spring Boot 2: Applications and Microservices with the Spring Framework
+		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/pdf/spring-data-jpa-reference.pdf)
 	* cheat sheet
 		* [Spring Framework 4 Cheat Sheet by danielfc](https://www.cheatography.com/danielfc/cheat-sheets/spring-framework-4)
 		* [Spring Framework Annotations cheat sheet](http://files.zeroturnaround.com/pdf/zt_spring_annotations_cheat_sheet.pdf)
