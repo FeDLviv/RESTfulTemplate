@@ -7,4 +7,7 @@ public interface ApplicationConstants {
     String PROFILE_DEV = "dev";
     String PROFILE_PROD = "prod";
 
+    int DEFAULT_PAGE_NUMBER = 0;
+    int DEFAULT_PAGE_SIZE = 10;
+
 }
