@@ -76,7 +76,7 @@
 
 * Spring Boot
 	* books
-		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/pdf/spring-boot-reference.pdf)
+		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RELEASE/reference/pdf/spring-boot-reference.pdf)
 		* Beginning Spring Boot 2: Applications and Microservices with the Spring Framework
 		* Building a REST API with Spring 4 (Spring)
 		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/pdf/spring-data-jpa-reference.pdf) (Spring)
@@ -87,6 +87,7 @@
 	    * [Baeldung](http://www.baeldung.com)
 		* [Блог Александра Косарева](https://alexkosarev.name)
     	* [Java master](http://java-master.com)
+    	* [EasyJava](https://easyjava.ru)
     	* [Блог Анатолия Корсакова](https://akorsa.ru)
     	* [Блог про програмування](http://wp-blog.pp.ua)
 	* posts
@@ -94,6 +95,8 @@
 		* [Обратная сторона Spring](https://habrahabr.ru/post/334448)
 		* [Обработка ошибок в формате JSON со Spring Boot](https://habrahabr.ru/post/342214)
 		* [Настройка валидации DTO в Spring Framework](https://habrahabr.ru/post/343960)
+		* [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
+		* [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0)
