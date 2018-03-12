@@ -47,6 +47,7 @@
 
 ***
 
+* [JJWT](https://java.jsonwebtoken.io/jwt101.html)
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
 * [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 * [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
@@ -93,6 +94,7 @@
 	* posts
 		* [Как писать на Spring в 2017](https://habrahabr.ru/post/333756)
 		* [Обратная сторона Spring](https://habrahabr.ru/post/334448)
+		* [Spring: вопросы к собеседованию](https://m.habrahabr.ru/post/350682)
 		* [Обработка ошибок в формате JSON со Spring Boot](https://habrahabr.ru/post/342214)
 		* [Настройка валидации DTO в Spring Framework](https://habrahabr.ru/post/343960)
 		* [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
@@ -111,6 +113,10 @@
 * Swagger
     * videos
         * [Generate client stubs & document your REST-API using Swagger & Spring by Johannes Fiala](https://www.youtube.com/watch?v=43GhBbP--oI)
+
+* AWS
+    * posts
+        * [Deploying a Spring Boot Application on AWS Using AWS Elastic Beanstalk](https://aws.amazon.com/ru/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk)
 
 * Heroku
     * videos
