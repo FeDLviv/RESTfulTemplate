@@ -20,6 +20,7 @@
 	* [Security](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security)
 	* [JPA](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa)/[JDBC](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc)
 	* [Facebook](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-social-facebook)
+	* [Mail](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail)
 	* [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 	* [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
 
@@ -50,6 +51,7 @@
 * [JJWT](https://java.jsonwebtoken.io/jwt101.html)
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
 * [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
+* [Jsoup](https://jsoup.org)
 * [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
 
 ## Useful resources
@@ -59,6 +61,7 @@
         * [Understanding REST](https://spring.io/understanding/REST)
         * [Создание RESTful API](http://anton.shevchuk.name/php/create-restful-api)
         * [Разработка web API](https://habrahabr.ru/post/181988)
+        * [Token-Based Authentication(JWT)](https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
         * [Шпаргалка по кодам відповіді стану HTTP](https://sebweo.com/shpargalka-po-kodam-vidpovidi-stanu-http)
 
 * Java SE
@@ -99,6 +102,7 @@
 		* [Настройка валидации DTO в Spring Framework](https://habrahabr.ru/post/343960)
 		* [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
 		* [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
+		* [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0)
@@ -117,6 +121,7 @@
 * AWS
     * posts
         * [Deploying a Spring Boot Application on AWS Using AWS Elastic Beanstalk](https://aws.amazon.com/ru/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk)
+        * [Сведения о продукте Amazon Aurora](https://aws.amazon.com/ru/rds/aurora/details)
 
 * Heroku
     * videos
@@ -133,3 +138,7 @@
     * videos
         * [Map me if you can! Painless bean mappings with MapStruct by Gunnar Morling](https://www.youtube.com/watch?v=nvjqtWQ5zj8)
         * [JDK IO 2017 - Thomas Much - Easy Bean Mappings with MapStruct 1.2](https://www.youtube.com/watch?v=kKK9SczGa3I)
+
+* JJWT
+    * posts
+        * [Implementing JWT Authentication on Spring Boot APIs](https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot)
