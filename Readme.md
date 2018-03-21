@@ -49,6 +49,7 @@
 ***
 
 * [JJWT](https://java.jsonwebtoken.io/jwt101.html)
+* [AWS SDK For Java](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk)
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
 * [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 * [Jsoup](https://jsoup.org)
@@ -122,6 +123,8 @@
     * posts
         * [Deploying a Spring Boot Application on AWS Using AWS Elastic Beanstalk](https://aws.amazon.com/ru/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk)
         * [Сведения о продукте Amazon Aurora](https://aws.amazon.com/ru/rds/aurora/details)
+        * [Amazon S3 – Upload/Download files with SpringBoot Amazon S3 application](http://javasampleapproach.com/spring-framework/spring-cloud/amazon-s3-uploaddownload-files-springboot-amazon-s3-application)
+        * [Uploading files to AWS S3 Bucket using Spring Boot](https://medium.com/oril/uploading-files-to-aws-s3-bucket-using-spring-boot-483fcb6f8646)
 
 * Heroku
     * videos
