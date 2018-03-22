@@ -104,6 +104,8 @@
 		* [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
 		* [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
 		* [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
+		* [Introduction to Spring MVC HandlerInterceptor](http://www.baeldung.com/spring-mvc-handlerinterceptor)
+		* [Intro to the Jackson ObjectMapper](http://www.baeldung.com/jackson-object-mapper-tutorial)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0)
@@ -114,6 +116,7 @@
 	* videos
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M)
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk)
+		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o)
 		
 * Swagger
     * videos
