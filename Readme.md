@@ -101,6 +101,7 @@
 		* [Spring: вопросы к собеседованию](https://m.habrahabr.ru/post/350682)
 		* [Обработка ошибок в формате JSON со Spring Boot](https://habrahabr.ru/post/342214)
 		* [Настройка валидации DTO в Spring Framework](https://habrahabr.ru/post/343960)
+		* [Jackson JSON Views](http://www.baeldung.com/jackson-json-view-annotation)
 		* [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
 		* [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
 		* [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
@@ -128,6 +129,8 @@
         * [Сведения о продукте Amazon Aurora](https://aws.amazon.com/ru/rds/aurora/details)
         * [Amazon S3 – Upload/Download files with SpringBoot Amazon S3 application](http://javasampleapproach.com/spring-framework/spring-cloud/amazon-s3-uploaddownload-files-springboot-amazon-s3-application)
         * [Uploading files to AWS S3 Bucket using Spring Boot](https://medium.com/oril/uploading-files-to-aws-s3-bucket-using-spring-boot-483fcb6f8646)
+    * list videos
+        * [AWS На Русском Языке](https://www.youtube.com/watch?v=8jbx8O3wuLg&list=PLg5SS_4L6LYsxrZ_4xE_U95AtGsIB96k9)
 
 * Heroku
     * videos
