@@ -107,6 +107,9 @@
 		* [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
 		* [Introduction to Spring MVC HandlerInterceptor](http://www.baeldung.com/spring-mvc-handlerinterceptor)
 		* [Intro to the Jackson ObjectMapper](http://www.baeldung.com/jackson-object-mapper-tutorial)
+		* [Jackson Annotation Examples](http://www.baeldung.com/jackson-annotations)
+		* [CORS with Spring](http://www.baeldung.com/spring-cors)
+		* [Spring MVC Custom Validation](http://www.baeldung.com/spring-mvc-custom-validator)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0)
