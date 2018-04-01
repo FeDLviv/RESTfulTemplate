@@ -83,7 +83,12 @@
 	* books
 		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.0.RELEASE/reference/pdf/spring-boot-reference.pdf)
 		* Beginning Spring Boot 2: Applications and Microservices with the Spring Framework
+		* [Building REST services with Spring MVC REST, Spring Data REST and Spring HATEOAS](http://jug.ua/wp-content/uploads/2015/11/REST_Training.pdf)
+		* [Spring в действии](http://libraryonline.herokuapp.com/api/books/2252) (Spring)
+		* [Spring 4 для профессионалов](http://mirknig.su/knigi/programming/13073-spring-4-dlya-professionalov.html) (Spring)
+		* Pro Spring (Spring)
 		* Building a REST API with Spring 4 (Spring)
+		* [Spring REST](http://padabum.com/d.php?id=211129) (Spring)
 		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/pdf/spring-data-jpa-reference.pdf) (Spring)
 	* cheat sheet
 		* [Spring Framework 4 Cheat Sheet by danielfc](https://www.cheatography.com/danielfc/cheat-sheets/spring-framework-4)
