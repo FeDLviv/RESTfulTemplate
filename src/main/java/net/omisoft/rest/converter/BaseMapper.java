@@ -5,7 +5,8 @@ import org.mapstruct.ReportingPolicy;
 
 @MapperConfig(
         componentModel = "spring",
-        unmappedTargetPolicy = ReportingPolicy.WARN
+        unmappedTargetPolicy = ReportingPolicy.ERROR,
+        disableSubMappingMethodsGeneration = true
 )
 public interface BaseMapper {
 }
