@@ -8,6 +8,8 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 
+import static net.omisoft.rest.ApplicationConstants.LANGUAGE_HEADER;
+
 @Configuration
 public class MultilanguageConfiguration {
 
@@ -16,7 +18,7 @@ public class MultilanguageConfiguration {
         return new CookieLocaleResolver() {
             @Override
             public Locale resolveLocale(HttpServletRequest request) {
-                String acceptLanguage = request.getHeader("Accept-Language");
+                String acceptLanguage = request.getHeader(LANGUAGE_HEADER);
                 if (acceptLanguage == null || acceptLanguage.trim().isEmpty()) {
                     return super.determineDefaultLocale(request);
                 }

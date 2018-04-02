@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.Stream;
 
+import static net.omisoft.rest.ApplicationConstants.LANGUAGE_HEADER;
 import static net.omisoft.rest.ApplicationConstants.PROFILE_PROD;
 
 @Configuration
@@ -35,8 +36,8 @@ public class SwaggerConfiguration {
         ArrayList<Parameter> parameters = new ArrayList();
         parameters.add(
                 new ParameterBuilder()
-                        .name("Accept-Language")
-                        .description("Accept-Language")
+                        .name(LANGUAGE_HEADER)
+                        .description(LANGUAGE_HEADER)
                         .modelRef(new ModelRef("string"))
                         .parameterType("header")
                         .required(true)
