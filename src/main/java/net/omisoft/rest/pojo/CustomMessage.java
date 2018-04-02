@@ -1,11 +1,11 @@
-package net.omisoft.rest.exception.custom;
+package net.omisoft.rest.pojo;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
 
 @Data
 @AllArgsConstructor
-public class CustomException {
+public class CustomMessage {
 
     private String message;
 

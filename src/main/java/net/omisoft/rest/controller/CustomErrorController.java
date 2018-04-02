@@ -1,7 +1,7 @@
 package net.omisoft.rest.controller;
 
 import lombok.AllArgsConstructor;
-import net.omisoft.rest.exception.custom.CustomException;
+import net.omisoft.rest.pojo.CustomMessage;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.core.env.Environment;
@@ -28,7 +28,7 @@ public class CustomErrorController implements ErrorController {
     @RequestMapping(value = PATH)
     public ResponseEntity<?> error(WebRequest request, HttpServletResponse response) {
         if(Stream.of(environment.getActiveProfiles()).anyMatch(profile -> Objects.equals(profile, PROFILE_PROD))) {
-            CustomException ex = new CustomException(errorAttributes.getErrorAttributes(request, false).get("error").toString());
+            CustomMessage ex = new CustomMessage(errorAttributes.getErrorAttributes(request, false).get("error").toString());
             return ResponseEntity.status(response.getStatus()).body(ex);
         } else {
             return ResponseEntity.status(response.getStatus()).body(errorAttributes.getErrorAttributes(request, true));
