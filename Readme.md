@@ -104,9 +104,13 @@
 		* [Как писать на Spring в 2017](https://habrahabr.ru/post/333756)
 		* [Обратная сторона Spring](https://habrahabr.ru/post/334448)
 		* [Spring: вопросы к собеседованию](https://m.habrahabr.ru/post/350682)
+		* [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 		* [Обработка ошибок в формате JSON со Spring Boot](https://habrahabr.ru/post/342214)
 		* [Настройка валидации DTO в Spring Framework](https://habrahabr.ru/post/343960)
 		* [Jackson JSON Views](http://www.baeldung.com/jackson-json-view-annotation)
+		* [JPA / Hibernate @Embeddable and @Embedded Example with Spring Boot](https://www.callicoder.com/hibernate-spring-boot-jpa-embeddable-demo)
+		* [JPA и связи между объектами](https://easyjava.ru/data/jpa/jpa-i-svyazi-mezhdu-obektami)
+		* [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
 		* [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
 		* [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
 		* [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
@@ -124,6 +128,7 @@
 		* [Evgeny Borisov](https://www.youtube.com/watch?v=BmBr5diz8WA&list=PLh2SuUkW2bLxVbZdUGpengMOHsC-qt_PH) (Spring)
 	* videos
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M)
+		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE)
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o)
 		
