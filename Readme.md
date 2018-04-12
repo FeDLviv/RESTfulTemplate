@@ -2,7 +2,7 @@
 
 * RESTful
 * Database
-* Unit testing
+* Testing (unit, integration)
 * Documentation
 * Deployment
 
@@ -21,6 +21,7 @@
 	* [JPA](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa)/[JDBC](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc)
 	* [Facebook](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-social-facebook)
 	* [Mail](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail)
+	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 	* [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 	* [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
 
@@ -32,6 +33,10 @@
 ***
 
 * [JUnit](https://junit.org)
+* [AssertJ](http://joel-costigliola.github.io/assertj)
+* [JsonPath](https://github.com/json-path/JsonPath)
+* [Mockito](http://site.mockito.org)
+* [Hamcrest](http://hamcrest.org/JavaHamcrest)
 
 ***
 
@@ -62,6 +67,7 @@
         * [Understanding REST](https://spring.io/understanding/REST)
         * [Создание RESTful API](http://anton.shevchuk.name/php/create-restful-api)
         * [Разработка web API](https://habrahabr.ru/post/181988)
+        * [Шпаргалка по созданию RESTful API](https://noteskeeper.ru/1161)
         * [Token-Based Authentication(JWT)](https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
         * [Шпаргалка по кодам відповіді стану HTTP](https://sebweo.com/shpargalka-po-kodam-vidpovidi-stanu-http)
 
@@ -131,6 +137,14 @@
 		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE)
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o)
+
+*JUnit
+    * posts
+        * [Testing in Spring Boot](http://www.baeldung.com/spring-boot-testing)
+
+*AssertJ
+    * posts
+        * [Introduction to AssertJ](http://www.baeldung.com/introduction-to-assertj)
 		
 * Swagger
     * videos
