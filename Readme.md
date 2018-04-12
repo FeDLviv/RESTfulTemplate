@@ -138,11 +138,11 @@
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o)
 
-*JUnit
+* JUnit
     * posts
         * [Testing in Spring Boot](http://www.baeldung.com/spring-boot-testing)
 
-*AssertJ
+* AssertJ
     * posts
         * [Introduction to AssertJ](http://www.baeldung.com/introduction-to-assertj)
 		
