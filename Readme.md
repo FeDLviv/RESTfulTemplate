@@ -74,6 +74,8 @@
 * Java SE
 	* blogs
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
+	* posts
+	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
 
@@ -125,6 +127,7 @@
 		* [Jackson Annotation Examples](http://www.baeldung.com/jackson-annotations)
 		* [CORS with Spring](http://www.baeldung.com/spring-cors)
 		* [Spring MVC Custom Validation](http://www.baeldung.com/spring-mvc-custom-validator)
+		* [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0)
