@@ -76,8 +76,11 @@
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* posts
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
+	    * [Шпаргалка Java программиста 4. Java Stream API](https://habr.com/company/luxoft/blog/270383)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
+	* videos
+	    * [Java 8 Stream API или краткость - сестра таланта [GeekBrains]](https://www.youtube.com/watch?v=gTdXjRif_yo)
 
 * IntelliJ IDEA
     * cheat sheet
@@ -118,6 +121,8 @@
 		* [Jackson JSON Views](http://www.baeldung.com/jackson-json-view-annotation)
 		* [JPA / Hibernate @Embeddable and @Embedded Example with Spring Boot](https://www.callicoder.com/hibernate-spring-boot-jpa-embeddable-demo)
 		* [JPA и связи между объектами](https://easyjava.ru/data/jpa/jpa-i-svyazi-mezhdu-obektami)
+		* [Java Persistence/ElementCollection](https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection)
+		* [Java EE 6. Обзор JPA 2.0, часть 2: Коллекции](https://habr.com/post/88683)
 		* [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
 		* [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
 		* [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
@@ -127,7 +132,10 @@
 		* [Jackson Annotation Examples](http://www.baeldung.com/jackson-annotations)
 		* [CORS with Spring](http://www.baeldung.com/spring-cors)
 		* [Spring MVC Custom Validation](http://www.baeldung.com/spring-mvc-custom-validator)
+		* [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
 		* [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
+		* [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
+		* [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0)
@@ -150,6 +158,9 @@
         * [Introduction to AssertJ](http://www.baeldung.com/introduction-to-assertj)
 		
 * Swagger
+    * posts
+        * [Documenting Spring Boot REST API with Swagger and SpringFox](https://www.vojtechruzicka.com/documenting-spring-boot-rest-api-swagger-springfox)
+        * [Documenting your REST API with Swagger and Springfox](https://g00glen00b.be/documenting-rest-api-swagger-springfox)
     * videos
         * [Generate client stubs & document your REST-API using Swagger & Spring by Johannes Fiala](https://www.youtube.com/watch?v=43GhBbP--oI)
 
@@ -180,4 +191,5 @@
 
 * JJWT
     * posts
+        * [JWTs With Spring Boot and Java 9](https://dzone.com/articles/jwts-with-spring-boot-and-java-9?edition=376199&utm_source=Daily%20Digest&utm_medium=email&utm_campaign=Daily%20Digest%202018-04-25)
         * [Implementing JWT Authentication on Spring Boot APIs](https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot)
