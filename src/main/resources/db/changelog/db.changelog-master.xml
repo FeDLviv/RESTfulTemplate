@@ -9,9 +9,13 @@
         example db-X.Y-A-B-C.xml
             X-table number
             Y-N-action in the table
-            A-SQL operations (SELECT, INSERT, DELETE, etc)
+            A-SQL operations (CREATE, INSERT, DELETE, etc)
             B-table OR data
             C-name of the table
     -->
+
+    <include file="db/db-1.0-create-table-users.xml"/>
+    <include file="db/db-1.1-insert-data-users.xml"/>
+
 
 </databaseChangeLog>

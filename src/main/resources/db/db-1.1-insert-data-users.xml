@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <!--CHANGE ROLE -->
+
+    <changeSet id="insert_users" author="Pyshnyi Fedir">
+        <insert tableName="users">
+            <column name="email" value="fed.lviv@gmail.com"/>
+            <column name="password" value="$2a$10$1HIemVflscpZtPRT/qhZ7OEJtOXWt6XINAOIoR974MhZ.Y1ETdNNa"/>
+            <column name="role" value="ROLE_ADMIN"/>
+        </insert>
+        <insert tableName="users">
+            <column name="email" value="fed_lviv@mail.ru"/>
+            <column name="password" value="$2a$10$1HIemVflscpZtPRT/qhZ7OEJtOXWt6XINAOIoR974MhZ.Y1ETdNNa"/>
+            <column name="role" value="ROLE_CLIENT"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
