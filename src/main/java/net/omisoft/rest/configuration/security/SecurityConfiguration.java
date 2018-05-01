@@ -14,16 +14,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @AllArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final RestAuthenticationEntryPoint authenticationEntryPoint;
+    private final CustomAuthenticationEntryPoint authenticationEntryPoint;
     private final Environment environment;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //TODO show H2
         http.headers().frameOptions().disable();
-        http
-                .csrf().disable()
-                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
+        http.csrf().disable();
+        http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
         //TODO change role
         http.authorizeRequests()
                 .antMatchers(environment.getProperty("management.endpoints.web.base-path") + "/**")
