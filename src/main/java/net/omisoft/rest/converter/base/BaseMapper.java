@@ -1,4 +1,4 @@
-package net.omisoft.rest.converter;
+package net.omisoft.rest.converter.base;
 
 import org.mapstruct.MapperConfig;
 import org.mapstruct.ReportingPolicy;
