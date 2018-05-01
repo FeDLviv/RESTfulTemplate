@@ -23,6 +23,7 @@
 	* [Mail](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail)
 	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 	* [Actuator](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator)
+	* [Cache](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-cache)
 	* [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 	* [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
 

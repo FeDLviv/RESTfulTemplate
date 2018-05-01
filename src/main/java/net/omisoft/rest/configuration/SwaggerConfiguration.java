@@ -33,7 +33,7 @@ public class SwaggerConfiguration {
 
     @Bean
     public Docket docket() {
-        ArrayList<Parameter> parameters = new ArrayList();
+        ArrayList<Parameter> parameters = new ArrayList<>();
         parameters.add(
                 new ParameterBuilder()
                         .name(LANGUAGE_HEADER)
@@ -55,11 +55,9 @@ public class SwaggerConfiguration {
 
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                //TODO XXX
-                "XXX API Documentation",
-                //TODO XXX
-                "Spring Boot RESTful API for XXX",
-                "1.0",
+                environment.getProperty("info.app.name")+" API Documentation",
+                "Spring Boot RESTful API for " + environment.getProperty("info.app.name"),
+                environment.getProperty("info.app.version"),
                 "",
                 new Contact("OmiSoft", "http://www.omisoft.net", "omisoftnet@gmail.com"),
                 null,

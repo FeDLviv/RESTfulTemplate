@@ -1,11 +1,12 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RELEASE'
+		springBootVersion = '2.0.1.RELEASE'
 	}
 	repositories {
 		mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
+		jcenter()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -23,14 +24,16 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 ext {
-	swaggerVersion = '2.7.0'
+	swaggerVersion = '2.9.0'
 	mapStructVersion = '1.2.0.Final'
+	jjwtVersion = '0.9.0'
 }
 
 repositories {
 	mavenCentral()
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
+	jcenter()
 }
 
 dependencies {
@@ -40,6 +43,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	//compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
 
 	//Database
 	compile('org.liquibase:liquibase-core')
@@ -47,9 +51,13 @@ dependencies {
 	runtime('org.postgresql:postgresql')
 	//runtime('mysql:mysql-connector-java')
 
+	//JJWT
+	compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+
 	//Swagger
 	compile("io.springfox:springfox-swagger2:${swaggerVersion}")
 	compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+	compile("io.springfox:springfox-bean-validators:${swaggerVersion}")
 
 	//Lombok
 	compileOnly('org.projectlombok:lombok')
@@ -69,3 +77,14 @@ dependencies {
 	//compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
 }
+
+test {
+	testLogging {
+		afterSuite { desc, result ->
+			if (!desc.parent) {
+				println "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+			}
+		}
+	}
+}
+
