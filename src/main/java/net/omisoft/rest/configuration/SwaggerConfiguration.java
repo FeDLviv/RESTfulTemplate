@@ -14,7 +14,6 @@ import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.Parameter;
-import springfox.documentation.service.VendorExtension;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -56,7 +55,7 @@ public class SwaggerConfiguration {
 
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                environment.getProperty("info.app.name")+" API Documentation",
+                environment.getProperty("info.app.name") + " API Documentation",
                 "Spring Boot RESTful API for " + environment.getProperty("info.app.name") +
                         "\n\rAccess:\n\r" +
                         Arrays.stream(AUTH_ICON).collect(Collectors.joining("\n\r")),
@@ -92,7 +91,6 @@ public class SwaggerConfiguration {
         );
 
         return parameters;
-
     }
 
 }
