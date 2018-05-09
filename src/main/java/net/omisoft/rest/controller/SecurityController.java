@@ -18,7 +18,7 @@ import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 @RestController
 @RequestMapping(API_V1_BASE_PATH + "security")
 @Validated
-@Api(description = "Operations associated with authentication")
+@Api(tags = "1.SECURITY", description = "Operations associated with authentication")
 @AllArgsConstructor
 public class SecurityController {
 
