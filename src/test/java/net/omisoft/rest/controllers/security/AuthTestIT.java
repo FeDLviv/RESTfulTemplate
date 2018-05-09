@@ -25,6 +25,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.crypto.spec.SecretKeySpec;
 
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
+import static net.omisoft.rest.controllers.BaseTestIT.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /*
@@ -53,41 +54,19 @@ public class AuthTestIT {
 
     @Test
     public void wrongEmail() {
-        //prepare
-        AuthRequest auth = AuthRequest.builder().email("asd.lviv@gmail.com").password("1111").build();
-        //test
-        HttpEntity<AuthRequest> request = new HttpEntity<>(auth);
-        ResponseEntity<CustomMessage> response = restTemplate.postForEntity(
-                URL,
-                request,
-                CustomMessage.class
-        );
-        //validate
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(response.getBody().getMessage()).isEqualTo(message.getMessage("exception.wrong.credentials"));
+        wrongCredential(EMAIL_NOT_EXISTS, PASSWORD_EXISTS);
     }
 
     @Test
     public void wrongPassword() {
-        //prepare
-        AuthRequest auth = AuthRequest.builder().email("fed.lviv@gmail.com").password("11we111").build();
-        //test
-        HttpEntity<AuthRequest> request = new HttpEntity<>(auth);
-        ResponseEntity<CustomMessage> response = restTemplate.postForEntity(
-                URL,
-                request,
-                CustomMessage.class
-        );
-        //validate
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(response.getBody().getMessage()).isEqualTo(message.getMessage("exception.wrong.credentials"));
+        wrongCredential(EMAIL_EXISTS, WRONG_PASSWORD);
     }
 
 
     @Test
     public void sucessful() {
         //prepare
-        AuthRequest auth = AuthRequest.builder().email("fed.lviv@gmail.com").password("1111").build();
+        AuthRequest auth = AuthRequest.builder().email(EMAIL_EXISTS).password(PASSWORD_EXISTS).build();
         //test
         HttpEntity<AuthRequest> request = new HttpEntity<>(auth);
         ResponseEntity<AuthResponse> response = restTemplate.postForEntity(
@@ -103,6 +82,21 @@ public class AuthTestIT {
         Claims body = claimsJws.getBody();
         assertThat(body.getId()).isEqualTo("1");
         assertThat(response.getBody().getDuration()).isEqualTo(Long.parseLong(tokenDuration));
+    }
+
+    public void wrongCredential(String email, String password) {
+        //prepare
+        AuthRequest auth = AuthRequest.builder().email(email).password(password).build();
+        //test
+        HttpEntity<AuthRequest> request = new HttpEntity<>(auth);
+        ResponseEntity<CustomMessage> response = restTemplate.postForEntity(
+                URL,
+                request,
+                CustomMessage.class
+        );
+        //validate
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(response.getBody().getMessage()).isEqualTo(message.getMessage("exception.wrong.credentials"));
     }
 
 }
