@@ -97,6 +97,8 @@
 		
 * Gradle
     * posts
+        * [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle)
+        * [Переход с Maven на Gradle](http://it-simulator.com/#/articlefull/145)
         * [Gradle: управляя зависимостями](https://habr.com/company/redmadrobot/blog/275515)
 	* videos
 		* [Евгений Борисов — Power of Gradle](https://www.youtube.com/watch?v=NZJTYPLb0iE)
@@ -146,6 +148,8 @@
             * [JPA и связи между объектами](https://easyjava.ru/data/jpa/jpa-i-svyazi-mezhdu-obektami)
             * [Java Persistence/ElementCollection](https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection)
             * [Java EE 6. Обзор JPA 2.0, часть 2: Коллекции](https://habr.com/post/88683)
+            * [5 tips to write efficient queries with JPA and Hibernate](https://www.thoughts-on-java.org/5-tips-write-efficient-queries-jpa-hibernate)
+            * [Hibernate Tips: What’s the Difference between JOIN, LEFT JOIN and JOIN FETCH](https://www.thoughts-on-java.org/hibernate-tips-difference-join-left-join-fetch-join)
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
 	    * Security
