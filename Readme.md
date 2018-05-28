@@ -72,9 +72,20 @@
         * [Understanding REST](https://spring.io/understanding/REST)
         * [Создание RESTful API](http://anton.shevchuk.name/php/create-restful-api)
         * [Разработка web API](https://habrahabr.ru/post/181988)
+        * [Изучаем REST: Руководство по созданию RESTful сервиса](http://www.restapitutorial.ru)
         * [Шпаргалка по созданию RESTful API](https://noteskeeper.ru/1161)
+        * [How to Design a Localization-Ready System](http://www.vertabelo.com/blog/technical-articles/data-modeling-for-multiple-languages-how-to-design-a-localization-ready-system)
         * [Token-Based Authentication(JWT)](https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
         * [Шпаргалка по кодам відповіді стану HTTP](https://sebweo.com/shpargalka-po-kodam-vidpovidi-stanu-http)
+        * [Що таке SSL сертифікат і навіщо він потрібен?](https://css.in.ua/article/shcho-take-ssl-sertyfikat-i-navishcho-vin-potriben_4)
+        * [Что такое SSL-сертификат и зачем он нужен](https://ssl.com.ua/info/what-is-ssl/#)
+        * [Як працює https в подробицях.](https://css.in.ua/article/iak-pratsiuie-https-v-podrobytsiakh_6)
+        * [Как работает SSL-сертификат](https://ssl.com.ua/info/how-ssl-works)
+        * [Як отримати SSL сертифікат?](https://css.in.ua/article/iak-otrymaty-ssl-sertyfikat_5)
+        * [Let’s Encrypt: бесплатные SSL‑сертификаты](https://ssl.com.ua/info/lets-encrypt)
+        * [Налаштування https в apache.](https://css.in.ua/article/nalashtuvannia-https-v-apache_7)
+        * [Let's Encrypt](https://letsencrypt.org/getting-started)
+        * [Certbot](https://certbot.eff.org/)
 
 * Java SE
     * books
@@ -84,6 +95,7 @@
 	* blogs
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* posts
+	    * [Советы по оптимизации кода на Java: как не наступать на грабли](https://habr.com/company/piter/blog/358898)
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
 	    * [Шпаргалка Java программиста 4. Java Stream API](https://habr.com/company/luxoft/blog/270383)
 	* list videos
@@ -143,6 +155,7 @@
             * [Jackson Annotation Examples](http://www.baeldung.com/jackson-annotations)
             * [CORS with Spring](http://www.baeldung.com/spring-cors)
             * [Spring MVC Custom Validation](http://www.baeldung.com/spring-mvc-custom-validator)
+            * [Spring – Log Incoming Requests](http://www.baeldung.com/spring-http-logging)
 	    * JPA
 	        * [JPA / Hibernate @Embeddable and @Embedded Example with Spring Boot](https://www.callicoder.com/hibernate-spring-boot-jpa-embeddable-demo)
             * [JPA и связи между объектами](https://easyjava.ru/data/jpa/jpa-i-svyazi-mezhdu-obektami)
@@ -175,6 +188,10 @@
 		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE) (Spring Boot)
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk) (Spring Boot DevTools)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
+
+* Liquibase
+    * posts
+        * [Using liquibase to load data and ignore some columns ](http://sadalage.com/blog/2017/05/15/using-liquibase-to-load-data-and-ignore-some-columns)
 
 * JUnit
     * posts
