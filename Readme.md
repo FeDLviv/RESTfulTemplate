@@ -56,7 +56,9 @@
 ***
 
 * [JJWT](https://java.jsonwebtoken.io/jwt101.html)
+* [FCM](https://firebase.google.com/docs/cloud-messaging)
 * [AWS SDK For Java](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk)
+* [JSON In Java](https://mvnrepository.com/artifact/org.json/json)
 * [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
 * [Jsoup](https://jsoup.org)
@@ -162,6 +164,7 @@
             * [Java Persistence/ElementCollection](https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection)
             * [Java EE 6. Обзор JPA 2.0, часть 2: Коллекции](https://habr.com/post/88683)
             * [5 tips to write efficient queries with JPA and Hibernate](https://www.thoughts-on-java.org/5-tips-write-efficient-queries-jpa-hibernate)
+            * [Java Persistence/ManyToMany](https://en.wikibooks.org/wiki/Java_Persistence/ManyToMany)
             * [Hibernate Tips: What’s the Difference between JOIN, LEFT JOIN and JOIN FETCH](https://www.thoughts-on-java.org/hibernate-tips-difference-join-left-join-fetch-join)
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
@@ -171,6 +174,9 @@
 	    * Scheduled Tasks
 	        * [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 	        * [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
+	    * Async
+	        *[How To Do @Async in Spring](http://www.baeldung.com/spring-async)
+	        *[How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
 	    * Actuator
 	        * [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
             * [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
@@ -237,6 +243,12 @@
     * posts
         * [JWTs With Spring Boot and Java 9](https://dzone.com/articles/jwts-with-spring-boot-and-java-9?edition=376199&utm_source=Daily%20Digest&utm_medium=email&utm_campaign=Daily%20Digest%202018-04-25)
         * [Implementing JWT Authentication on Spring Boot APIs](https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot)
+
+* FCM
+    * posts
+        * [Web PUSH Notifications быстро и просто](https://habr.com/post/321924)
+        * [Send Push Notification In Android And iOS Using Spring Boot Application ](https://www.oodlestechnologies.com/blogs/Send-Push-Notification-In-Android-And-iOS-Using-Spring-Boot-Application)
+        * [Firebase Cloud Messaging – Spring Server to Push Notification Example | Spring Boot](http://javasampleapproach.com/spring-framework/spring-boot/firebase-cloud-messaging-server-spring-to-push-notification-example-spring-boot)
    
 * AWS SDK For Java
     * posts
