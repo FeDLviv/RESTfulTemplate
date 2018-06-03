@@ -165,6 +165,7 @@
             * [Java EE 6. Обзор JPA 2.0, часть 2: Коллекции](https://habr.com/post/88683)
             * [5 tips to write efficient queries with JPA and Hibernate](https://www.thoughts-on-java.org/5-tips-write-efficient-queries-jpa-hibernate)
             * [Java Persistence/ManyToMany](https://en.wikibooks.org/wiki/Java_Persistence/ManyToMany)
+	    * [Using multiple datasources with Spring Boot and Spring Data](https://medium.com/@joeclever/using-multiple-datasources-with-spring-boot-and-spring-data-6430b00c02e7)
             * [Hibernate Tips: What’s the Difference between JOIN, LEFT JOIN and JOIN FETCH](https://www.thoughts-on-java.org/hibernate-tips-difference-join-left-join-fetch-join)
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
@@ -175,8 +176,11 @@
 	        * [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 	        * [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
 	    * Async
-	        *[How To Do @Async in Spring](http://www.baeldung.com/spring-async)
-	        *[How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
+	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
+	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
+	    * Cache
+	        * [Простой и полезный Spring Cache](http://nikcode.blogspot.com/2012/12/spring-cache.html)
+	        * [A Guide To Caching in Spring](http://www.baeldung.com/spring-cache-tutorial)
 	    * Actuator
 	        * [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
             * [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
@@ -193,6 +197,8 @@
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
 		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE) (Spring Boot)
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk) (Spring Boot DevTools)
+		* [Кеширование в Spring. Краткий обзор](https://www.youtube.com/watch?v=CPb3OQZR2gM)
+		* [Spring Boot EhCache cache example](https://www.youtube.com/watch?v=qu_wQNFxJxw)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
 
 * Liquibase
