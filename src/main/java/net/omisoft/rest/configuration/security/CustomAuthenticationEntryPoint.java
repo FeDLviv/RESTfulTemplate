@@ -2,8 +2,8 @@ package net.omisoft.rest.configuration.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.pojo.CustomMessage;
-import net.omisoft.rest.util.MessageByLocaleService;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ import java.io.IOException;
 @AllArgsConstructor
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    private final MessageByLocaleService message;
+    private final MessageSourceConfiguration message;
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {

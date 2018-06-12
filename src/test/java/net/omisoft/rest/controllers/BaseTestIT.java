@@ -3,7 +3,7 @@ package net.omisoft.rest.controllers;
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import net.omisoft.rest.util.MessageByLocaleService;
+import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -55,7 +55,7 @@ public abstract class BaseTestIT {
     protected MockMvc mvc;
 
     @Autowired
-    protected MessageByLocaleService message;
+    protected MessageSourceConfiguration message;
 
     @Value("${app.token.secret}")
     protected String secret;

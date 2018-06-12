@@ -1,7 +1,7 @@
 package net.omisoft.rest.dto.validator;
 
+import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.dto.validator.annotation.ValidateEnum;
-import net.omisoft.rest.util.MessageByLocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class EnumValidator implements ConstraintValidator<ValidateEnum, String> {
 
     @Autowired
-    private MessageByLocaleService message;
+    private MessageSourceConfiguration message;
     private List<String> list;
 
     @Override

@@ -2,13 +2,13 @@ package net.omisoft.rest.service.security;
 
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.*;
+import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.configuration.security.UserAuthentication;
 import net.omisoft.rest.exception.BadRequestException;
 import net.omisoft.rest.exception.UnauthorizedException;
 import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.pojo.AuthRequest;
 import net.omisoft.rest.repository.UserRepository;
-import net.omisoft.rest.util.MessageByLocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
 import java.util.Date;
 
 import static net.omisoft.rest.ApplicationConstants.TOKEN_PREFIX;
@@ -30,7 +29,7 @@ public class JWTServiceImpl implements JWTService {
     private UserRepository repository;
 
     @Autowired
-    private MessageByLocaleService message;
+    private MessageSourceConfiguration message;
 
     @Value("${app.token.secret}")
     private String secret;

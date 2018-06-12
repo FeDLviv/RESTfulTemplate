@@ -1,4 +1,4 @@
-package net.omisoft.rest.util;
+package net.omisoft.rest.configuration;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -9,7 +9,7 @@ import java.util.Locale;
 
 @Component
 @AllArgsConstructor
-public class MessageByLocaleService {
+public class MessageSourceConfiguration {
 
     private final MessageSource messageSource;
 

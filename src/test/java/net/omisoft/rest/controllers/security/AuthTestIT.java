@@ -4,10 +4,10 @@ import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
+import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.pojo.AuthRequest;
 import net.omisoft.rest.pojo.AuthResponse;
 import net.omisoft.rest.pojo.CustomMessage;
-import net.omisoft.rest.util.MessageByLocaleService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +44,7 @@ public class AuthTestIT {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private MessageByLocaleService message;
+    private MessageSourceConfiguration message;
 
     @Value("${app.token.secret}")
     private String secret;

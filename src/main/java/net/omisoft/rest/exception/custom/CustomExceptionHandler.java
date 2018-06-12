@@ -1,14 +1,13 @@
 package net.omisoft.rest.exception.custom;
 
+import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
 import net.omisoft.rest.exception.PermissionException;
 import net.omisoft.rest.exception.ResourceNotFoundException;
 import net.omisoft.rest.exception.UnauthorizedException;
 import net.omisoft.rest.pojo.CustomMessage;
-import net.omisoft.rest.util.MessageByLocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.NoSuchMessageException;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -24,10 +23,7 @@ import java.util.stream.Collectors;
 public class CustomExceptionHandler {
 
     @Autowired
-    private MessageByLocaleService message;
-
-    @Autowired
-    private Environment environment;
+    private MessageSourceConfiguration message;
 
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ExceptionHandler({
