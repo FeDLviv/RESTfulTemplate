@@ -89,6 +89,7 @@
         * [Налаштування https в apache.](https://css.in.ua/article/nalashtuvannia-https-v-apache_7)
         * [Let's Encrypt](https://letsencrypt.org/getting-started)
         * [Certbot](https://certbot.eff.org/)
+        * [Spring Boot Application Secured by Let’s Encrypt Certificate](https://www.heydari.be/spring-boot-application-secured-by-a-lets-encrypt-certificate)
 
 * Java SE
     * books
@@ -176,6 +177,9 @@
 	    * Scheduled Tasks
 	        * [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 	        * [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
+	    * Mail
+	        * [Guide to Spring Email](http://www.baeldung.com/spring-email)
+	        * [Spring Boot Mail: рассылка почты пользователям, активация аккаунта](https://zen.yandex.ru/media/id/5ac20956168a91ffeae449c5/spring-boot-mail-rassylka-pochty-polzovateliam-aktivaciia-akkaunta-5b03dcc2c3321bdea745857c)
 	    * Async
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
@@ -189,6 +193,7 @@
 	        * [Creating a Custom Starter with Spring Boot](https://www.youtube.com/watch?v=mi0GfmTv2wg)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp) (Spring Boot)
+		* [Spring Boot 2](https://www.youtube.com/watch?v=jH17YkBTpI4&list=PLU2ftbIeotGpAYRP9Iv2KLIwK36-o_qYk) (Spring Boot)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0) (Spring Boot)
 		* [The Basics of Spring Framework](https://www.youtube.com/watch?v=3wBteulZaAs&list=PL6jg6AGdCNaWF-sUH2QDudBRXo54zuN1t) (Spring)
 		* [Spring](https://www.youtube.com/watch?v=M4w6b2pENWU&list=PLwwk4BHih4fho6gmaAwdHYZ6QQq0aE7Zi) (Spring)
