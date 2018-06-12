@@ -1,16 +1,16 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-		maven { url "https://repo.spring.io/snapshot" }
-		maven { url "https://repo.spring.io/milestone" }
-		jcenter()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -24,67 +24,72 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 ext {
-	swaggerVersion = '2.9.0'
-	mapStructVersion = '1.2.0.Final'
-	jjwtVersion = '0.9.0'
+    swaggerVersion = '2.9.0'
+    mapStructVersion = '1.2.0.Final'
+    jjwtVersion = '0.9.0'
+    ehcacheVersion = '2.10.5'
 }
 
 repositories {
-	mavenCentral()
-	maven { url "https://repo.spring.io/snapshot" }
-	maven { url "https://repo.spring.io/milestone" }
-	jcenter()
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    jcenter()
 }
 
 dependencies {
 
-	//Spring Boot
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	//compile('org.springframework.boot:spring-boot-starter-jdbc')
-	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.boot:spring-boot-starter-actuator')
+    //Spring Boot
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    //compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-cache')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
 
-	//Database
-	compile('org.liquibase:liquibase-core')
-	runtime('com.h2database:h2')
-	runtime('org.postgresql:postgresql')
-	//runtime('mysql:mysql-connector-java')
+    //Database
+    compile('org.liquibase:liquibase-core')
+    runtime('com.h2database:h2')
+    runtime('org.postgresql:postgresql')
+    //runtime('mysql:mysql-connector-java')
 
-	//JJWT
-	compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+    //JJWT
+    compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
 
-	//Swagger
-	compile("io.springfox:springfox-swagger2:${swaggerVersion}")
-	compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
-	compile("io.springfox:springfox-bean-validators:${swaggerVersion}")
+    //Ehcache
+    compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
 
-	//Lombok
-	compileOnly('org.projectlombok:lombok')
+    //Swagger
+    compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+    compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+    compile("io.springfox:springfox-bean-validators:${swaggerVersion}")
 
-	//MapStruct
-	compile("org.mapstruct:mapstruct-jdk8:${mapStructVersion}")
-	compileOnly("org.mapstruct:mapstruct-processor:${mapStructVersion}")
+    //Lombok
+    compileOnly('org.projectlombok:lombok')
 
-	//Develop
-	runtime('org.springframework.boot:spring-boot-devtools')
+    //MapStruct
+    compile("org.mapstruct:mapstruct-jdk8:${mapStructVersion}")
+    compileOnly("org.mapstruct:mapstruct-processor:${mapStructVersion}")
 
-	//Testing
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.security:spring-security-test')
+    //Develop
+    runtime('org.springframework.boot:spring-boot-devtools')
 
-	//Frontend
-	//compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    //Testing
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
+
+    //Frontend
+    //compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
 }
 
 test {
-	testLogging {
-		afterSuite { desc, result ->
-			if (!desc.parent) {
-				println "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
-			}
-		}
-	}
+    testLogging {
+        afterSuite { desc, result ->
+            if (!desc.parent) {
+                println "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+            }
+        }
+    }
 }
 
