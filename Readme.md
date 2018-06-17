@@ -265,6 +265,7 @@
    
 * AWS SDK For Java
     * posts
+        * [AWS S3 with Java](http://www.baeldung.com/aws-s3-java)
         * [Amazon S3 – Upload/Download files with SpringBoot Amazon S3 application](http://javasampleapproach.com/spring-framework/spring-cloud/amazon-s3-uploaddownload-files-springboot-amazon-s3-application)
         * [Uploading files to AWS S3 Bucket using Spring Boot](https://medium.com/oril/uploading-files-to-aws-s3-bucket-using-spring-boot-483fcb6f8646)
    
