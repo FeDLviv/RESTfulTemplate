@@ -84,7 +84,7 @@ public class AuthTestIT {
         assertThat(response.getBody().getDuration()).isEqualTo(Long.parseLong(tokenDuration));
     }
 
-    public void wrongCredential(String email, String password) {
+    private void wrongCredential(String email, String password) {
         //prepare
         AuthRequest auth = AuthRequest.builder().email(email).password(password).build();
         //test

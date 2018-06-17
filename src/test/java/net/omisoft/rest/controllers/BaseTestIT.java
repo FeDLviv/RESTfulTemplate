@@ -45,11 +45,11 @@ public abstract class BaseTestIT {
     protected static final String URI = API_V1_BASE_PATH;
 
     public static final String WRONG_TOKEN = "dgdfg";
-    public static final String WRONG_PASSWORD = "djfkl327";
-    public static final long USER_ID_NOT_EXISTS = 333;
-    public static final String EMAIL_EXISTS = "fed.lviv@gmail.com";
     public static final String PASSWORD_EXISTS = "1111";
+    public static final String WRONG_PASSWORD = "djfkl327";
+    public static final String EMAIL_EXISTS = "fed.lviv@gmail.com";
     public static final String EMAIL_NOT_EXISTS = "asd@gmail.com";
+    public static final long USER_ID_NOT_EXISTS = 333;
 
     @Autowired
     protected MockMvc mvc;
