@@ -17,5 +17,4 @@
     <include file="db/db-1.0-create-table-users.xml"/>
     <include file="db/db-1.1-insert-data-users.xml"/>
 
-
 </databaseChangeLog>
