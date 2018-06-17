@@ -13,6 +13,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.heroku.sdk.heroku-gradle" version "1.0.1"
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
@@ -22,6 +26,20 @@ apply plugin: 'io.spring.dependency-management'
 group = 'net.omisoft'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
+heroku {
+    ext {
+        path = "build/libs/RESTfulTemplate-${version}.jar"
+        name = "rest-xxx"
+        process = "java -Dserver.port=\$PORT -Dspring.profiles.active=dev -jar ${path}"
+    }
+    appName = "${name}"
+    includes = ["${path}"]
+    includeBuildDir = false
+    processTypes(
+            web: "${process}".toString()
+    )
+}
 
 ext {
     swaggerVersion = '2.9.0'
@@ -92,4 +110,3 @@ test {
         }
     }
 }
-
