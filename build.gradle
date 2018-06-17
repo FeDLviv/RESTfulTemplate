@@ -45,6 +45,7 @@ ext {
     swaggerVersion = '2.9.0'
     mapStructVersion = '1.2.0.Final'
     jjwtVersion = '0.9.0'
+    awsVersion = '1.11.349'
     ehcacheVersion = '2.10.5'
 }
 
@@ -74,6 +75,9 @@ dependencies {
 
     //JJWT
     compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+
+    // AWS
+    compile "com.amazonaws:aws-java-sdk:${awsVersion}"
 
     //Ehcache
     compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
