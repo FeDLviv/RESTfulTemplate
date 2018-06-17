@@ -116,6 +116,7 @@
         * [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle)
         * [Переход с Maven на Gradle](http://it-simulator.com/#/articlefull/145)
         * [Gradle: управляя зависимостями](https://habr.com/company/redmadrobot/blog/275515)
+        * [Heroku Gradle Plugin](https://github.com/heroku/heroku-gradle)
 	* videos
 		* [Евгений Борисов — Power of Gradle](https://www.youtube.com/watch?v=NZJTYPLb0iE)
 
