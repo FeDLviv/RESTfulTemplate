@@ -100,6 +100,8 @@
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* posts
 	    * [Советы по оптимизации кода на Java: как не наступать на грабли](https://habr.com/company/piter/blog/358898)
+	    * [Java и время: часть первая](https://habr.com/post/274811)
+	    * [Java и время: часть вторая](https://habr.com/post/274905)
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
 	    * [Шпаргалка Java программиста 4. Java Stream API](https://habr.com/company/luxoft/blog/270383)
 	* list videos
