@@ -150,6 +150,8 @@
     	* [Блог Анатолия Корсакова](https://akorsa.ru)
     	* [Блог про програмування](http://wp-blog.pp.ua)
 	* posts
+	    * [Learn Spring Boot](http://www.baeldung.com/spring-boot)
+	    * [Spring Boot Tutorial – Bootstrap a Simple Application](http://www.baeldung.com/spring-boot-start)
 	    * Web
 	        * [Как писать на Spring в 2017](https://habrahabr.ru/post/333756)
         	* [Обратная сторона Spring](https://habrahabr.ru/post/334448)
@@ -174,6 +176,7 @@
             * [Hibernate Tips: What’s the Difference between JOIN, LEFT JOIN and JOIN FETCH](https://www.thoughts-on-java.org/hibernate-tips-difference-join-left-join-fetch-join)
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
+            * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
 	    * Security
     	    * [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
             * [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
@@ -204,6 +207,7 @@
 		* [Evgeny Borisov](https://www.youtube.com/watch?v=BmBr5diz8WA&list=PLh2SuUkW2bLxVbZdUGpengMOHsC-qt_PH) (Spring)
 	* videos
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
+		* [Dmytro Sokolov. Принципы работы с транзакциями при помощи Spring JTA](https://www.youtube.com/watch?v=1UWRNaCH2ZI) (Spring Data JPA)
 		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE) (Spring Boot)
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk) (Spring Boot DevTools)
 		* [Кеширование в Spring. Краткий обзор](https://www.youtube.com/watch?v=CPb3OQZR2gM)
