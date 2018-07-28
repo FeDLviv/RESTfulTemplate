@@ -19,13 +19,13 @@
 	* [Web](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
 	* [JPA](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa)/[JDBC](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc)
 	* [Security](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security)
-	* [Facebook](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-social-facebook)
 	* [Mail](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail)
-	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
-	* [Actuator](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator)
 	* [Cache](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-cache)
-	* [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
-	* [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
+	* [AOP](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop)
+	* [Actuator](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator)
+    * [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
+    * [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
+	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 
 ***
 
@@ -50,18 +50,16 @@
 
 ***
 
+* [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
 * [Lombok](https://projectlombok.org/)
+* [Ehcache](http://www.ehcache.org/)
 * [MapStruct](http://mapstruct.org/)
-
-***
-
 * [JJWT](https://java.jsonwebtoken.io/jwt101.html)
 * [FCM](https://firebase.google.com/docs/cloud-messaging)
 * [AWS SDK For Java](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk)
-* [Ehcache](http://www.ehcache.org/)
-* [JSON In Java](https://mvnrepository.com/artifact/org.json/json)
 * [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
-* [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
+* [JsonPath](https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path)
+* [JSON In Java](https://mvnrepository.com/artifact/org.json/json)
 * [Jsoup](https://jsoup.org)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
@@ -90,6 +88,8 @@
         * [Let's Encrypt](https://letsencrypt.org/getting-started)
         * [Certbot](https://certbot.eff.org/)
         * [Spring Boot Application Secured by Let’s Encrypt Certificate](https://www.heydari.be/spring-boot-application-secured-by-a-lets-encrypt-certificate)
+        * [How to Redirect HTTP to HTTPS with Spring Boot](https://jonaspfeifer.de/redirect-http-https-spring-boot)
+        * [Enable HTTPS with Self-Signed-Certificate in Spring Boot 2.0.2](http://code-adda.com/2018/06/07/enable-https-with-self-signed-certificate-in-spring-boot)
 
 * Java SE
     * books
@@ -180,23 +180,25 @@
 	    * Security
     	    * [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
             * [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
+        * Mail
+   	        * [Guide to Spring Email](http://www.baeldung.com/spring-email)
+   	        * [Spring Boot Mail: рассылка почты пользователям, активация аккаунта](https://zen.yandex.ru/media/id/5ac20956168a91ffeae449c5/spring-boot-mail-rassylka-pochty-polzovateliam-aktivaciia-akkaunta-5b03dcc2c3321bdea745857c)
+   	    * Cache
+            * [Простой и полезный Spring Cache](http://nikcode.blogspot.com/2012/12/spring-cache.html)
+            * [A Guide To Caching in Spring](http://www.baeldung.com/spring-cache-tutorial)
+        * Actuator
+        	* [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
+            * [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
+        * Custom Starter        	
+            * [Creating a Custom Starter with Spring Boot](https://www.youtube.com/watch?v=mi0GfmTv2wg)
 	    * Scheduled Tasks
 	        * [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 	        * [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
-	    * Mail
-	        * [Guide to Spring Email](http://www.baeldung.com/spring-email)
-	        * [Spring Boot Mail: рассылка почты пользователям, активация аккаунта](https://zen.yandex.ru/media/id/5ac20956168a91ffeae449c5/spring-boot-mail-rassylka-pochty-polzovateliam-aktivaciia-akkaunta-5b03dcc2c3321bdea745857c)
+	    * Retry
+	        *[Guide to Spring Retry](http://www.baeldung.com/spring-retry)
 	    * Async
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
-	    * Cache
-	        * [Простой и полезный Spring Cache](http://nikcode.blogspot.com/2012/12/spring-cache.html)
-	        * [A Guide To Caching in Spring](http://www.baeldung.com/spring-cache-tutorial)
-	    * Actuator
-	        * [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
-            * [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
-	    * Custom Starter        	
-	        * [Creating a Custom Starter with Spring Boot](https://www.youtube.com/watch?v=mi0GfmTv2wg)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp) (Spring Boot)
 		* [Spring Boot 2](https://www.youtube.com/watch?v=jH17YkBTpI4&list=PLU2ftbIeotGpAYRP9Iv2KLIwK36-o_qYk) (Spring Boot)
@@ -206,6 +208,7 @@
 		* [Java+JDBC+Hibernate+Spring Data JPA](https://www.youtube.com/watch?v=lhtB6RD1rH4&list=PLwwk4BHih4fjSk8XVWIp1N5Im-oMf5KL1) (Spring Data JPA)
 		* [Evgeny Borisov](https://www.youtube.com/watch?v=BmBr5diz8WA&list=PLh2SuUkW2bLxVbZdUGpengMOHsC-qt_PH) (Spring)
 	* videos
+	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
 		* [Dmytro Sokolov. Принципы работы с транзакциями при помощи Spring JTA](https://www.youtube.com/watch?v=1UWRNaCH2ZI) (Spring Data JPA)
 		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE) (Spring Boot)
