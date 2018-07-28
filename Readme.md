@@ -195,7 +195,7 @@
 	        * [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 	        * [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
 	    * Retry
-	        *[Guide to Spring Retry](http://www.baeldung.com/spring-retry)
+	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)
 	    * Async
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
