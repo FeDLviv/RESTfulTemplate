@@ -42,11 +42,11 @@ heroku {
 }
 
 ext {
-    swaggerVersion = '2.9.0'
-    mapStructVersion = '1.2.0.Final'
-    jjwtVersion = '0.9.0'
-    awsVersion = '1.11.349'
     ehcacheVersion = '2.10.5'
+    swaggerVersion = '2.9.2'
+    mapStructVersion = '1.2.0.Final'
+    jjwtVersion = '0.9.1'
+    awsVersion = '1.11.375'
 }
 
 repositories {
@@ -65,6 +65,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-mail')
     compile('org.springframework.boot:spring-boot-starter-cache')
+    compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
@@ -74,11 +75,11 @@ dependencies {
     runtime('org.postgresql:postgresql')
     //runtime('mysql:mysql-connector-java')
 
-    //JJWT
-    compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+    //Retry
+    compile('org.springframework.retry:spring-retry')
 
-    // AWS
-    compile "com.amazonaws:aws-java-sdk:${awsVersion}"
+    //Lombok
+    compileOnly('org.projectlombok:lombok')
 
     //Ehcache
     compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
@@ -88,12 +89,15 @@ dependencies {
     compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
     compile("io.springfox:springfox-bean-validators:${swaggerVersion}")
 
-    //Lombok
-    compileOnly('org.projectlombok:lombok')
-
     //MapStruct
     compile("org.mapstruct:mapstruct-jdk8:${mapStructVersion}")
     compileOnly("org.mapstruct:mapstruct-processor:${mapStructVersion}")
+
+    //JJWT
+    compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+
+    //AWS
+    compile "com.amazonaws:aws-java-sdk:${awsVersion}"
 
     //Develop
     runtime('org.springframework.boot:spring-boot-devtools')
