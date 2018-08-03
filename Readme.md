@@ -60,6 +60,8 @@
 * [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 * [JsonPath](https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path)
 * [JSON In Java](https://mvnrepository.com/artifact/org.json/json)
+* [ZXing Core](https://mvnrepository.com/artifact/com.google.zxing/core)
+* [ZXing Java SE Extensions](https://mvnrepository.com/artifact/com.google.zxing/javase)
 * [Jsoup](https://jsoup.org)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
@@ -199,6 +201,8 @@
 	    * Async
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
+	    * Thymeleaf
+	        * [Учебник: Использование Thymeleaf](https://habr.com/post/350862)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp) (Spring Boot)
 		* [Spring Boot 2](https://www.youtube.com/watch?v=jH17YkBTpI4&list=PLU2ftbIeotGpAYRP9Iv2KLIwK36-o_qYk) (Spring Boot)
