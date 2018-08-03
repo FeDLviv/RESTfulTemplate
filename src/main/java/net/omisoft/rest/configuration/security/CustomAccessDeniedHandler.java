@@ -8,7 +8,6 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,7 +19,8 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
     private final MessageSourceConfiguration message;
 
     @Override
-    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
+        response.setHeader("Content-Type", "application/json; charset=UTF-8");
         response.getOutputStream().write(new ObjectMapper().writeValueAsString(new CustomMessage(message.getMessage("exception.permission"))).getBytes());
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
     }
