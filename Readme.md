@@ -214,6 +214,7 @@
 	* videos
 	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
+		* [Евгений Борисов — Spring Puzzlers: тонкости и нюансы работы Spring](https://www.youtube.com/watch?v=U8MtGYa04v8) (Spring)
 		* [Dmytro Sokolov. Принципы работы с транзакциями при помощи Spring JTA](https://www.youtube.com/watch?v=1UWRNaCH2ZI) (Spring Data JPA)
 		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE) (Spring Boot)
 		* [LiveCoding: Spring Boot Devtools - как стать более ленивым?](https://www.youtube.com/watch?v=SRDR7DmtOIk) (Spring Boot DevTools)
