@@ -36,7 +36,6 @@
 
 * [JUnit](https://junit.org)
 * [AssertJ](http://joel-costigliola.github.io/assertj)
-* [JsonPath](https://github.com/json-path/JsonPath)
 * [Mockito](http://site.mockito.org)
 * [Hamcrest](http://hamcrest.org/JavaHamcrest)
 
@@ -46,7 +45,7 @@
 
 ***
 
-* [AWS](https://aws.amazon.com/)/[Heroku](https://www.heroku.com/)
+* [Heroku](https://www.heroku.com/)/[AWS](https://aws.amazon.com/)
 
 ***
 
