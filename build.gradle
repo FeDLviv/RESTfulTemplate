@@ -68,6 +68,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    
+    //Annotation Processor
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
 
     //Database
     compile('org.liquibase:liquibase-core')

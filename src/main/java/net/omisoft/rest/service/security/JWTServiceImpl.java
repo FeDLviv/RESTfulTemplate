@@ -3,6 +3,7 @@ package net.omisoft.rest.service.security;
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.*;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
+import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.configuration.security.UserAuthentication;
 import net.omisoft.rest.exception.BadRequestException;
 import net.omisoft.rest.exception.UnauthorizedException;
@@ -10,7 +11,6 @@ import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.pojo.AuthRequest;
 import net.omisoft.rest.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,23 +25,22 @@ import static net.omisoft.rest.ApplicationConstants.TOKEN_PREFIX;
 @Service
 public class JWTServiceImpl implements JWTService {
 
-    @Autowired
-    private UserRepository repository;
-
-    @Autowired
-    private MessageSourceConfiguration message;
-
-    @Value("${app.token.secret}")
-    private String secret;
-
-    @Value("${app.token.duration}")
-    private String duration;
+    private final UserRepository repository;
+    private final MessageSourceConfiguration message;
+    private final PropertiesConfiguration propertiesConfiguration;
 
     private SecretKey key;
 
+    @Autowired
+    public JWTServiceImpl(UserRepository repository, MessageSourceConfiguration message, PropertiesConfiguration propertiesConfiguration) {
+        this.repository = repository;
+        this.message = message;
+        this.propertiesConfiguration = propertiesConfiguration;
+    }
+
     @PostConstruct
     private void initialize() {
-        byte[] decodedKey = BaseEncoding.base64().decode(secret);
+        byte[] decodedKey = BaseEncoding.base64().decode(propertiesConfiguration.getToken().getSecret());
         key = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
     }
 
@@ -80,7 +79,7 @@ public class JWTServiceImpl implements JWTService {
     private String generateAccessToken(long id) {
         return Jwts.builder()
                 .setId(String.valueOf(id))
-                .setExpiration(new Date(new Date().getTime() + Long.parseLong(duration)))
+                .setExpiration(new Date(new Date().getTime() + propertiesConfiguration.getToken().getDuration()))
                 .signWith(SignatureAlgorithm.HS512, key)
                 .compact();
     }

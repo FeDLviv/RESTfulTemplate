@@ -5,27 +5,23 @@ import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@AllArgsConstructor
 public class S3Configuration {
 
-    @Value("${app.amazon.accessKeyId}")
-    private String accessKey;
-
-    @Value("${app.amazon.secretAccessKey}")
-    private String secretKey;
-
-    @Value("${app.amazon.region}")
-    private String region;
+    @Autowired
+    private final PropertiesConfiguration propertiesConfiguration;
 
     @Bean
     public AmazonS3 s3client() {
-        AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+        AWSCredentials credentials = new BasicAWSCredentials(propertiesConfiguration.getAmazon().getAccessKeyId(), propertiesConfiguration.getAmazon().getSecretAccessKey());
         return AmazonS3ClientBuilder.standard()
-                .withRegion(region)
+                .withRegion(propertiesConfiguration.getAmazon().getRegion())
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .build();
     }

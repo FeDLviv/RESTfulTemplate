@@ -4,8 +4,8 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.*;
 import lombok.AllArgsConstructor;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
+import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,7 +24,7 @@ public class S3ServiceImpl implements S3Service {
 
     private final AmazonS3 s3client;
     private final MessageSourceConfiguration message;
-    private final Environment environment;
+    private final PropertiesConfiguration propertiesConfiguration;
     private final Random random = new Random();
 
     @Override
@@ -35,7 +35,7 @@ public class S3ServiceImpl implements S3Service {
         try (FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(multipartFile.getBytes());
         }
-        s3client.putObject(new PutObjectRequest(environment.getProperty("app.amazon.bucket"), fileName, file)
+        s3client.putObject(new PutObjectRequest(propertiesConfiguration.getAmazon().getBucket(), fileName, file)
                 .withCannedAcl(CannedAccessControlList.PublicRead));
         file.delete();
         return fileName;
@@ -43,19 +43,19 @@ public class S3ServiceImpl implements S3Service {
 
     @Override
     public void deleteFile(String keyName) {
-        s3client.deleteObject(new DeleteObjectRequest(environment.getProperty("app.amazon.bucket"), keyName));
+        s3client.deleteObject(new DeleteObjectRequest(propertiesConfiguration.getAmazon().getBucket(), keyName));
     }
 
     @Override
     public void deleteFiles(String[] keyNames) {
-        DeleteObjectsRequest request = new DeleteObjectsRequest(environment.getProperty("app.amazon.bucket"))
+        DeleteObjectsRequest request = new DeleteObjectsRequest(propertiesConfiguration.getAmazon().getBucket())
                 .withKeys(keyNames);
         s3client.deleteObjects(request);
     }
 
     @Override
     public int fileCount() {
-        ObjectListing listing = s3client.listObjects(environment.getProperty("app.amazon.bucket"));
+        ObjectListing listing = s3client.listObjects(propertiesConfiguration.getAmazon().getBucket());
         return listing.getObjectSummaries().size();
 
     }
