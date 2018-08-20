@@ -1,12 +1,9 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.1.RELEASE'
+        springBootVersion = '2.0.4.RELEASE'
     }
     repositories {
         mavenCentral()
-        maven { url "https://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/milestone" }
-        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -14,11 +11,10 @@ buildscript {
 }
 
 plugins {
-    id "com.heroku.sdk.heroku-gradle" version "1.0.1"
+    id "com.heroku.sdk.heroku-gradle" version "1.0.3"
 }
 
 apply plugin: 'java'
-apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
@@ -46,14 +42,11 @@ ext {
     swaggerVersion = '2.9.2'
     mapStructVersion = '1.2.0.Final'
     jjwtVersion = '0.9.1'
-    awsVersion = '1.11.375'
+    awsVersion = '1.11.390'
 }
 
 repositories {
     mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
-    jcenter()
 }
 
 dependencies {
@@ -68,7 +61,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    
+
     //Annotation Processor
     compileOnly('org.springframework.boot:spring-boot-configuration-processor')
 
