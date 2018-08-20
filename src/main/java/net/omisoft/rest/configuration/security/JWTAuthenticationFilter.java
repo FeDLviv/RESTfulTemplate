@@ -31,6 +31,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
                 service.setAuthentication(header);
                 filterChain.doFilter(request, response);
             } catch (UnauthorizedException ex) {
+                response.setHeader("Content-Type", "application/json; charset=UTF-8");
                 response.getOutputStream().write(new ObjectMapper().writeValueAsString(new CustomMessage(ex.getMessage())).getBytes());
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             }
@@ -38,6 +39,5 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         }
     }
-
 
 }
