@@ -35,22 +35,24 @@ public class S3ServiceImpl implements S3Service {
         try (FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(multipartFile.getBytes());
         }
-        s3client.putObject(new PutObjectRequest(propertiesConfiguration.getAmazon().getBucket(), fileName, file)
-                .withCannedAcl(CannedAccessControlList.PublicRead));
+        PutObjectRequest putObjectRequest = new PutObjectRequest(propertiesConfiguration.getAmazon().getBucket(), fileName, file)
+                .withCannedAcl(CannedAccessControlList.PublicRead);
+        s3client.putObject(putObjectRequest);
         file.delete();
         return fileName;
     }
 
     @Override
     public void deleteFile(String keyName) {
-        s3client.deleteObject(new DeleteObjectRequest(propertiesConfiguration.getAmazon().getBucket(), keyName));
+        DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(propertiesConfiguration.getAmazon().getBucket(), keyName);
+        s3client.deleteObject(deleteObjectRequest);
     }
 
     @Override
     public void deleteFiles(String[] keyNames) {
-        DeleteObjectsRequest request = new DeleteObjectsRequest(propertiesConfiguration.getAmazon().getBucket())
+        DeleteObjectsRequest deleteObjectsRequest = new DeleteObjectsRequest(propertiesConfiguration.getAmazon().getBucket())
                 .withKeys(keyNames);
-        s3client.deleteObjects(request);
+        s3client.deleteObjects(deleteObjectsRequest);
     }
 
     @Override
