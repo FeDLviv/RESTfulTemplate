@@ -14,8 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Date;
@@ -28,23 +28,19 @@ public class JWTServiceImpl implements JWTService {
     private final UserRepository repository;
     private final MessageSourceConfiguration message;
     private final PropertiesConfiguration propertiesConfiguration;
-
-    private SecretKey key;
+    private final SecretKey key;
 
     @Autowired
     public JWTServiceImpl(UserRepository repository, MessageSourceConfiguration message, PropertiesConfiguration propertiesConfiguration) {
         this.repository = repository;
         this.message = message;
         this.propertiesConfiguration = propertiesConfiguration;
-    }
-
-    @PostConstruct
-    private void initialize() {
         byte[] decodedKey = BaseEncoding.base64().decode(propertiesConfiguration.getToken().getSecret());
-        key = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
+        this.key = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void setAuthentication(String header) throws UnauthorizedException {
         UserEntity entity = repository.findById(extractUserId(header))
                 .orElseThrow(() -> new UnauthorizedException(message.getMessage("exception.auth.wrong")));
@@ -65,6 +61,7 @@ public class JWTServiceImpl implements JWTService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public String getToken(AuthRequest credential) {
         UserEntity entity = repository.findByEmailIgnoreCase(credential.getEmail())
                 .orElseThrow(() -> new BadRequestException(message.getMessage("exception.wrong.credentials")));
