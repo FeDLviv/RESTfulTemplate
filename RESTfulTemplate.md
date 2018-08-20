@@ -47,7 +47,7 @@ keytool -genkey -alias tomcat -keyalg RSA -keysize 2048 -keystore KeyStore.jks -
 * Generate SSL certificate with Let’s Encrypt (example):
 
 ```sh
-sudo certbot certonly --standalone -d DOMAIN
+sudo certbot certonly --standalone -d {DOMAIN}
 ```
 
 * Generate PKCS12 files from PEM files(Let’s Encrypt) (example):
@@ -59,5 +59,5 @@ openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -n
 * Run application with redirect HTTP(80) to HTTPS(443) (example):
 
 ```sh
-java -Dserver.port=443 -Dmanagement.server.port=-1 -Dserver.ssl.key-store=PATH -Dserver.ssl.key-store-password=PASSWORD -Dserver.ssl.key-store-type=TYPE -Dserver.ssl.key-alias=ALIAS -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
+java -Dserver.port=443 -Dmanagement.server.port=-1 -Dserver.ssl.key-store={PATH} -Dserver.ssl.key-store-password={PASSWORD} -Dserver.ssl.key-store-type={TYPE} -Dserver.ssl.key-alias={ALIAS} -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```

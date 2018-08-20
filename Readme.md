@@ -113,6 +113,8 @@
 * IntelliJ IDEA
     * cheat sheet
         * [IntelliJ IDEA default keymap](https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf)
+    * videos
+        * [Антон Архипов — Эффективная работа с IDE(A)](https://www.youtube.com/watch?v=_rj7dx6c5R8)
 		
 * Gradle
     * posts
@@ -160,6 +162,7 @@
         	* [Обработка ошибок в формате JSON со Spring Boot](https://habrahabr.ru/post/342214)
             * [Настройка валидации DTO в Spring Framework](https://habrahabr.ru/post/343960)
             * [Jackson JSON Views](http://www.baeldung.com/jackson-json-view-annotation)
+            * [Guide to @ConfigurationProperties in Spring Boot](https://www.baeldung.com/configuration-properties-in-spring-boot)
             * [Introduction to Spring MVC HandlerInterceptor](http://www.baeldung.com/spring-mvc-handlerinterceptor)
         	* [Intro to the Jackson ObjectMapper](http://www.baeldung.com/jackson-object-mapper-tutorial)
             * [Jackson Annotation Examples](http://www.baeldung.com/jackson-annotations)
