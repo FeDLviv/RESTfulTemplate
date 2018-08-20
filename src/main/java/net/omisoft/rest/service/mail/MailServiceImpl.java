@@ -14,6 +14,7 @@ import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.mail.util.ByteArrayDataSource;
 import java.io.File;
 
 @Service
@@ -46,7 +47,7 @@ public class MailServiceImpl implements MailService {
             helper.setText(text);
             FileSystemResource file
                     = new FileSystemResource(new File(pathToAttachment));
-            //TODO change file name
+            //TODO change file name (attachment)
             helper.addAttachment("test.png", file);
             mailSender.send(message);
         } catch (MessagingException e) {
@@ -55,7 +56,7 @@ public class MailServiceImpl implements MailService {
     }
 
     @Override
-    public void sendWithHtmlContent(String mailTo, String title, Context html) {
+    public void sendWithHtmlContent(String mailTo, String title, Context html, byte[] inlineData) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -63,6 +64,8 @@ public class MailServiceImpl implements MailService {
             helper.setTo(mailTo);
             helper.setSubject(title);
             helper.setText(templateEngine.process("mailTemplate", html), true);
+            //TODO change file name (inline)
+            helper.addInline("test.png", new ByteArrayDataSource(inlineData, "image/png"));
             mailSender.send(message);
         } catch (MessagingException e) {
             throw new BadRequestException(message.getMessage("exception.email.send"));

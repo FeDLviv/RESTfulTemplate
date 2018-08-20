@@ -8,6 +8,6 @@ public interface MailService {
 
     void sendWithAttachment(String mailTo, String title, String text, String pathToAttachment);
 
-    void sendWithHtmlContent(String mailTo, String title, Context html);
+    void sendWithHtmlContent(String mailTo, String title, Context html, byte[] inlineData);
 
 }
