@@ -24,6 +24,7 @@
 	* [AOP](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop)
 	* [Actuator](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator)
     * [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
+    * [Spring Boot Configuration Processor](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor)
     * [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 
@@ -193,18 +194,18 @@
         * Actuator
         	* [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
             * [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
+	    * Thymeleaf
+	        * [Учебник: Использование Thymeleaf](https://habr.com/post/350862)     
+	    * Retry
+	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)   
         * Custom Starter        	
             * [Creating a Custom Starter with Spring Boot](https://www.youtube.com/watch?v=mi0GfmTv2wg)
 	    * Scheduled Tasks
 	        * [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 	        * [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
-	    * Retry
-	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)
 	    * Async
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
-	    * Thymeleaf
-	        * [Учебник: Использование Thymeleaf](https://habr.com/post/350862)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp) (Spring Boot)
 		* [Spring Boot 2](https://www.youtube.com/watch?v=jH17YkBTpI4&list=PLU2ftbIeotGpAYRP9Iv2KLIwK36-o_qYk) (Spring Boot)
@@ -227,6 +228,8 @@
 * Liquibase
     * posts
         * [Using liquibase to load data and ignore some columns ](http://sadalage.com/blog/2017/05/15/using-liquibase-to-load-data-and-ignore-some-columns)
+    * videos
+        * [UADEVCLUB: Liquibase для міграції БД](https://www.youtube.com/watch?v=ByagQCx7m04)
 
 * JUnit
     * posts
