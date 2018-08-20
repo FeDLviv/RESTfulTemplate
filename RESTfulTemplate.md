@@ -17,6 +17,12 @@
 ```sh
 ./gradlew build deployHeroku
 ```
+Parameters:
+```sh
+--app=rest-xxx
+-Dserver.port=$PORT 
+-Dspring.profiles.active=dev
+```
 
 * Run application (example):
 
