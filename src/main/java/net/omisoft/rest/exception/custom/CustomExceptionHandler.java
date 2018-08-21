@@ -7,6 +7,7 @@ import net.omisoft.rest.exception.ResourceNotFoundException;
 import net.omisoft.rest.exception.UnauthorizedException;
 import net.omisoft.rest.pojo.CustomMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import javax.validation.ConstraintViolationException;
 import java.util.stream.Collectors;
@@ -22,15 +24,15 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class CustomExceptionHandler {
 
-    @Autowired
-    private MessageSourceConfiguration message;
+    private final MessageSourceConfiguration message;
+    private final String sizeMax;
 
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({
-            BadRequestException.class,
-    })
-    protected CustomMessage handleBadrequestException(BadRequestException ex) {
-        return new CustomMessage(ex.getMessage());
+    //TODO change max file size
+    @Autowired
+    public CustomExceptionHandler(MessageSourceConfiguration message,
+                                  @Value(value = "${spring.servlet.multipart.max-file-size}") final String sizeMax) {
+        this.message = message;
+        this.sizeMax = sizeMax;
     }
 
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
@@ -46,6 +48,14 @@ public class CustomExceptionHandler {
             PermissionException.class,
     })
     protected CustomMessage handleForbiddenException(PermissionException ex) {
+        return new CustomMessage(ex.getMessage());
+    }
+
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({
+            BadRequestException.class,
+    })
+    protected CustomMessage handleBadrequestException(BadRequestException ex) {
         return new CustomMessage(ex.getMessage());
     }
 
@@ -89,5 +99,12 @@ public class CustomExceptionHandler {
         return new CustomMessage(message);
     }
 
-}
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({
+            MaxUploadSizeExceededException.class
+    })
+    protected CustomMessage handleMaxUploadSizeException(MaxUploadSizeExceededException ex) {
+        return new CustomMessage(message.getMessage("exception.max.upload.size", new Object[]{sizeMax}));
+    }
 
+}
