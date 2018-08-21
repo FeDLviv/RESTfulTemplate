@@ -17,11 +17,12 @@ import java.io.IOException;
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
     private final MessageSourceConfiguration message;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
         response.setHeader("Content-Type", "application/json; charset=UTF-8");
-        response.getOutputStream().write(new ObjectMapper().writeValueAsString(new CustomMessage(message.getMessage("exception.permission"))).getBytes());
+        response.getOutputStream().write(objectMapper.writeValueAsString(new CustomMessage(message.getMessage("exception.permission"))).getBytes());
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
     }
 
