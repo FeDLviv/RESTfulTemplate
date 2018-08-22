@@ -10,9 +10,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.Objects;
+import java.util.stream.Stream;
+
+import static net.omisoft.rest.ApplicationConstants.PROFILE_PROD;
+
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled=true, jsr250Enabled=true)
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true, jsr250Enabled = true)
 @AllArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -31,10 +36,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
         http.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
         //TODO change role
-        http.authorizeRequests()
-                .antMatchers(environment.getProperty("management.endpoints.web.base-path") + "/**")
-                .hasAnyRole("ADMIN");
-
+        if (Stream.of(environment.getActiveProfiles()).anyMatch(profile -> Objects.equals(profile, PROFILE_PROD))) {
+            http.authorizeRequests()
+                    .antMatchers(environment.getProperty("management.endpoints.web.base-path") + "/**")
+                    .hasAnyRole("ADMIN");
+        }
     }
 
 }
