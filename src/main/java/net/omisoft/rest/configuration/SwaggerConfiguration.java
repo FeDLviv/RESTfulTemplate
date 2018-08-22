@@ -27,6 +27,7 @@ import java.util.stream.Stream;
 
 import static net.omisoft.rest.ApplicationConstants.*;
 
+//http://www.fileformat.info/info/unicode/char/search.htm
 @Configuration
 @EnableSwagger2
 @Import(BeanValidatorPluginsConfiguration.class)
@@ -94,4 +95,3 @@ public class SwaggerConfiguration {
     }
 
 }
-

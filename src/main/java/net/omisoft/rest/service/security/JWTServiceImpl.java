@@ -22,6 +22,7 @@ import java.util.Date;
 
 import static net.omisoft.rest.ApplicationConstants.TOKEN_PREFIX;
 
+//http://jwt.calebb.net
 @Service
 public class JWTServiceImpl implements JWTService {
 
@@ -82,4 +83,3 @@ public class JWTServiceImpl implements JWTService {
     }
 
 }
-
