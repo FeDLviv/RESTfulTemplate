@@ -92,6 +92,7 @@
         * [Spring Boot Application Secured by Let’s Encrypt Certificate](https://www.heydari.be/spring-boot-application-secured-by-a-lets-encrypt-certificate)
         * [How to Redirect HTTP to HTTPS with Spring Boot](https://jonaspfeifer.de/redirect-http-https-spring-boot)
         * [Enable HTTPS with Self-Signed-Certificate in Spring Boot 2.0.2](http://code-adda.com/2018/06/07/enable-https-with-self-signed-certificate-in-spring-boot)
+        * [How to enable HTTPS in a Spring Boot Java application](https://www.thomasvitale.com/https-spring-boot-ssl-certificate)
 
 * Java SE
     * books

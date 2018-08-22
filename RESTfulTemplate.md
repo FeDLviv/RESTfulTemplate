@@ -6,6 +6,12 @@
 ./gradlew build
 ```
 
+* Testing application (example):
+
+```sh
+./gradlew test
+```
+
 * Compile application without test (example):
 
 ```sh
@@ -30,6 +36,18 @@ Parameters:
 java -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```
 
+* Find the PID of the process using a specific port (example, port - 8080):
+
+```sh
+lsof -i:8080
+```
+
+* Shutdown application (example):
+
+```sh
+kill {PID}
+```
+
 * Profiles (modes):
     * local (default)
     * test
@@ -44,10 +62,22 @@ java -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 
     * http://localhost:8080/swagger-ui.html
     
-* Generate a self-signed SSL certificate (example):
+* Generate a self-signed SSL certificate (example, JKS - proprietary format specific for Java):
 
 ```sh
-keytool -genkey -alias tomcat -keyalg RSA -keysize 2048 -keystore KeyStore.jks -validity 3650
+keytool -genkey -alias tomcat -keyalg RSA -keystore KeyStore.jks
+```
+
+* Generate a self-signed SSL certificate (example, PKCS12 - industry standard format):
+
+```sh
+keytool -genkey -alias tomcat -keyalg RSA -storetype PKCS12 -keystore KeyStore.p12
+```
+
+* Check the content of the keystore (example):
+
+```sh
+keytool -list -v -keystore {PATH}
 ```
 
 * Generate SSL certificate with Let’s Encrypt (example):
@@ -59,7 +89,7 @@ sudo certbot certonly --standalone -d {DOMAIN}
 * Generate PKCS12 files from PEM files(Let’s Encrypt) (example):
 
 ```sh
-openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name tomcat -CAfile chain.pem -caname root
+openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out KeyStore.p12 -name tomcat -CAfile chain.pem -caname root
 ```
     
 * Run application with redirect HTTP(80) to HTTPS(443) (example):
