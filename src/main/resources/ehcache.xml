@@ -6,11 +6,11 @@
          monitoring="autodetect"
          dynamicConfig="true">
 
-    <cache name="test"
+    <cache name="tokens"
            maxElementsInMemory="100"
            eternal="false"
            overflowToDisk="false"
-           timeToLiveSeconds="300"
+           timeToLiveSeconds="1800"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU"
            transactionalMode="off">
