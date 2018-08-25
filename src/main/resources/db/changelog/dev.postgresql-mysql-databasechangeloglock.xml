@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="update_databasechangeloglock_table" author="Pyshnyi Fedir" runAlways="true">
+    <changeSet id="update_databasechangeloglock_table" author="Pyshnyi Fedir" runAlways="true" context="dev">
         <sql dbms="postgresql, mysql">
             UPDATE databasechangeloglock SET locked=FALSE, lockgranted=null, lockedby=null WHERE id=1
         </sql>
