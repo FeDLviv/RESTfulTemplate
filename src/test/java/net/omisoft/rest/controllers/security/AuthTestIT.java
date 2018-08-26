@@ -19,10 +19,12 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.crypto.spec.SecretKeySpec;
+import javax.transaction.Transactional;
 
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 import static net.omisoft.rest.controllers.BaseTestIT.*;
@@ -35,6 +37,7 @@ INTEGRATION TEST
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:application-test.properties")
+@Transactional
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AuthTestIT {
 
@@ -64,6 +67,7 @@ public class AuthTestIT {
 
 
     @Test
+    @Rollback
     public void sucessful() {
         //prepare
         AuthRequest auth = AuthRequest.builder().email(EMAIL_EXISTS).password(PASSWORD_EXISTS).build();
@@ -81,6 +85,8 @@ public class AuthTestIT {
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES")).parseClaimsJws(token);
         Claims body = claimsJws.getBody();
         assertThat(body.getId()).isEqualTo("1");
+        assertThat(body.get("role")).isEqualTo("ROLE_ADMIN");
+        assertThat(body.get("random")).isNotNull();
         assertThat(response.getBody().getDuration()).isEqualTo(Long.parseLong(tokenDuration));
     }
 
@@ -96,7 +102,7 @@ public class AuthTestIT {
         );
         //validate
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(response.getBody().getMessage()).isEqualTo(message.getMessage("exception.wrong.credentials"));
+        assertThat(response.getBody().getMessage()).isEqualTo(message.getMessage("exception.credentials.wrong"));
     }
 
 }

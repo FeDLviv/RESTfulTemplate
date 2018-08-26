@@ -37,8 +37,8 @@ public class SwaggerConfiguration {
     //TODO set icon
     private static final String[] AUTH_ICON = {
             "\u2000\u2000 - all",
-            "\uD83D\uDD11 - ???",
-            "\uD83D\uDD10 - ???"
+            "\uD83D\uDD11 - only client or admin",
+            "\uD83D\uDD10 - only admin"
     };
 
     private final Environment environment;

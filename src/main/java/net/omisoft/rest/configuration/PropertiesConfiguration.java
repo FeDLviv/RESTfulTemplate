@@ -20,6 +20,8 @@ public class PropertiesConfiguration {
 
     private Token token;
 
+    private Task task;
+
     @Data
     public static class Amazon {
 
@@ -48,6 +50,14 @@ public class PropertiesConfiguration {
 
         @Min(60)
         private long duration;
+
+    }
+
+    @Data
+    public static class Task {
+
+        @NotBlank
+        private String cronExpiredTokensRemove;
 
     }
 
