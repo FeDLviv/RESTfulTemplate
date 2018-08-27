@@ -9,6 +9,7 @@ import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.pojo.AuthResponse;
 import net.omisoft.rest.pojo.PasswordRequest;
 import net.omisoft.rest.service.user.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ import javax.validation.constraints.Min;
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 
 @RestController
-@RequestMapping(API_V1_BASE_PATH + "users")
+@RequestMapping(value = API_V1_BASE_PATH + "users", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Validated
 @Api(tags = "1.USER", description = "Operations associated with user")
 @AllArgsConstructor
@@ -38,7 +39,7 @@ public class UserController {
     @PatchMapping(value = "password")
     @PreAuthorize("isAuthenticated()")
     @ApiOperation(value = "\uD83D\uDD11 Change password (current user)")
-    public AuthResponse updatePassword(@Validated @RequestBody PasswordRequest data,
+    public AuthResponse updatePassword(@ApiParam(value = "Old and new passwords") @Validated @RequestBody PasswordRequest data,
                                        @ApiIgnore @CurrentUser UserEntity currentUser) {
         return userService.updatePassword(currentUser, data);
     }
