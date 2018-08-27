@@ -243,6 +243,7 @@
 * SpringFox (swagger)
     * books
 	    * [Reference Guide](https://springfox.github.io/springfox/docs/current)
+	    * [Swagger editor](https://editor.swagger.io/)
     * posts
         * [Documenting Spring Boot REST API with Swagger and SpringFox](https://www.vojtechruzicka.com/documenting-spring-boot-rest-api-swagger-springfox)
         * [Documenting your REST API with Swagger and Springfox](https://g00glen00b.be/documenting-rest-api-swagger-springfox)

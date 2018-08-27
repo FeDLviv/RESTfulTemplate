@@ -1,12 +1,11 @@
 package net.omisoft.rest.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.pojo.AuthRequest;
 import net.omisoft.rest.pojo.AuthResponse;
+import net.omisoft.rest.pojo.CustomMessage;
 import net.omisoft.rest.service.security.JWTService;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +28,9 @@ public class SecurityController {
 
     @PostMapping(value = "auth")
     @ApiOperation(value = "Authentification (get token)")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class)
+    })
     public AuthResponse login(@ApiParam(value = "User credentials") @Validated @RequestBody AuthRequest credential) {
         return AuthResponse.builder()
                 .token(service.getToken(credential))

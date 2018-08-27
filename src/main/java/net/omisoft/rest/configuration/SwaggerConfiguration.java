@@ -33,9 +33,9 @@ public class SwaggerConfiguration {
 
     //TODO set icon
     private static final String[] AUTH_ICON = {
-            "\u2000\u2000 - all",
-            "\uD83D\uDD11 - only client or admin",
-            "\uD83D\uDD10 - only admin"
+            "* `all`",
+            "* \uD83D\uDD11 - only `client` or `admin`",
+            "* \uD83D\uDD10 - only `admin`"
     };
 
     private final Environment environment;
@@ -44,19 +44,21 @@ public class SwaggerConfiguration {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .enable(Stream.of(environment.getActiveProfiles()).anyMatch(profile -> !Objects.equals(profile, PROFILE_PROD)))
+                .apiInfo(getApiInfo())
+                .globalOperationParameters(getParameters())
+                .useDefaultResponseMessages(false)
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 .paths(PathSelectors.any())
-                .build().apiInfo(getApiInfo())
-                .globalOperationParameters(getParameters());
+                .build();
     }
 
     private ApiInfo getApiInfo() {
         return new ApiInfo(
                 environment.getProperty("info.app.name") + " API Documentation",
                 "Spring Boot RESTful API for " + environment.getProperty("info.app.name") +
-                        "\n\rAccess:\n\r" +
-                        Arrays.stream(AUTH_ICON).collect(Collectors.joining("\n\r")),
+                        "\n\n**Access:**\n" +
+                        Arrays.stream(AUTH_ICON).collect(Collectors.joining("\n")),
                 environment.getProperty("info.app.version"),
                 "",
                 new Contact("OmiSoft", "http://www.omisoft.net", "omisoftnet@gmail.com"),

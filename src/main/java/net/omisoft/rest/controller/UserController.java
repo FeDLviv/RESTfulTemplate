@@ -1,12 +1,11 @@
 package net.omisoft.rest.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
 import net.omisoft.rest.configuration.annotation.CurrentUser;
 import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.pojo.AuthResponse;
+import net.omisoft.rest.pojo.CustomMessage;
 import net.omisoft.rest.pojo.PasswordRequest;
 import net.omisoft.rest.service.user.UserService;
 import org.springframework.http.MediaType;
@@ -31,6 +30,12 @@ public class UserController {
     @DeleteMapping(value = "{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @ApiOperation(value = "\uD83D\uDD10 Remove user by id")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class),
+            @ApiResponse(code = 401, message = "Unauthorized", response = CustomMessage.class),
+            @ApiResponse(code = 403, message = "Forbidden", response = CustomMessage.class),
+            @ApiResponse(code = 404, message = "Not found", response = CustomMessage.class)
+    })
     public void deleteUser(@ApiParam(value = "Id user", defaultValue = "1", required = true) @Positive @PathVariable int id,
                            @ApiIgnore @CurrentUser UserEntity currentUser) {
         userService.deleteById(id);
@@ -39,6 +44,11 @@ public class UserController {
     @PatchMapping(value = "password")
     @PreAuthorize("isAuthenticated()")
     @ApiOperation(value = "\uD83D\uDD11 Change password (current user)")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class),
+            @ApiResponse(code = 401, message = "Unauthorized", response = CustomMessage.class),
+            @ApiResponse(code = 403, message = "Forbidden", response = CustomMessage.class),
+    })
     public AuthResponse updatePassword(@ApiParam(value = "Old and new passwords") @Validated @RequestBody PasswordRequest data,
                                        @ApiIgnore @CurrentUser UserEntity currentUser) {
         return userService.updatePassword(currentUser, data);
