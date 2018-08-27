@@ -15,7 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Positive;
 
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 
@@ -31,7 +31,7 @@ public class UserController {
     @DeleteMapping(value = "{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @ApiOperation(value = "\uD83D\uDD10 Remove user by id")
-    public void deleteUser(@ApiParam(value = "Id user", defaultValue = "1", required = true) @Min(1) @PathVariable long id,
+    public void deleteUser(@ApiParam(value = "Id user", defaultValue = "1", required = true) @Positive @PathVariable int id,
                            @ApiIgnore @CurrentUser UserEntity currentUser) {
         userService.deleteById(id);
     }
