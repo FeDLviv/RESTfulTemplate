@@ -23,7 +23,7 @@
 ```sh
 ./gradlew build deployHeroku
 ```
-Parameters:
+*Parameters:*
 ```sh
 --app=rest-xxx
 -Dserver.port=$PORT 

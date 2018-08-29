@@ -70,7 +70,7 @@
 
 ## Useful resources
 
-* RESTful
+* **RESTful**
     * posts
         * [Understanding REST](https://spring.io/understanding/REST)
         * [Создание RESTful API](http://anton.shevchuk.name/php/create-restful-api)
@@ -94,7 +94,7 @@
         * [Enable HTTPS with Self-Signed-Certificate in Spring Boot 2.0.2](http://code-adda.com/2018/06/07/enable-https-with-self-signed-certificate-in-spring-boot)
         * [How to enable HTTPS in a Spring Boot Java application](https://www.thomasvitale.com/https-spring-boot-ssl-certificate)
 
-* Java SE
+* **Java SE**
     * books
         * [Java Platform Standard Edition 8 Documentation](https://docs.oracle.com/javase/8/docs)
     * cheat sheet
@@ -112,13 +112,13 @@
 	* videos
 	    * [Java 8 Stream API или краткость - сестра таланта [GeekBrains]](https://www.youtube.com/watch?v=gTdXjRif_yo)
 
-* IntelliJ IDEA
+* **IntelliJ IDEA**
     * cheat sheet
         * [IntelliJ IDEA default keymap](https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf)
     * videos
         * [Антон Архипов — Эффективная работа с IDE(A)](https://www.youtube.com/watch?v=_rj7dx6c5R8)
 		
-* Gradle
+* **Gradle**
     * posts
         * [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle)
         * [Переход с Maven на Gradle](http://it-simulator.com/#/articlefull/145)
@@ -127,13 +127,13 @@
 	* videos
 		* [Евгений Борисов — Power of Gradle](https://www.youtube.com/watch?v=NZJTYPLb0iE)
 
-* Git
+* **Git**
     * books
         * [Pro Git](https://git-scm.com/book/uk/v2)
     * posts
         * [Git How To](https://githowto.com/uk)
 
-* Spring Boot
+* **Spring Boot**
 	* books
 		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/pdf/spring-boot-reference.pdf) (Spring Boot)
 		* Beginning Spring Boot 2: Applications and Microservices with the Spring Framework (Spring Boot)
@@ -157,7 +157,7 @@
 	* posts
 	    * [Learn Spring Boot](http://www.baeldung.com/spring-boot)
 	    * [Spring Boot Tutorial – Bootstrap a Simple Application](http://www.baeldung.com/spring-boot-start)
-	    * Web
+	    * *Web*
 	        * [Как писать на Spring в 2017](https://habrahabr.ru/post/333756)
         	* [Обратная сторона Spring](https://habrahabr.ru/post/334448)
         	* [Spring: вопросы к собеседованию](https://m.habrahabr.ru/post/350682)
@@ -171,7 +171,7 @@
             * [CORS with Spring](http://www.baeldung.com/spring-cors)
             * [Spring MVC Custom Validation](http://www.baeldung.com/spring-mvc-custom-validator)
             * [Spring – Log Incoming Requests](http://www.baeldung.com/spring-http-logging)
-	    * JPA
+	    * *JPA*
 	        * [JPA / Hibernate @Embeddable and @Embedded Example with Spring Boot](https://www.callicoder.com/hibernate-spring-boot-jpa-embeddable-demo)
             * [JPA и связи между объектами](https://easyjava.ru/data/jpa/jpa-i-svyazi-mezhdu-obektami)
             * [Java Persistence/ElementCollection](https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection)
@@ -183,28 +183,28 @@
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
             * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
-	    * Security
+	    * *Security*
     	    * [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
             * [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
-        * Mail
+        * *Mail*
    	        * [Guide to Spring Email](http://www.baeldung.com/spring-email)
    	        * [Spring Boot Mail: рассылка почты пользователям, активация аккаунта](https://zen.yandex.ru/media/id/5ac20956168a91ffeae449c5/spring-boot-mail-rassylka-pochty-polzovateliam-aktivaciia-akkaunta-5b03dcc2c3321bdea745857c)
-   	    * Cache
+   	    * *Cache*
             * [Простой и полезный Spring Cache](http://nikcode.blogspot.com/2012/12/spring-cache.html)
             * [A Guide To Caching in Spring](http://www.baeldung.com/spring-cache-tutorial)
-        * Actuator
+        * *Actuator*
         	* [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
             * [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
-	    * Thymeleaf
+	    * *Thymeleaf*
 	        * [Учебник: Использование Thymeleaf](https://habr.com/post/350862)     
-	    * Retry
+	    * *Retry*
 	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)   
-        * Custom Starter        	
+        * *Custom Starter*        	
             * [Creating a Custom Starter with Spring Boot](https://www.youtube.com/watch?v=mi0GfmTv2wg)
-	    * Scheduled Tasks
+	    * *Scheduled Tasks*
 	        * [Spring Boot. Фоновые задачи и не только](https://habrahabr.ru/post/352954)
 	        * [The @Scheduled Annotation in Spring](http://www.baeldung.com/spring-scheduled-tasks)
-	    * Async
+	    * *Async*
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
 	* list videos
@@ -226,21 +226,21 @@
 		* [Spring Boot EhCache cache example](https://www.youtube.com/watch?v=qu_wQNFxJxw)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
 
-* Liquibase
+* **Liquibase**
     * posts
         * [Using liquibase to load data and ignore some columns ](http://sadalage.com/blog/2017/05/15/using-liquibase-to-load-data-and-ignore-some-columns)
     * videos
         * [UADEVCLUB: Liquibase для міграції БД](https://www.youtube.com/watch?v=ByagQCx7m04)
 
-* JUnit
+* **JUnit**
     * posts
         * [Testing in Spring Boot](http://www.baeldung.com/spring-boot-testing)
 
-* AssertJ
+* **AssertJ**
     * posts
         * [Introduction to AssertJ](http://www.baeldung.com/introduction-to-assertj)
 		
-* SpringFox (swagger)
+* **SpringFox (swagger)**
     * books
 	    * [Reference Guide](https://springfox.github.io/springfox/docs/current)
 	    * [Swagger editor](https://editor.swagger.io/)
@@ -250,47 +250,47 @@
     * videos
         * [Generate client stubs & document your REST-API using Swagger & Spring by Johannes Fiala](https://www.youtube.com/watch?v=43GhBbP--oI)
 
-* AWS
+* **AWS**
     * posts
         * [Deploying a Spring Boot Application on AWS Using AWS Elastic Beanstalk](https://aws.amazon.com/ru/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk)
         * [Сведения о продукте Amazon Aurora](https://aws.amazon.com/ru/rds/aurora/details)
     * list videos
         * [AWS На Русском Языке](https://www.youtube.com/watch?v=8jbx8O3wuLg&list=PLg5SS_4L6LYsxrZ_4xE_U95AtGsIB96k9)
 
-* Heroku
+* **Heroku**
     * videos
         * [Heroku+SpringMVC+TomCat+mySQL java config](https://www.youtube.com/watch?v=_AfVChksLME)
         * [Деплой Java Spring приложения в PaaS-платформу Heroku за 14 минут](https://www.youtube.com/watch?v=pUYKqsPZ_7Q)
         
-* Lombok
+* **Lombok**
     * posts
         * [Шпаргалки Java программиста 10: Lombok](https://habrahabr.ru/post/345520/)
 
-* MapStruct
+* **MapStruct**
     * books
         * [Reference Guide](http://mapstruct.org/documentation/stable/reference/pdf/mapstruct-reference-guide.pdf)
     * videos
         * [Map me if you can! Painless bean mappings with MapStruct by Gunnar Morling](https://www.youtube.com/watch?v=nvjqtWQ5zj8)
         * [JDK IO 2017 - Thomas Much - Easy Bean Mappings with MapStruct 1.2](https://www.youtube.com/watch?v=kKK9SczGa3I)
 
-* JJWT
+* **JJWT**
     * posts
         * [JWTs With Spring Boot and Java 9](https://dzone.com/articles/jwts-with-spring-boot-and-java-9?edition=376199&utm_source=Daily%20Digest&utm_medium=email&utm_campaign=Daily%20Digest%202018-04-25)
         * [Implementing JWT Authentication on Spring Boot APIs](https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot)
 
-* FCM
+* **FCM**
     * posts
         * [Web PUSH Notifications быстро и просто](https://habr.com/post/321924)
         * [Send Push Notification In Android And iOS Using Spring Boot Application ](https://www.oodlestechnologies.com/blogs/Send-Push-Notification-In-Android-And-iOS-Using-Spring-Boot-Application)
         * [Firebase Cloud Messaging – Spring Server to Push Notification Example | Spring Boot](http://javasampleapproach.com/spring-framework/spring-boot/firebase-cloud-messaging-server-spring-to-push-notification-example-spring-boot)
    
-* AWS SDK For Java
+* **AWS SDK For Java**
     * posts
         * [AWS S3 with Java](http://www.baeldung.com/aws-s3-java)
         * [Amazon S3 – Upload/Download files with SpringBoot Amazon S3 application](http://javasampleapproach.com/spring-framework/spring-cloud/amazon-s3-uploaddownload-files-springboot-amazon-s3-application)
         * [Uploading files to AWS S3 Bucket using Spring Boot](https://medium.com/oril/uploading-files-to-aws-s3-bucket-using-spring-boot-483fcb6f8646)
    
-* Twilio
+* **Twilio**
     * books
         * [Docs](https://www.twilio.com/docs/libraries/java)
         * [Как настроить рассылку смс-сообщений через провайдера Twilio](http://berkanasoft.ru/documents/support/Configure_Berkana_twillio.pdf)
