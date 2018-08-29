@@ -7,7 +7,7 @@
 
     <changeSet id="create_access_tokens_table" author="Pyshnyi Fedir">
         <createTable tableName="access_tokens">
-            <column name="id_token" type="bigint" autoIncrement="true">
+            <column name="id_access_token" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="token" type="VARCHAR(255)">

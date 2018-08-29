@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "access_tokens")
 @AttributeOverrides({
-        @AttributeOverride(name = "id", column = @Column(name = "id_token"))
+        @AttributeOverride(name = "id", column = @Column(name = "id_access_token"))
 })
 @EqualsAndHashCode(callSuper = true)
 @Data
