@@ -29,20 +29,20 @@ public class UpdatePasswordTestIT extends BaseTestIT {
     @Test
     @Rollback
     public void oldPasswordIsNull() throws Exception {
-        incorrectValidationRequiredBody(null, "1111");
+        incorrectValidationRequiredBody(null, WRONG_PASSWORD);
     }
 
     @Test
     @Rollback
     public void newPasswordIsNull() throws Exception {
-        incorrectValidationRequiredBody("1111", null);
+        incorrectValidationRequiredBody(PASSWORD_EXISTS, null);
     }
 
     @Test
     @Rollback
     public void newPasswordWrongMaxLimit() throws Exception {
         incorrectValidationRequiredBody(
-                "1111",
+                PASSWORD_EXISTS,
                 new Random()
                         .ints(0, 9)
                         .limit(PASSWORD_MAX_LENGTH + 1)
@@ -54,7 +54,7 @@ public class UpdatePasswordTestIT extends BaseTestIT {
     @Rollback
     public void newPasswordWrongMinLimit() throws Exception {
         incorrectValidationRequiredBody(
-                "1111",
+                PASSWORD_EXISTS,
                 new Random()
                         .ints(0, 9)
                         .limit(PASSWORD_MIN_LENGTH - 1)
@@ -70,8 +70,8 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         String token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
-                .oldPassword("11111")
-                .newPassword("2222")
+                .oldPassword(WRONG_PASSWORD)
+                .newPassword(PASSWORD_EXISTS)
                 .build();
         //test + validate
         mvc.perform(
@@ -91,8 +91,8 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date());
         PasswordRequest body = PasswordRequest
                 .builder()
-                .oldPassword("1111")
-                .newPassword("2222")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
@@ -110,8 +110,8 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         //prepare
         PasswordRequest body = PasswordRequest
                 .builder()
-                .oldPassword("1111")
-                .newPassword("2222")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
@@ -130,8 +130,8 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
-                .oldPassword("1111")
-                .newPassword("2222")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
@@ -149,8 +149,8 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         //prepare
         PasswordRequest body = PasswordRequest
                 .builder()
-                .oldPassword("1111")
-                .newPassword("2222")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
@@ -168,8 +168,8 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         String token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
-                .oldPassword("1111")
-                .newPassword("2222")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
@@ -186,8 +186,8 @@ public class UpdatePasswordTestIT extends BaseTestIT {
     @Override
     public void authorizedClient() throws Exception {
         //prepare
-        String oldPassword = "1111";
-        String newPassword = "2222";
+        String oldPassword = PASSWORD_EXISTS;
+        String newPassword = WRONG_PASSWORD;
         token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
