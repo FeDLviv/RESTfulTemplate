@@ -16,7 +16,7 @@
             <column name="password" type="VARCHAR(60)">
                 <constraints nullable="false"/>
             </column>
-            <column name="role" type="VARCHAR(80)">
+            <column name="role" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
             <column name="created_date" type="TIMESTAMP" defaultValueDate="CURRENT_TIMESTAMP">
@@ -26,6 +26,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <sql dbms="postgresql, h2">
+            ALTER TABLE users ADD CONSTRAINT users_role_check CHECK (role = 'ROLE_CLIENT' OR role = 'ROLE_ADMIN');
+        </sql>
     </changeSet>
 
 </databaseChangeLog>
