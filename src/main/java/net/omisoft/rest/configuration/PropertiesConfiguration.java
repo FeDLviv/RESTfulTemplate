@@ -70,7 +70,8 @@ public class PropertiesConfiguration {
         private String serverKey;
 
         @NotNull
-        private URL endpoint;
+        @org.hibernate.validator.constraints.URL
+        private String endpoint;
 
     }
 
