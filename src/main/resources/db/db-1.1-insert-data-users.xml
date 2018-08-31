@@ -6,8 +6,8 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <!--CHANGE ROLE -->
-    
-    <changeSet id="insert_users" author="Pyshnyi Fedir">
+
+    <changeSet id="insert_users" author="Pyshnyi Fedir" context="!prod">
         <loadData tableName="users"
                   file="db/data/users.csv"
                   separator=",">
