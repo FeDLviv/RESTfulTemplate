@@ -1,0 +1,124 @@
+package net.omisoft.rest.service.fcm;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Iterables;
+import lombok.AllArgsConstructor;
+import net.omisoft.rest.configuration.PropertiesConfiguration;
+import net.omisoft.rest.model.base.OS;
+import net.omisoft.rest.pojo.CustomFCMToken;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import javax.annotation.PostConstruct;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+//https://peter-gribanov.github.io/serviceworker
+@Service
+@AllArgsConstructor
+public class FCMServiceImpl implements FCMService {
+
+    public final static int MAX_TOKENS = 1000;
+
+    private final PropertiesConfiguration propertiesConfiguration;
+    private final HttpHeaders headers = new HttpHeaders();
+    private final RestTemplate restTemplate = new RestTemplate();
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    @PostConstruct
+    public void init() {
+        headers.set("Authorization", "key=" + propertiesConfiguration.getFcm().getServerKey());
+        headers.set("Content-Type", "application/json");
+        restTemplate.getMessageConverters()
+                .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
+    }
+
+    @Override
+    public void send(Set<CustomFCMToken> tokens, String title, String body, FCMType type) {
+        if (!tokens.isEmpty()) {
+            Map<OS, List<String>> map = tokens
+                    .stream()
+                    .collect(Collectors.groupingBy(CustomFCMToken::getOs, Collectors.mapping(CustomFCMToken::getToken, Collectors.toList())));
+            sendIos(map.get(OS.IOS), title, body, type);
+            sendAndroid(map.get(OS.ANDROID), title, body, type);
+        }
+    }
+
+    @Async
+    @Override
+    public void sendAsync(Set<CustomFCMToken> tokens, String title, String body, FCMType type) {
+        send(tokens, title, body, type);
+    }
+
+    private void sendIos(List<String> tokens, String title, String body, FCMType type) {
+        if (tokens != null && !tokens.isEmpty()) {
+            String json = "";
+            for (List<String> list : Iterables.partition(tokens, MAX_TOKENS)) {
+                //TODO switch FCMType
+                switch (type) {
+                    default:
+                        json = generateJsonIos(list, title, body, type.toString());
+                }
+                HttpEntity<String> request = new HttpEntity<>(json, headers);
+                restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
+            }
+        }
+    }
+
+    private void sendAndroid(List<String> tokens, String title, String body, FCMType type) {
+        if (tokens != null && !tokens.isEmpty()) {
+            String json = "";
+            for (List<String> list : Iterables.partition(tokens, MAX_TOKENS)) {
+                //TODO switch FCMType
+                switch (type) {
+                    default:
+                        json = generateJsonAndroid(list, title, body, type.toString());
+                }
+                HttpEntity<String> request = new HttpEntity<>(json, headers);
+                restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
+            }
+        }
+    }
+
+    private String generateJsonIos(List<String> tokens, String title, String body, String type) {
+        Map<String, Object> msg = new HashMap<>();
+        msg.put("registration_ids", tokens);
+        Map<String, Object> notification = new HashMap<>();
+        notification.put("title", title);
+        notification.put("body", body);
+        msg.put("notification", notification);
+        Map<String, Object> data = new HashMap<>();
+        data.put("type", type);
+        msg.put("data", data);
+        try {
+            return objectMapper.writeValueAsString(msg);
+        } catch (JsonProcessingException e) {
+            return "";
+        }
+    }
+
+    private String generateJsonAndroid(List<String> tokens, String title, String body, String type) {
+        Map<String, Object> msg = new HashMap<>();
+        msg.put("registration_ids", tokens);
+        Map<String, Object> data = new HashMap<>();
+        data.put("title", title);
+        data.put("body", body);
+        data.put("type", type);
+        msg.put("data", data);
+        try {
+            return objectMapper.writeValueAsString(msg);
+        } catch (JsonProcessingException e) {
+            return "";
+        }
+    }
+
+}
