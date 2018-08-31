@@ -52,7 +52,7 @@ public class JWTServiceImpl implements JWTService {
     public void setAuthentication(String header) throws UnauthorizedException {
         String token = header.substring(TOKEN_PREFIX.length());
         validToken(token);
-        AccessTokenEntity entity = accessTokenRepository.findByToken(token)
+        AccessTokenEntity entity = accessTokenRepository.getByTokenJoinUser(token)
                 .orElseThrow(() -> new UnauthorizedException(message.getMessage("exception.token.not_exists")));
         SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(entity.getUser()));
     }
