@@ -22,6 +22,8 @@ public class PropertiesConfiguration {
 
     private Task task;
 
+    private FCM fcm;
+
     @Data
     public static class Amazon {
 
@@ -58,6 +60,17 @@ public class PropertiesConfiguration {
 
         @NotBlank
         private String cronExpiredTokensRemove;
+
+    }
+
+    @Data
+    public static class FCM {
+
+        @NotBlank
+        private String serverKey;
+
+        @NotNull
+        private URL endpoint;
 
     }
 
