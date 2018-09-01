@@ -21,7 +21,7 @@ import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 @RestController
 @RequestMapping(value = API_V1_BASE_PATH + "users", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Validated
-@Api(tags = "1.USER", description = "Operations associated with user")
+@Api(tags = "2.USER", description = "Operations associated with user")
 @AllArgsConstructor
 public class UserController {
 
@@ -47,7 +47,7 @@ public class UserController {
     @ApiResponses({
             @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class),
             @ApiResponse(code = 401, message = "Unauthorized", response = CustomMessage.class),
-            @ApiResponse(code = 403, message = "Forbidden", response = CustomMessage.class),
+            @ApiResponse(code = 403, message = "Forbidden", response = CustomMessage.class)
     })
     public AuthResponse updatePassword(@ApiParam(value = "Old and new passwords") @Validated @RequestBody PasswordRequest data,
                                        @ApiIgnore @CurrentUser UserEntity currentUser) {
