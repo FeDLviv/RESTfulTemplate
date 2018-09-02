@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Iterables;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.model.base.OS;
 import net.omisoft.rest.pojo.CustomFCMToken;
@@ -12,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 //https://peter-gribanov.github.io/serviceworker
 @Service
 @AllArgsConstructor
+@Slf4j
 public class FCMServiceImpl implements FCMService {
 
     public final static int MAX_TOKENS = 1000;
@@ -69,7 +72,11 @@ public class FCMServiceImpl implements FCMService {
                         json = generateJsonIos(list, title, body, type.toString());
                 }
                 HttpEntity<String> request = new HttpEntity<>(json, headers);
-                restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
+                try {
+                    restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
+                } catch (HttpClientErrorException ex) {
+                    log.warn(getClass().getName(), ex);
+                }
             }
         }
     }
@@ -84,7 +91,11 @@ public class FCMServiceImpl implements FCMService {
                         json = generateJsonAndroid(list, title, body, type.toString());
                 }
                 HttpEntity<String> request = new HttpEntity<>(json, headers);
-                restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
+                try {
+                    restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
+                } catch (HttpClientErrorException ex) {
+                    log.warn(getClass().getName(), ex);
+                }
             }
         }
     }
