@@ -13,7 +13,7 @@ import java.util.Set;
 
 public interface FCMTokenRepository extends JpaRepository<FCMTokenEntity, Long> {
 
-    @Query("SELECT new net.omisoft.rest.pojo.CustomFCMToken(t.token, t.os) FROM FCMTokenEntity t JOIN t.user u WHERE u.id IN :ids GROUP BY t.os")
+    @Query("SELECT new net.omisoft.rest.pojo.CustomFCMToken(t.token, t.os) FROM FCMTokenEntity t JOIN t.user u WHERE u.id IN :ids")
     Set<CustomFCMToken> getTokenByIdUser(@Param("ids") Set<Long> idUsers);
 
     Optional<FCMTokenEntity> findByDeviceAndOsAndUser(String device, OS os, UserEntity user);
