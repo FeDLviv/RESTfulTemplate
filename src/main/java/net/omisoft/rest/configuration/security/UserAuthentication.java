@@ -1,5 +1,6 @@
 package net.omisoft.rest.configuration.security;
 
+import lombok.RequiredArgsConstructor;
 import net.omisoft.rest.model.UserEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -7,15 +8,12 @@ import org.springframework.security.core.authority.AuthorityUtils;
 
 import java.util.Collection;
 
+@RequiredArgsConstructor
 public class UserAuthentication implements Authentication {
 
     private final UserEntity user;
 
     private boolean authenticated = true;
-
-    public UserAuthentication(UserEntity user) {
-        this.user = user;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
