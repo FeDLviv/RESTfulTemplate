@@ -2,7 +2,10 @@ package net.omisoft.rest.dto.fcm;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import net.omisoft.rest.dto.validator.annotation.ValidateEnum;
 import net.omisoft.rest.model.base.OS;
 
@@ -10,6 +13,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FCMTokenCreateDto {
 
     @NotBlank
