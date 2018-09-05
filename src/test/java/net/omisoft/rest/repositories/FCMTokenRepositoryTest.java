@@ -5,8 +5,10 @@ import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.model.base.OS;
 import net.omisoft.rest.pojo.CustomFCMToken;
 import net.omisoft.rest.repository.FCMTokenRepository;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.mockito.internal.util.collections.Sets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -21,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FCMTokenRepositoryTest {
 
     @Autowired
