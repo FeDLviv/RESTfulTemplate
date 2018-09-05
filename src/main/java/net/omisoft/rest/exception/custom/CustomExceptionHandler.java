@@ -1,5 +1,6 @@
 package net.omisoft.rest.exception.custom;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
 import net.omisoft.rest.exception.PermissionException;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import javax.validation.ConstraintViolationException;
+import java.lang.reflect.Field;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
@@ -78,7 +80,15 @@ public class CustomExceptionHandler {
             String msg = message.getMessage(error.getDefaultMessage());
             return new CustomMessage(msg);
         } catch (NoSuchMessageException e) {
-            return new CustomMessage(error.getField() + " - " + error.getDefaultMessage());
+            String fieldName = error.getField();
+            try {
+                Field field = result.getTarget().getClass().getDeclaredField(fieldName);
+                if (field.isAnnotationPresent(JsonProperty.class)) {
+                    fieldName = field.getAnnotation(JsonProperty.class).value();
+                }
+            } catch (NoSuchFieldException exc) {
+            }
+            return new CustomMessage(fieldName + " - " + error.getDefaultMessage());
         }
     }
 
