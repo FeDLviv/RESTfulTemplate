@@ -1,8 +1,8 @@
 package net.omisoft.rest.dto.validator;
 
-import lombok.RequiredArgsConstructor;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.dto.validator.annotation.ValidateEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -10,10 +10,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
 public class EnumValidator implements ConstraintValidator<ValidateEnum, String> {
 
-    private final MessageSourceConfiguration message;
+    @Autowired
+    private MessageSourceConfiguration message;
     private List<String> list;
 
     @Override
