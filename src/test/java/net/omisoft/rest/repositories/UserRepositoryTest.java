@@ -26,17 +26,21 @@ public class UserRepositoryTest {
 
     @Test(expected = NoSuchElementException.class)
     public void findByEmailIgnoreCaseIfEmailNull() {
+        //test
         repository.findByEmailIgnoreCase(null).get();
     }
 
     @Test(expected = NoSuchElementException.class)
     public void findByEmailIgnoreCaseIfEmailNotExists() {
+        //test
         repository.findByEmailIgnoreCase(BaseTestIT.EMAIL_NOT_EXISTS).get();
     }
 
     @Test
     public void findByEmailIgnoreCaseIfEmailToUpperCase() {
+        //test
         UserEntity user = repository.findByEmailIgnoreCase(EMAIL_EXISTS.toUpperCase()).get();
+        //validate
         assertThat(user)
                 .isNotNull();
         assertThat(user.getEmail())
@@ -45,7 +49,9 @@ public class UserRepositoryTest {
 
     @Test
     public void findByEmail() {
+        //test
         UserEntity user = repository.findByEmailIgnoreCase(EMAIL_EXISTS).get();
+        //validate
         assertThat(user.getEmail())
                 .isEqualTo(EMAIL_EXISTS);
     }
