@@ -28,7 +28,7 @@ public class UserController {
     private final UserService userService;
 
     @DeleteMapping(value = "{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     @ApiOperation(value = "\uD83D\uDD10 Remove user by id")
     @ApiResponses({
             @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class),
@@ -38,7 +38,7 @@ public class UserController {
     })
     public void deleteUser(@ApiParam(value = "Id user", defaultValue = "1", required = true) @Positive @PathVariable int id,
                            @ApiIgnore @CurrentUser UserEntity currentUser) {
-        userService.deleteById(id);
+        userService.deleteById(id, currentUser);
     }
 
     @PatchMapping(value = "password")

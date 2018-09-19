@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.CacheEvict;
 public interface UserService {
 
     @CacheEvict(value = "tokens", allEntries = true)
-    void deleteById(long id);
+    void deleteById(long idUser, UserEntity currentUser);
 
     @CacheEvict(value = "tokens", allEntries = true)
     AuthResponse updatePassword(UserEntity currentUser, PasswordRequest data);

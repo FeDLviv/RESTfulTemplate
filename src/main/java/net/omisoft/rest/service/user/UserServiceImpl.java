@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
+import net.omisoft.rest.exception.PermissionException;
 import net.omisoft.rest.exception.ResourceNotFoundException;
 import net.omisoft.rest.model.UserEntity;
+import net.omisoft.rest.model.base.UserRole;
 import net.omisoft.rest.pojo.AuthResponse;
 import net.omisoft.rest.pojo.PasswordRequest;
 import net.omisoft.rest.repository.AccessTokenRepository;
@@ -28,11 +30,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void deleteById(long id) {
-        try {
-            userRepository.deleteById(id);
-        } catch (EmptyResultDataAccessException ex) {
-            throw new ResourceNotFoundException(message.getMessage("exception.user.not_exists"));
+    public void deleteById(long idUser, UserEntity currentUser) {
+        if (idUser == currentUser.getId() || currentUser.getRole().equals(UserRole.ROLE_ADMIN)) {
+            try {
+                userRepository.deleteById(idUser);
+            } catch (EmptyResultDataAccessException ex) {
+                throw new ResourceNotFoundException(message.getMessage("exception.user.not_exists"));
+            }
+        } else {
+            throw new PermissionException(message.getMessage("exception.auth.permission"));
         }
     }
 
