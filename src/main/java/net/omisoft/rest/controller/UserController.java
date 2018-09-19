@@ -46,8 +46,7 @@ public class UserController {
     @ApiOperation(value = "\uD83D\uDD11 Change password (current user)")
     @ApiResponses({
             @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class),
-            @ApiResponse(code = 401, message = "Unauthorized", response = CustomMessage.class),
-            @ApiResponse(code = 403, message = "Forbidden", response = CustomMessage.class)
+            @ApiResponse(code = 401, message = "Unauthorized", response = CustomMessage.class)
     })
     public AuthResponse updatePassword(@ApiParam(value = "Old and new passwords") @Validated @RequestBody PasswordRequest data,
                                        @ApiIgnore @CurrentUser UserEntity currentUser) {
