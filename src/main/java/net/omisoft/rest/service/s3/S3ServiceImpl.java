@@ -6,12 +6,14 @@ import lombok.AllArgsConstructor;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
+import net.omisoft.rest.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -40,6 +42,16 @@ public class S3ServiceImpl implements S3Service {
         s3client.putObject(putObjectRequest);
         file.delete();
         return fileName;
+    }
+
+    @Override
+    public InputStream downloadFile(String fileName) {
+        try {
+            S3Object obj = s3client.getObject(propertiesConfiguration.getAmazon().getBucket(), fileName);
+            return obj.getObjectContent();
+        } catch (AmazonS3Exception ex) {
+            throw new ResourceNotFoundException(ex.getLocalizedMessage());
+        }
     }
 
     @Override
