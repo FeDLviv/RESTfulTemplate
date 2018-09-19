@@ -17,7 +17,7 @@ public class UserAuthentication implements Authentication {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return AuthorityUtils.createAuthorityList(user.getRole());
+        return AuthorityUtils.createAuthorityList(user.getRole().toString());
     }
 
     @Override

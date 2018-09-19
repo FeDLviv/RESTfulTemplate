@@ -81,7 +81,7 @@ public class JWTServiceImpl implements JWTService {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         if (encoder.matches(credential.getPassword(), user.getPassword())) {
             Date expire = new Date(new Date().getTime() + propertiesConfiguration.getToken().getDuration());
-            String token = generateAccessToken(user.getId(), user.getRole(), expire);
+            String token = generateAccessToken(user.getId(), user.getRole().toString(), expire);
             accessTokenRepository.save(new AccessTokenEntity(token, user, expire));
             return token;
         } else {
@@ -93,7 +93,7 @@ public class JWTServiceImpl implements JWTService {
     @Transactional
     public String getToken(UserEntity user) {
         Date expire = new Date(new Date().getTime() + propertiesConfiguration.getToken().getDuration());
-        String token = generateAccessToken(user.getId(), user.getRole(), expire);
+        String token = generateAccessToken(user.getId(), user.getRole().toString(), expire);
         accessTokenRepository.save(new AccessTokenEntity(token, user, expire));
         return token;
     }

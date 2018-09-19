@@ -3,6 +3,7 @@ package net.omisoft.rest.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import net.omisoft.rest.model.base.BaseEntity;
+import net.omisoft.rest.model.base.UserRole;
 
 import javax.persistence.*;
 
@@ -14,7 +15,7 @@ import javax.persistence.*;
 //TODO @EqualsAndHashCode(exclude = {"XXX"})
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class UserEntity extends BaseEntity{
+public class UserEntity extends BaseEntity {
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -22,7 +23,8 @@ public class UserEntity extends BaseEntity{
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "role", nullable = false)
-    private String role;
+    private UserRole role;
 
 }
