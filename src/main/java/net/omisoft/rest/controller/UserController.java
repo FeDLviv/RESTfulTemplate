@@ -29,7 +29,7 @@ public class UserController {
 
     @DeleteMapping(value = "{id}")
     @PreAuthorize("isAuthenticated()")
-    @ApiOperation(value = "\uD83D\uDD10 Remove user by id")
+    @ApiOperation(value = "\uD83D\uDD11 Remove user by id")
     @ApiResponses({
             @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class),
             @ApiResponse(code = 401, message = "Unauthorized", response = CustomMessage.class),

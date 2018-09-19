@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         if (encoder.matches(data.getOldPassword(), currentUser.getPassword())) {
             currentUser.setPassword(encoder.encode(data.getNewPassword()));
-            userRepository.save(currentUser);
+            userRepository.updatePassword(currentUser);
             accessTokenRepository.removeAllByUser(currentUser);
             return AuthResponse.builder()
                     .token(jwtService.getToken(currentUser))
