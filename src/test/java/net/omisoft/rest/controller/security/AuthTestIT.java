@@ -8,6 +8,7 @@ import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.pojo.AuthRequest;
 import net.omisoft.rest.pojo.AuthResponse;
 import net.omisoft.rest.pojo.CustomMessage;
+import org.apache.logging.log4j.util.Strings;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,7 +57,17 @@ public class AuthTestIT {
     private String tokenDuration;
 
     @Test
-    public void wrongEmail() {
+    public void emptyEmail() {
+        notValidEmail(Strings.EMPTY);
+    }
+
+    @Test
+    public void incorrectEmail() {
+        notValidEmail("fdsfs");
+    }
+
+    @Test
+    public void notExistsEmail() {
         wrongCredential(EMAIL_NOT_EXISTS, PASSWORD_EXISTS);
     }
 
@@ -65,6 +76,21 @@ public class AuthTestIT {
         wrongCredential(EMAIL_EXISTS, WRONG_PASSWORD);
     }
 
+    @Test
+    public void emptyPassword() {
+        //prepare
+        AuthRequest auth = AuthRequest.builder().email(EMAIL_EXISTS).password(Strings.EMPTY).build();
+        //test
+        HttpEntity<AuthRequest> request = new HttpEntity<>(auth);
+        ResponseEntity<CustomMessage> response = restTemplate.postForEntity(
+                URL,
+                request,
+                CustomMessage.class
+        );
+        //validate
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(response.getBody().getMessage()).startsWith("password - ");
+    }
 
     @Test
     @Rollback
@@ -103,6 +129,21 @@ public class AuthTestIT {
         //validate
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
         assertThat(response.getBody().getMessage()).isEqualTo(message.getMessage("exception.credentials.wrong"));
+    }
+
+    private void notValidEmail(String email) {
+        //prepare
+        AuthRequest auth = AuthRequest.builder().email(email).password(PASSWORD_EXISTS).build();
+        //test
+        HttpEntity<AuthRequest> request = new HttpEntity<>(auth);
+        ResponseEntity<CustomMessage> response = restTemplate.postForEntity(
+                URL,
+                request,
+                CustomMessage.class
+        );
+        //validate
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(response.getBody().getMessage()).startsWith("email - ");
     }
 
 }
