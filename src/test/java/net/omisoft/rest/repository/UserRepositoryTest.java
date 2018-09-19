@@ -8,17 +8,23 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.expression.spel.SpelEvaluationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.NoSuchElementException;
 
-import static net.omisoft.rest.controller.BaseTestIT.EMAIL_EXISTS;
+import static net.omisoft.rest.controller.BaseTestIT.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserRepositoryTest {
+
+    @Autowired
+    private TestEntityManager entityManager;
 
     @Autowired
     private UserRepository repository;
@@ -53,6 +59,43 @@ public class UserRepositoryTest {
         //validate
         assertThat(user.getEmail())
                 .isEqualTo(EMAIL_EXISTS);
+    }
+
+    @Test(expected = SpelEvaluationException.class)
+    public void updatePasswordIfUserNull() {
+        //test
+        repository.updatePassword(null);
+    }
+
+    @Test
+    public void updatePasswordIfUserNotExists() {
+        //prepare
+        UserEntity user = entityManager.find(UserEntity.class, USER_ID_ADMIN);
+        entityManager.remove(user);
+        entityManager.flush();
+        //test
+        int result = repository.updatePassword(user);
+        //validate
+        assertThat(result)
+                .isEqualTo(0);
+    }
+
+    @Test
+    public void updatePassword() {
+        //prepare
+        UserEntity user = entityManager.find(UserEntity.class, USER_ID_ADMIN);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        user.setPassword(encoder.encode(WRONG_PASSWORD));
+        //test
+        int result = repository.updatePassword(user);
+        //validate
+        assertThat(result)
+                .isEqualTo(1);
+        entityManager.clear();
+        UserEntity entity = entityManager.find(UserEntity.class, USER_ID_ADMIN);
+        assertThat(encoder.matches(WRONG_PASSWORD, entity.getPassword()))
+                .isEqualTo(true);
+
     }
 
 }
