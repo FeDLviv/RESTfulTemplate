@@ -3,7 +3,7 @@ package net.omisoft.rest.repository;
 import net.omisoft.rest.model.FCMTokenEntity;
 import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.model.base.OS;
-import net.omisoft.rest.pojo.CustomFCMToken;
+import net.omisoft.rest.model.projection.FCMTokenProjection;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +34,7 @@ public class FCMTokenRepositoryTest {
     @Test
     public void getTokenByIdUserIfUsersNull() {
         //test
-        Set<CustomFCMToken> token = repository.getTokenByIdUser(null);
+        Set<FCMTokenProjection> token = repository.getTokenByIdUser(null);
         //validate
         assertThat(token)
                 .isNotNull()
@@ -44,7 +44,7 @@ public class FCMTokenRepositoryTest {
     @Test
     public void getTokenByIdUserIfUsersEmpty() {
         //test
-        Set<CustomFCMToken> token = repository.getTokenByIdUser(Collections.emptySet());
+        Set<FCMTokenProjection> token = repository.getTokenByIdUser(Collections.emptySet());
         //validate
         assertThat(token)
                 .isNotNull()
@@ -54,7 +54,7 @@ public class FCMTokenRepositoryTest {
     @Test
     public void getTokenByIdUserIfUserNotExists() {
         //test
-        Set<CustomFCMToken> token = repository.getTokenByIdUser(Sets.newSet(666L));
+        Set<FCMTokenProjection> token = repository.getTokenByIdUser(Sets.newSet(666L));
         //validate
         assertThat(token)
                 .isNotNull()
@@ -71,7 +71,7 @@ public class FCMTokenRepositoryTest {
         entity.setUser(entityManager.find(UserEntity.class, 1L));
         entityManager.persistAndFlush(entity);
         //test
-        Set<CustomFCMToken> token = repository.getTokenByIdUser(Sets.newSet(1L, 2L));
+        Set<FCMTokenProjection> token = repository.getTokenByIdUser(Sets.newSet(1L, 2L));
         //validate
         assertThat(token)
                 .isNotNull()

@@ -1,4 +1,4 @@
-package net.omisoft.rest.pojo;
+package net.omisoft.rest.model.projection;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,7 +6,7 @@ import net.omisoft.rest.model.base.OS;
 
 @Data
 @AllArgsConstructor
-public class CustomFCMToken {
+public class FCMTokenProjection {
 
     private String token;
 

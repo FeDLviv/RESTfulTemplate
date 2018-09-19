@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.model.base.OS;
-import net.omisoft.rest.pojo.CustomFCMToken;
+import net.omisoft.rest.model.projection.FCMTokenProjection;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -46,11 +46,11 @@ public class FCMServiceImpl implements FCMService {
     }
 
     @Override
-    public void send(Set<CustomFCMToken> tokens, String title, String body, FCMType type) {
+    public void send(Set<FCMTokenProjection> tokens, String title, String body, FCMType type) {
         if (!tokens.isEmpty()) {
             Map<OS, List<String>> map = tokens
                     .stream()
-                    .collect(Collectors.groupingBy(CustomFCMToken::getOs, Collectors.mapping(CustomFCMToken::getToken, Collectors.toList())));
+                    .collect(Collectors.groupingBy(FCMTokenProjection::getOs, Collectors.mapping(FCMTokenProjection::getToken, Collectors.toList())));
             sendIos(map.get(OS.IOS), title, body, type);
             sendAndroid(map.get(OS.ANDROID), title, body, type);
         }
@@ -58,7 +58,7 @@ public class FCMServiceImpl implements FCMService {
 
     @Async
     @Override
-    public void sendAsync(Set<CustomFCMToken> tokens, String title, String body, FCMType type) {
+    public void sendAsync(Set<FCMTokenProjection> tokens, String title, String body, FCMType type) {
         send(tokens, title, body, type);
     }
 

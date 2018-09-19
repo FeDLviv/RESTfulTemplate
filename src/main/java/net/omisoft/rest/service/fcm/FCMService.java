@@ -1,13 +1,13 @@
 package net.omisoft.rest.service.fcm;
 
-import net.omisoft.rest.pojo.CustomFCMToken;
+import net.omisoft.rest.model.projection.FCMTokenProjection;
 
 import java.util.Set;
 
 public interface FCMService {
 
-    void send(Set<CustomFCMToken> tokens, String title, String body, FCMType type);
+    void send(Set<FCMTokenProjection> tokens, String title, String body, FCMType type);
 
-    void sendAsync(Set<CustomFCMToken> tokens, String title, String body, FCMType type);
+    void sendAsync(Set<FCMTokenProjection> tokens, String title, String body, FCMType type);
 
 }
