@@ -3,6 +3,7 @@ package net.omisoft.rest.controller.user;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.omisoft.rest.controller.BaseTestIT;
 import net.omisoft.rest.pojo.PasswordRequest;
+import org.apache.logging.log4j.util.Strings;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.Rollback;
@@ -30,6 +31,12 @@ public class UpdatePasswordTestIT extends BaseTestIT {
     @Rollback
     public void oldPasswordIsNull() throws Exception {
         incorrectValidationRequiredBody(null, WRONG_PASSWORD);
+    }
+
+    @Test
+    @Rollback
+    public void oldPasswordIsEmpty() throws Exception {
+        incorrectValidationRequiredBody(Strings.EMPTY, WRONG_PASSWORD);
     }
 
     @Test
