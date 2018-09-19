@@ -31,6 +31,27 @@ public class DeleteUserTestIT extends BaseTestIT {
 
     @Test
     @Rollback
+    public void clientRemoveYourself() throws Exception {
+        //prepare
+        String clientToken = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        //test + validate (delete client)
+        mvc.perform(
+                delete(String.format(URL, USER_ID_CLIENT))
+                        .header(AUTH_HEADER, TOKEN_PREFIX + clientToken)
+        )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").doesNotHaveJsonPath());
+        //test + validate (after delete client)
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(AUTH_HEADER, TOKEN_PREFIX + clientToken);
+        ResponseEntity<CustomMessage> response = restTemplate.exchange(String.format(URL, USER_ID_ADMIN), HttpMethod.DELETE, new HttpEntity<>(headers), CustomMessage.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+        assertThat(response.getBody().getMessage()).isNotEmpty();
+    }
+
+
+    @Test
+    @Rollback
     public void incorrectUserId() throws Exception {
         //prepare
         token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
@@ -110,28 +131,14 @@ public class DeleteUserTestIT extends BaseTestIT {
     @Override
     public void authorizedAdmin() throws Exception {
         //prepare
-        String clientToken = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
-        //test + validate (before delete client)
-        mvc.perform(
-                delete(String.format(URL, USER_ID_ADMIN))
-                        .header(AUTH_HEADER, TOKEN_PREFIX + clientToken)
-        )
-                .andExpect(status().isForbidden())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.auth.permission")));
-        //prepare
         token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
-        //test + validate
+        //test + validate (before delete client)
         mvc.perform(
                 delete(String.format(URL, USER_ID_CLIENT))
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isOk());
-        //test + validate (after delete client)
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(AUTH_HEADER, TOKEN_PREFIX + clientToken);
-        ResponseEntity<CustomMessage> response = restTemplate.exchange(String.format(URL, USER_ID_ADMIN), HttpMethod.DELETE, new HttpEntity<>(headers), CustomMessage.class);
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
-        assertThat(response.getBody().getMessage()).isNotEmpty();
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").doesNotHaveJsonPath());
     }
 
     @Override
