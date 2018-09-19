@@ -2,11 +2,13 @@ package net.omisoft.rest.model;
 
 import lombok.*;
 import net.omisoft.rest.model.base.BaseEntity;
+import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Immutable
 @Table(name = "access_tokens")
 @AttributeOverrides({
         @AttributeOverride(name = "id", column = @Column(name = "id_access_token"))
