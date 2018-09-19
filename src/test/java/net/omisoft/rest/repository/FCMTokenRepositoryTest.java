@@ -1,10 +1,9 @@
-package net.omisoft.rest.repositories;
+package net.omisoft.rest.repository;
 
 import net.omisoft.rest.model.FCMTokenEntity;
 import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.model.base.OS;
 import net.omisoft.rest.pojo.CustomFCMToken;
-import net.omisoft.rest.repository.FCMTokenRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;

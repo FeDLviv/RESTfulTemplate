@@ -1,7 +1,6 @@
-package net.omisoft.rest.tasks;
+package net.omisoft.rest.task;
 
 import net.omisoft.rest.repository.AccessTokenRepository;
-import net.omisoft.rest.task.TokenTask;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

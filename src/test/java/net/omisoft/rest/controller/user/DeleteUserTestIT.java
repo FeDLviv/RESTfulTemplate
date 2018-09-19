@@ -1,6 +1,6 @@
-package net.omisoft.rest.controllers.user;
+package net.omisoft.rest.controller.user;
 
-import net.omisoft.rest.controllers.BaseTestIT;
+import net.omisoft.rest.controller.BaseTestIT;
 import net.omisoft.rest.pojo.CustomMessage;
 import org.hamcrest.core.StringStartsWith;
 import org.junit.Test;

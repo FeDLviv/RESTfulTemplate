@@ -1,4 +1,4 @@
-package net.omisoft.rest.controllers;
+package net.omisoft.rest.controller;
 
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Jwts;

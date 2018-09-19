@@ -1,8 +1,7 @@
-package net.omisoft.rest.repositories;
+package net.omisoft.rest.repository;
 
-import net.omisoft.rest.controllers.BaseTestIT;
+import net.omisoft.rest.controller.BaseTestIT;
 import net.omisoft.rest.model.UserEntity;
-import net.omisoft.rest.repository.UserRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.NoSuchElementException;
 
-import static net.omisoft.rest.controllers.BaseTestIT.EMAIL_EXISTS;
+import static net.omisoft.rest.controller.BaseTestIT.EMAIL_EXISTS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)

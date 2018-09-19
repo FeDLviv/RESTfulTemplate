@@ -1,23 +1,20 @@
-package net.omisoft.rest.controllers.push;
+package net.omisoft.rest.controller.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.omisoft.rest.controllers.BaseTestIT;
-import net.omisoft.rest.dto.fcm.FCMTokenCreateDto;
-import net.omisoft.rest.model.base.OS;
-import org.apache.logging.log4j.util.Strings;
+import net.omisoft.rest.controller.BaseTestIT;
+import net.omisoft.rest.pojo.PasswordRequest;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.web.servlet.MvcResult;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
-import static net.omisoft.rest.ApplicationConstants.AUTH_HEADER;
-import static net.omisoft.rest.ApplicationConstants.TOKEN_PREFIX;
+import static net.omisoft.rest.ApplicationConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -25,79 +22,81 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 INTEGRATION TEST
  */
 
-public class SaveTokenTestIT extends BaseTestIT {
+public class UpdatePasswordTestIT extends BaseTestIT {
 
-    private static final String URL = URI + "push/token";
+    private static final String URL = URI + "users/password";
 
     @Test
     @Rollback
-    public void tokenIsNull() throws Exception {
-        incorrectValidationBody(OS.ANDROID.toString(), "Mobile", null);
+    public void oldPasswordIsNull() throws Exception {
+        incorrectValidationRequiredBody(null, WRONG_PASSWORD);
     }
 
     @Test
     @Rollback
-    public void tokenIsEmpty() throws Exception {
-        incorrectValidationBody(OS.ANDROID.toString(), "Mobile", Strings.EMPTY);
+    public void newPasswordIsNull() throws Exception {
+        incorrectValidationRequiredBody(PASSWORD_EXISTS, null);
     }
 
     @Test
     @Rollback
-    public void deviceIsNull() throws Exception {
-        incorrectValidationBody(OS.ANDROID.toString(), null, "sdsf");
+    public void newPasswordWrongMaxLimit() throws Exception {
+        incorrectValidationRequiredBody(
+                PASSWORD_EXISTS,
+                new Random()
+                        .ints(0, 9)
+                        .limit(PASSWORD_MAX_LENGTH + 1)
+                        .mapToObj(Integer::toString)
+                        .collect(Collectors.joining("")));
     }
 
     @Test
     @Rollback
-    public void deviceIsEmpty() throws Exception {
-        incorrectValidationBody(OS.ANDROID.toString(), Strings.EMPTY, "sfdsfd");
+    public void newPasswordWrongMinLimit() throws Exception {
+        incorrectValidationRequiredBody(
+                PASSWORD_EXISTS,
+                new Random()
+                        .ints(0, 9)
+                        .limit(PASSWORD_MIN_LENGTH - 1)
+                        .mapToObj(Integer::toString)
+                        .collect(Collectors.joining("")));
     }
+
 
     @Test
     @Rollback
-    public void osIsNull() throws Exception {
-        incorrectValidationBody(null, "Mobile", "sdsf");
-    }
-
-    @Test
-    @Rollback
-    public void osWrong() throws Exception {
+    public void wrongOldPassword() throws Exception {
         //prepare
-        List<String> list = Arrays.stream(OS.class.getEnumConstants())
-                .map(Object::toString)
-                .collect(Collectors.toList());
-        String msg = "device_os - " + message.getMessage("exception.enum.wrong", new Object[]{String.join(", ", list)});
-        token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        String token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os("dfio")
-                .device("Mobile")
-                .token("sfdsfd")
+                .oldPassword(WRONG_PASSWORD)
+                .newPassword(PASSWORD_EXISTS)
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(msg));
+                .andExpect(jsonPath("$.message").value(message.getMessage("exception.old_password.wrong")));
     }
+
 
     @Override
     public void expireToken() throws Exception {
         //prepare
         String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date());
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os(OS.IOS.toString())
-                .device("PC")
-                .token("kon9udjm")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
@@ -109,15 +108,14 @@ public class SaveTokenTestIT extends BaseTestIT {
     @Override
     public void wrongToken() throws Exception {
         //prepare
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os(OS.IOS.toString())
-                .device("PC")
-                .token("kon9udjm")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + WRONG_TOKEN)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
@@ -130,15 +128,14 @@ public class SaveTokenTestIT extends BaseTestIT {
     public void tokenNotExists() throws Exception {
         //prepare
         String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os(OS.IOS.toString())
-                .device("PC")
-                .token("kon9udjm")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
@@ -150,15 +147,14 @@ public class SaveTokenTestIT extends BaseTestIT {
     @Override
     public void notAuthorized() throws Exception {
         //prepare
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os(OS.IOS.toString())
-                .device("PC")
-                .token("kon9udjm")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                patch(URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
@@ -169,58 +165,82 @@ public class SaveTokenTestIT extends BaseTestIT {
     @Override
     public void authorizedAdmin() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        String token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os(OS.IOS.toString())
-                .device("PC")
-                .token("kon9udjm")
+                .oldPassword(PASSWORD_EXISTS)
+                .newPassword(WRONG_PASSWORD)
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$").doesNotHaveJsonPath());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.token").isNotEmpty())
+                .andExpect(jsonPath("$.duration").isNumber());
     }
 
     @Override
     public void authorizedClient() throws Exception {
         //prepare
+        String oldPassword = PASSWORD_EXISTS;
+        String newPassword = WRONG_PASSWORD;
         token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os(OS.ANDROID.toString())
-                .device("PC")
-                .token("jo57udjf")
+                .oldPassword(oldPassword)
+                .newPassword(newPassword)
                 .build();
         //test + validate
-        mvc.perform(
-                post(URL)
+        MvcResult result = mvc.perform(
+                patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$").doesNotHaveJsonPath());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.token").isNotEmpty())
+                .andExpect(jsonPath("$.duration").isNumber())
+                .andReturn();
+        //test + validate (with old token)
+        mvc.perform(
+                patch(URL)
+                        .header(AUTH_HEADER, TOKEN_PREFIX + token)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(body))
+        )
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
+        //prepare
+        String newToken = new ObjectMapper().readTree(result.getResponse().getContentAsString()).path("token").asText();
+        body.setOldPassword(newPassword);
+        //test + validate (with new token)
+        mvc.perform(
+                patch(URL)
+                        .header(AUTH_HEADER, TOKEN_PREFIX + newToken)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(body))
+        )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.token").isNotEmpty())
+                .andExpect(jsonPath("$.duration").isNumber());
     }
 
-    private void incorrectValidationBody(String os, String device, String fcmToken) throws Exception {
+    private void incorrectValidationRequiredBody(String oldPassword, String newPassword) throws Exception {
         //prepare
         token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
-        FCMTokenCreateDto body = FCMTokenCreateDto
+        PasswordRequest body = PasswordRequest
                 .builder()
-                .os(os)
-                .device(device)
-                .token(fcmToken)
+                .oldPassword(oldPassword)
+                .newPassword(newPassword)
                 .build();
         //test + validate
         assertThat(validator.validate(body).isEmpty()).isFalse();
         mvc.perform(
-                post(URL)
+                patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))

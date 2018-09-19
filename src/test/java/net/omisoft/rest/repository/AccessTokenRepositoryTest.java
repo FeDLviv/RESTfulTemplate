@@ -1,8 +1,7 @@
-package net.omisoft.rest.repositories;
+package net.omisoft.rest.repository;
 
 import net.omisoft.rest.model.AccessTokenEntity;
 import net.omisoft.rest.model.UserEntity;
-import net.omisoft.rest.repository.AccessTokenRepository;
 import org.apache.logging.log4j.util.Strings;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

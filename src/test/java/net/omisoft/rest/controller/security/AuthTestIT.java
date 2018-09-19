@@ -1,4 +1,4 @@
-package net.omisoft.rest.controllers.security;
+package net.omisoft.rest.controller.security;
 
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Claims;
@@ -27,7 +27,7 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.transaction.Transactional;
 
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
-import static net.omisoft.rest.controllers.BaseTestIT.*;
+import static net.omisoft.rest.controller.BaseTestIT.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /*
