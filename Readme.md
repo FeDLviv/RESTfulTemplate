@@ -214,7 +214,7 @@
 		* [The Basics of Spring Framework](https://www.youtube.com/watch?v=3wBteulZaAs&list=PL6jg6AGdCNaWF-sUH2QDudBRXo54zuN1t) (Spring)
 		* [Spring](https://www.youtube.com/watch?v=M4w6b2pENWU&list=PLwwk4BHih4fho6gmaAwdHYZ6QQq0aE7Zi) (Spring)
 		* [Java+JDBC+Hibernate+Spring Data JPA](https://www.youtube.com/watch?v=lhtB6RD1rH4&list=PLwwk4BHih4fjSk8XVWIp1N5Im-oMf5KL1) (Spring Data JPA)
-		* [Evgeny Borisov](https://www.youtube.com/watch?v=BmBr5diz8WA&list=PLh2SuUkW2bLxVbZdUGpengMOHsC-qt_PH) (Spring)
+		* [Evgeny Borisov](https://www.youtube.com/watch?v=hRtQFIVJ0ws&list=PLRukC9wg1mbFMPNQVT_mhTAMGaOQ3Jbpm) (Spring)
 	* videos
 	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
