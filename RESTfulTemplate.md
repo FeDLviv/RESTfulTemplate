@@ -30,10 +30,22 @@
 -Dspring.profiles.active=dev
 ```
 
+* Run application - executable jar file (example):
+
+```sh
+./RESTfulTemplate-0.0.1-SNAPSHOT.jar &
+```
+
 * Run application (example):
 
 ```sh
 java -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
+```
+
+* Run application from gradle (example):
+
+```sh
+./gradlew bootRun
 ```
 
 * Find the PID of the process using a specific port (example, port - 8080):
