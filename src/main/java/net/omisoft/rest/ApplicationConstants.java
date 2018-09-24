@@ -11,7 +11,7 @@ public interface ApplicationConstants {
     String PROFILE_LOCAL = "local";
     String PROFILE_TEST = "test";
     String PROFILE_DEV = "dev";
-    String PROFILE_DO = "do";
+    String PROFILE_REMOTE = "remote";
     String PROFILE_PROD = "prod";
 
     //TODO change password (min, max)

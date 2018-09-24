@@ -64,7 +64,7 @@ kill {PID}
     * local (default)
     * test
     * dev
-    * do
+    * remote
     * prod
     
 * Open in browser (example):
