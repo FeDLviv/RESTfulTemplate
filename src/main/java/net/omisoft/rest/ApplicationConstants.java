@@ -11,12 +11,13 @@ public interface ApplicationConstants {
     String PROFILE_LOCAL = "local";
     String PROFILE_TEST = "test";
     String PROFILE_DEV = "dev";
+    String PROFILE_DO = "do";
     String PROFILE_PROD = "prod";
 
     //TODO change password (min, max)
     int PASSWORD_MIN_LENGTH = 4;
     int PASSWORD_MAX_LENGTH = 15;
     int DEFAULT_PAGE_NUMBER = 0;
-    int DEFAULT_PAGE_SIZE = 10;
+    int DEFAULT_PAGE_SIZE = 20;
 
 }
