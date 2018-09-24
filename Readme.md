@@ -182,6 +182,7 @@
             * [Hibernate Tips: What’s the Difference between JOIN, LEFT JOIN and JOIN FETCH](https://www.thoughts-on-java.org/hibernate-tips-difference-join-left-join-fetch-join)
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
+            * [Spring AOP. Маленький вопросик с собеседования](https://habr.com/post/347752/)
             * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
 	    * *Security*
     	    * [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)

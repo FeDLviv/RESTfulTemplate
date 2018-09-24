@@ -78,7 +78,7 @@ dependencies {
     compileOnly('org.projectlombok:lombok')
 
     //Ehcache
-    compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
+    compile("net.sf.ehcache:ehcache:${ehcacheVersion}")
 
     //Swagger
     compile("io.springfox:springfox-swagger2:${swaggerVersion}")
@@ -93,7 +93,7 @@ dependencies {
     compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
 
     //AWS
-    compile "com.amazonaws:aws-java-sdk:${awsVersion}"
+    compile("com.amazonaws:aws-java-sdk:${awsVersion}")
 
     //Develop
     runtime('org.springframework.boot:spring-boot-devtools')
