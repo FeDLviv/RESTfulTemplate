@@ -105,7 +105,7 @@ public class AuthTestIT {
                 AuthResponse.class
         );
         //validate
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         String token = response.getBody().getToken();
         byte[] decodedKey = BaseEncoding.base64().decode(secret);
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES")).parseClaimsJws(token);

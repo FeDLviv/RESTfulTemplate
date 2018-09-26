@@ -7,12 +7,10 @@ import net.omisoft.rest.pojo.AuthRequest;
 import net.omisoft.rest.pojo.AuthResponse;
 import net.omisoft.rest.pojo.CustomMessage;
 import net.omisoft.rest.service.security.JWTService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 
@@ -27,6 +25,7 @@ public class SecurityController {
     private final PropertiesConfiguration propertiesConfiguration;
 
     @PostMapping(value = "auth")
+    @ResponseStatus(value = HttpStatus.CREATED)
     @ApiOperation(value = "Authentification (get token)")
     @ApiResponses({
             @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class)
