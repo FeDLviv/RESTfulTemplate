@@ -14,6 +14,7 @@ import javax.persistence.*;
 })
 //TODO @EqualsAndHashCode(exclude = {"XXX"})
 @EqualsAndHashCode(callSuper = true)
+//TODO @ToString(exclude = {"XXX"})
 @Data
 public class UserEntity extends BaseEntity {
 

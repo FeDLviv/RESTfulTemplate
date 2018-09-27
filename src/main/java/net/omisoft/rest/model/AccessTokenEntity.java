@@ -13,7 +13,8 @@ import java.util.Date;
 @AttributeOverrides({
         @AttributeOverride(name = "id", column = @Column(name = "id_access_token"))
 })
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"user"})
+@ToString(exclude = {"user"})
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -24,7 +25,7 @@ public class AccessTokenEntity extends BaseEntity {
     private String token;
 
     @NonNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_user", nullable = false)
     private UserEntity user;
 

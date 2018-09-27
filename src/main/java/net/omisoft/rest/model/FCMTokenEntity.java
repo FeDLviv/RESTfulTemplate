@@ -2,11 +2,11 @@ package net.omisoft.rest.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import net.omisoft.rest.model.base.BaseEntity;
 import net.omisoft.rest.model.base.OS;
 
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "fcm_tokens",
@@ -17,7 +17,8 @@ import javax.persistence.*;
 @AttributeOverrides({
         @AttributeOverride(name = "id", column = @Column(name = "id_fcm_token"))
 })
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"user"})
+@ToString(exclude = {"user"})
 @Data
 public class FCMTokenEntity extends BaseEntity {
 
@@ -31,8 +32,8 @@ public class FCMTokenEntity extends BaseEntity {
     @Column(name = "device_os", nullable = false)
     private OS os;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_user", nullable = false)
     private UserEntity user;
-    
+
 }
