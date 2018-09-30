@@ -51,6 +51,9 @@
 ***
 
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
+* [Spring Content REST](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-rest-boot-starter)
+* [Spring Content Filesystem](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-fs-boot-starter)
+* [Log4jdbc](https://mvnrepository.com/artifact/com.integralblue/log4jdbc-spring-boot-starter)
 * [Lombok](https://projectlombok.org/)
 * [Ehcache](http://www.ehcache.org/)
 * [MapStruct](http://mapstruct.org/)
@@ -132,6 +135,8 @@
         * [Pro Git](https://git-scm.com/book/uk/v2)
     * posts
         * [Git How To](https://githowto.com/uk)
+    * list videos
+        * [Базовый курс по Git](https://www.youtube.com/watch?v=en6gms6e54Q&list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR)
 
 * **Spring Boot**
 	* books
@@ -144,6 +149,8 @@
 		* Building a REST API with Spring 4 (Spring)
 		* [Spring REST](http://padabum.com/d.php?id=211129) (Spring)
 		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/html) (Spring Data JPA)
+		* [Spring Content REST - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/rest-index.html) (Spring Content REST)
+		* [Spring Content Filesystem - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/fs-index.html) (Spring Content Filesystem)
 	* cheat sheet
 		* [Spring Framework 4 Cheat Sheet by danielfc](https://www.cheatography.com/danielfc/cheat-sheets/spring-framework-4)
 		* [Spring Framework Annotations cheat sheet](http://files.zeroturnaround.com/pdf/zt_spring_annotations_cheat_sheet.pdf)
@@ -219,6 +226,7 @@
 	* videos
 	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
+		* [Вячеслав Круглов — Введение в Hibernate: что, зачем, и где стандартные ловушки](https://www.youtube.com/watch?v=C-wEZjEOhWc&t=0s&list=WL&index=7) (Hibernate)
 		* [Евгений Борисов — Spring Puzzlers: тонкости и нюансы работы Spring](https://www.youtube.com/watch?v=U8MtGYa04v8) (Spring)
 		* [Dmytro Sokolov. Принципы работы с транзакциями при помощи Spring JTA](https://www.youtube.com/watch?v=1UWRNaCH2ZI) (Spring Data JPA)
 		* [It's a kind of magic: under the covers of Spring Boot by Stéphane Nicoll & Andy Wilkinson](https://www.youtube.com/watch?v=uof5h-j0IeE) (Spring Boot)
@@ -226,6 +234,7 @@
 		* [Кеширование в Spring. Краткий обзор](https://www.youtube.com/watch?v=CPb3OQZR2gM)
 		* [Spring Boot EhCache cache example](https://www.youtube.com/watch?v=qu_wQNFxJxw)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
+		* [Spring Boot REST: подключаем WebSocket (SockJS + Stomp)](https://www.youtube.com/watch?v=TtcCbDddhrI&t=0s&list=WL&index=8) (Spring Boot WebSocket)
 
 * **Liquibase**
     * posts
