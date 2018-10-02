@@ -22,6 +22,7 @@ public class EnumValidator implements ConstraintValidator<ValidateEnum, String> 
             list = Arrays.stream(constraintAnnotation.enumeration().getEnumConstants())
                     .map(Object::toString)
                     .collect(Collectors.toList());
+            list.removeAll(Arrays.asList(constraintAnnotation.exclude()));
         }
     }
 

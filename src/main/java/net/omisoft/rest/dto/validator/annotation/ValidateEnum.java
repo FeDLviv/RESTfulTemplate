@@ -20,4 +20,6 @@ public @interface ValidateEnum {
 
     Class<?> enumeration();
 
+    String[] exclude() default {};
+
 }
