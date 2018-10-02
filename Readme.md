@@ -51,7 +51,6 @@
 ***
 
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
-* [Spring Content REST](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-rest-boot-starter)
 * [Spring Content Filesystem](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-fs-boot-starter)
 * [Log4jdbc](https://mvnrepository.com/artifact/com.integralblue/log4jdbc-spring-boot-starter)
 * [Lombok](https://projectlombok.org/)
@@ -149,7 +148,6 @@
 		* Building a REST API with Spring 4 (Spring)
 		* [Spring REST](http://padabum.com/d.php?id=211129) (Spring)
 		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/html) (Spring Data JPA)
-		* [Spring Content REST - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/rest-index.html) (Spring Content REST)
 		* [Spring Content Filesystem - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/fs-index.html) (Spring Content Filesystem)
 	* cheat sheet
 		* [Spring Framework 4 Cheat Sheet by danielfc](https://www.cheatography.com/danielfc/cheat-sheets/spring-framework-4)
@@ -215,6 +213,8 @@
 	    * *Async*
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
+	    * *Content*
+	        * [Spring Content](https://paulcwarren.github.io/spring-content)
 	* list videos
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp) (Spring Boot)
 		* [Spring Boot 2](https://www.youtube.com/watch?v=jH17YkBTpI4&list=PLU2ftbIeotGpAYRP9Iv2KLIwK36-o_qYk) (Spring Boot)
