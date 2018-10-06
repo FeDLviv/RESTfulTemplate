@@ -22,4 +22,8 @@ public @interface ValidateEnum {
 
     String[] exclude() default {};
 
+    String[] include() default {};
+
+    boolean ignoreCase() default false;
+
 }
