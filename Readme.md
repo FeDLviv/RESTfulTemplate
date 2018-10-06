@@ -52,6 +52,8 @@
 
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
 * [Spring Content Filesystem](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-fs-boot-starter)
+* [Spring Content REST](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-rest-boot-starter)
+* [Spring Content S3](hhttps://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-s3-boot-starter)
 * [Log4jdbc](https://mvnrepository.com/artifact/com.integralblue/log4jdbc-spring-boot-starter)
 * [Lombok](https://projectlombok.org/)
 * [Ehcache](http://www.ehcache.org/)
@@ -149,6 +151,8 @@
 		* [Spring REST](http://padabum.com/d.php?id=211129) (Spring)
 		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/html) (Spring Data JPA)
 		* [Spring Content Filesystem - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/fs-index.html) (Spring Content Filesystem)
+		* [Spring Content REST - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/rest-index.html) (Spring Content REST)
+		* [Spring Content S3 - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/s3-index.html) (Spring Content S3)
 	* cheat sheet
 		* [Spring Framework 4 Cheat Sheet by danielfc](https://www.cheatography.com/danielfc/cheat-sheets/spring-framework-4)
 		* [Spring Framework Annotations cheat sheet](http://files.zeroturnaround.com/pdf/zt_spring_annotations_cheat_sheet.pdf)
@@ -186,6 +190,7 @@
 			* [Using multiple datasources with Spring Boot and Spring Data](https://medium.com/@joeclever/using-multiple-datasources-with-spring-boot-and-spring-data-6430b00c02e7)
             * [Hibernate Tips: What’s the Difference between JOIN, LEFT JOIN and JOIN FETCH](https://www.thoughts-on-java.org/hibernate-tips-difference-join-left-join-fetch-join)
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
+            * [A Guide to SqlResultSetMapping](https://www.baeldung.com/jpa-sql-resultset-mapping)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
             * [Spring AOP. Маленький вопросик с собеседования](https://habr.com/post/347752/)
             * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
@@ -222,6 +227,7 @@
 		* [The Basics of Spring Framework](https://www.youtube.com/watch?v=3wBteulZaAs&list=PL6jg6AGdCNaWF-sUH2QDudBRXo54zuN1t) (Spring)
 		* [Spring](https://www.youtube.com/watch?v=M4w6b2pENWU&list=PLwwk4BHih4fho6gmaAwdHYZ6QQq0aE7Zi) (Spring)
 		* [Java+JDBC+Hibernate+Spring Data JPA](https://www.youtube.com/watch?v=lhtB6RD1rH4&list=PLwwk4BHih4fjSk8XVWIp1N5Im-oMf5KL1) (Spring Data JPA)
+		* [Hibernate](https://www.youtube.com/watch?v=C-wEZjEOhWc&list=PLRukC9wg1mbE2uioTUsbyrYY4uv2P2X_M) (Hibernate)
 		* [Evgeny Borisov](https://www.youtube.com/watch?v=hRtQFIVJ0ws&list=PLRukC9wg1mbFMPNQVT_mhTAMGaOQ3Jbpm) (Spring)
 	* videos
 	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
