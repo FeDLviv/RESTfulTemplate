@@ -53,7 +53,7 @@
 * [Spring Retry](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry)
 * [Spring Content Filesystem](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-fs-boot-starter)
 * [Spring Content REST](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-rest-boot-starter)
-* [Spring Content S3](hhttps://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-s3-boot-starter)
+* [Spring Content S3](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-s3-boot-starter)
 * [Log4jdbc](https://mvnrepository.com/artifact/com.integralblue/log4jdbc-spring-boot-starter)
 * [Lombok](https://projectlombok.org/)
 * [Ehcache](http://www.ehcache.org/)
