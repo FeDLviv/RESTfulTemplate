@@ -150,6 +150,7 @@
 		* Pro Spring (Spring)
 		* Building a REST API with Spring 4 (Spring)
 		* [Spring REST](http://padabum.com/d.php?id=211129) (Spring)
+		* [Spring Data JDBC - Reference Documentation](https://docs.spring.io/spring-data/jdbc/docs/1.0.1.RELEASE/reference/html)
 		* [Spring Data JPA reference guide](https://docs.spring.io/spring-data/jpa/docs/current/reference/html) (Spring Data JPA)
 		* [Spring Content Filesystem - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/fs-index.html) (Spring Content Filesystem)
 		* [Spring Content REST - Reference Documentation](https://paulcwarren.github.io/spring-content/refs/snapshot/rest-index.html) (Spring Content REST)
@@ -236,6 +237,7 @@
 	* videos
 	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
+		* [The New Kid on the Block: Spring Data JDBC](https://www.youtube.com/watch?v=AnIouYdwxo0)
 		* [Вячеслав Круглов — Введение в Hibernate: что, зачем, и где стандартные ловушки](https://www.youtube.com/watch?v=C-wEZjEOhWc&t=0s&list=WL&index=7) (Hibernate)
 		* [Евгений Борисов — Spring Puzzlers: тонкости и нюансы работы Spring](https://www.youtube.com/watch?v=U8MtGYa04v8) (Spring)
 		* [Dmytro Sokolov. Принципы работы с транзакциями при помощи Spring JTA](https://www.youtube.com/watch?v=1UWRNaCH2ZI) (Spring Data JPA)
