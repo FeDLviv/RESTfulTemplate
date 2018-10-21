@@ -107,6 +107,7 @@
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* posts
 	    * [Советы по оптимизации кода на Java: как не наступать на грабли](https://habr.com/company/piter/blog/358898)
+	    * [Introduction to the Java 8 Date/Time API](https://www.baeldung.com/java-8-date-time-intro)
 	    * [Java и время: часть первая](https://habr.com/post/274811)
 	    * [Java и время: часть вторая](https://habr.com/post/274905)
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
@@ -180,7 +181,10 @@
             * [CORS with Spring](http://www.baeldung.com/spring-cors)
             * [Spring MVC Custom Validation](http://www.baeldung.com/spring-mvc-custom-validator)
             * [Spring – Log Incoming Requests](http://www.baeldung.com/spring-http-logging)
+        * *JDBC*
+            * [Представляем Spring Data JDBC](https://habr.com/post/423697)
 	    * *JPA*
+	        * [Шпаргалка Java программиста 1: JPA и Hibernate в вопросах и ответах](https://habr.com/post/265061)
 	        * [JPA / Hibernate @Embeddable and @Embedded Example with Spring Boot](https://www.callicoder.com/hibernate-spring-boot-jpa-embeddable-demo)
             * [JPA и связи между объектами](https://easyjava.ru/data/jpa/jpa-i-svyazi-mezhdu-obektami)
             * [Java Persistence/ElementCollection](https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection)
