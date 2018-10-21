@@ -3,6 +3,8 @@ package net.omisoft.rest.controller;
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import net.omisoft.rest.HibernateQueryCounterInterceptor;
+import net.omisoft.rest.SQLQueryCounter;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.model.AccessTokenEntity;
 import net.omisoft.rest.model.UserEntity;
@@ -18,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -61,6 +65,16 @@ public abstract class BaseTestIT {
     public static final long USER_ID_NOT_EXISTS = 333;
     public static final Random RANDOM = new Random();
 
+    @TestConfiguration
+    public static class BaseTestITContextConfiguration {
+
+        @Bean
+        public SQLQueryCounter sqlQueryCounter() {
+            return new HibernateQueryCounterInterceptor();
+        }
+
+    }
+
     @Autowired
     private UserRepository userRepository;
 
@@ -72,6 +86,9 @@ public abstract class BaseTestIT {
 
     @Autowired
     protected MessageSourceConfiguration message;
+
+    @Autowired
+    protected SQLQueryCounter sqlQueryCounter;
 
     @Value("${app.token.secret}")
     protected String secret;
