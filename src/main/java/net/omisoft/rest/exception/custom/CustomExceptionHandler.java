@@ -109,7 +109,7 @@ public class CustomExceptionHandler {
         return new CustomMessage(message);
     }
 
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ResponseStatus(value = HttpStatus.PAYLOAD_TOO_LARGE)
     @ExceptionHandler({
             MaxUploadSizeExceededException.class
     })
