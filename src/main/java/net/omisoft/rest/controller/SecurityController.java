@@ -26,7 +26,7 @@ public class SecurityController {
 
     @PostMapping(value = "auth")
     @ResponseStatus(value = HttpStatus.CREATED)
-    @ApiOperation(value = "Authentification (get token)")
+    @ApiOperation(value = "Authentication (get token)")
     @ApiResponses({
             @ApiResponse(code = 400, message = "Bad request", response = CustomMessage.class)
     })

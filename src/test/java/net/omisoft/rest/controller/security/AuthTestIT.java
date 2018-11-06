@@ -94,7 +94,7 @@ public class AuthTestIT {
 
     @Test
     @Rollback
-    public void sucessful() {
+    public void successful() {
         //prepare
         AuthRequest auth = AuthRequest.builder().email(EMAIL_EXISTS).password(PASSWORD_EXISTS).build();
         //test

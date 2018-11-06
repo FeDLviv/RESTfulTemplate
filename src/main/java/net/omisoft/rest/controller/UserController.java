@@ -36,7 +36,7 @@ public class UserController {
             @ApiResponse(code = 403, message = "Forbidden", response = CustomMessage.class),
             @ApiResponse(code = 404, message = "Not found", response = CustomMessage.class)
     })
-    public void deleteUser(@ApiParam(value = "Id user", defaultValue = "1", required = true) @Positive @PathVariable int id,
+    public void deleteUser(@ApiParam(value = "Id user", defaultValue = "1", required = true) @Positive @PathVariable long id,
                            @ApiIgnore @CurrentUser UserEntity currentUser) {
         userService.deleteById(id, currentUser);
     }
