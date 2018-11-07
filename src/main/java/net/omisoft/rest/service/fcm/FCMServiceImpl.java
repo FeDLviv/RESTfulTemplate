@@ -46,31 +46,26 @@ public class FCMServiceImpl implements FCMService {
     }
 
     @Override
-    public void send(Set<FCMTokenProjection> tokens, String title, String body, FCMType type) {
+    public void send(Set<FCMTokenProjection> tokens, String title, String body, Map<String, Object> params, FCMType type) {
         if (!tokens.isEmpty()) {
             Map<OS, List<String>> map = tokens
                     .stream()
                     .collect(Collectors.groupingBy(FCMTokenProjection::getOs, Collectors.mapping(FCMTokenProjection::getToken, Collectors.toList())));
-            sendIos(map.get(OS.IOS), title, body, type);
-            sendAndroid(map.get(OS.ANDROID), title, body, type);
+            sendIos(map.get(OS.IOS), title, body, params, type);
+            sendAndroid(map.get(OS.ANDROID), title, body, params, type);
         }
     }
 
     @Async
     @Override
-    public void sendAsync(Set<FCMTokenProjection> tokens, String title, String body, FCMType type) {
-        send(tokens, title, body, type);
+    public void sendAsync(Set<FCMTokenProjection> tokens, String title, String body, Map<String, Object> params, FCMType type) {
+        send(tokens, title, body, params, type);
     }
 
-    private void sendIos(List<String> tokens, String title, String body, FCMType type) {
+    private void sendIos(List<String> tokens, String title, String body, Map<String, Object> params, FCMType type) {
         if (tokens != null && !tokens.isEmpty()) {
-            String json = "";
             for (List<String> list : Iterables.partition(tokens, MAX_TOKENS)) {
-                //TODO switch FCMType
-                switch (type) {
-                    default:
-                        json = generateJsonIos(list, title, body, type.toString());
-                }
+                String json = generateJsonIos(list, title, body, params, type.toString());
                 HttpEntity<String> request = new HttpEntity<>(json, headers);
                 try {
                     restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
@@ -81,15 +76,10 @@ public class FCMServiceImpl implements FCMService {
         }
     }
 
-    private void sendAndroid(List<String> tokens, String title, String body, FCMType type) {
+    private void sendAndroid(List<String> tokens, String title, String body, Map<String, Object> params, FCMType type) {
         if (tokens != null && !tokens.isEmpty()) {
-            String json = "";
             for (List<String> list : Iterables.partition(tokens, MAX_TOKENS)) {
-                //TODO switch FCMType
-                switch (type) {
-                    default:
-                        json = generateJsonAndroid(list, title, body, type.toString());
-                }
+                String json = generateJsonAndroid(list, title, body, params, type.toString());
                 HttpEntity<String> request = new HttpEntity<>(json, headers);
                 try {
                     restTemplate.postForObject(propertiesConfiguration.getFcm().getEndpoint(), request, String.class);
@@ -100,7 +90,7 @@ public class FCMServiceImpl implements FCMService {
         }
     }
 
-    private String generateJsonIos(List<String> tokens, String title, String body, String type) {
+    private String generateJsonIos(List<String> tokens, String title, String body, Map<String, Object> params, String type) {
         Map<String, Object> msg = new HashMap<>();
         msg.put("registration_ids", tokens);
         Map<String, Object> notification = new HashMap<>();
@@ -108,6 +98,9 @@ public class FCMServiceImpl implements FCMService {
         notification.put("body", body);
         msg.put("notification", notification);
         Map<String, Object> data = new HashMap<>();
+        if (params != null) {
+            params.forEach(data::putIfAbsent);
+        }
         data.put("type", type);
         msg.put("data", data);
         try {
@@ -117,12 +110,15 @@ public class FCMServiceImpl implements FCMService {
         }
     }
 
-    private String generateJsonAndroid(List<String> tokens, String title, String body, String type) {
+    private String generateJsonAndroid(List<String> tokens, String title, String body, Map<String, Object> params, String type) {
         Map<String, Object> msg = new HashMap<>();
         msg.put("registration_ids", tokens);
         Map<String, Object> data = new HashMap<>();
         data.put("title", title);
         data.put("body", body);
+        if (params != null) {
+            params.forEach(data::putIfAbsent);
+        }
         data.put("type", type);
         msg.put("data", data);
         try {
