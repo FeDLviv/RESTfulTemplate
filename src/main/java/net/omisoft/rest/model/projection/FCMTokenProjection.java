@@ -1,15 +1,11 @@
 package net.omisoft.rest.model.projection;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import net.omisoft.rest.model.base.OS;
 
-@Data
-@AllArgsConstructor
-public class FCMTokenProjection {
+public interface FCMTokenProjection {
 
-    private String token;
+    String getToken();
 
-    private OS os;
+    OS getOs();
 
 }

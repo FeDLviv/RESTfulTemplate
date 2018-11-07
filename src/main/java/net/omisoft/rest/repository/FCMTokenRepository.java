@@ -15,7 +15,7 @@ import java.util.Set;
 @Repository
 public interface FCMTokenRepository extends JpaRepository<FCMTokenEntity, Long> {
 
-    @Query("SELECT new net.omisoft.rest.model.projection.FCMTokenProjection(t.token, t.os) FROM FCMTokenEntity t JOIN t.user u WHERE u.id IN :ids")
+    @Query("SELECT t.token AS token, t.os AS os FROM FCMTokenEntity t JOIN t.user u WHERE u.id IN :ids")
     Set<FCMTokenProjection> getTokenByIdUser(@Param("ids") Set<Long> idUsers);
 
     Optional<FCMTokenEntity> findByDeviceAndOsAndUser(String device, OS os, UserEntity user);
