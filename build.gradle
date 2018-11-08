@@ -43,6 +43,7 @@ ext {
     mapStructVersion = '1.2.0.Final'
     jjwtVersion = '0.9.1'
     awsVersion = '1.11.390'
+    apacheValidatorVersion = '1.6'
 }
 
 repositories {
@@ -94,6 +95,9 @@ dependencies {
 
     //AWS
     compile("com.amazonaws:aws-java-sdk:${awsVersion}")
+
+    //Apache Commons Validator
+    compile("commons-validator:commons-validator:${apacheValidatorVersion}")
 
     //Develop
     runtime('org.springframework.boot:spring-boot-devtools')
