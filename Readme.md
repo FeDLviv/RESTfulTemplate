@@ -70,6 +70,9 @@
 * [ZXing Core](https://mvnrepository.com/artifact/com.google.zxing/core)
 * [ZXing Java SE Extensions](https://mvnrepository.com/artifact/com.google.zxing/javase)
 * [Jsoup](https://jsoup.org)
+* [Stripe](https://stripe.com)
+* [Interkassa](https://www.interkassa.com)
+* [LiqPay](https://www.liqpay.ua)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
 * [Twilio](https://www.twilio.com)
@@ -251,9 +254,13 @@
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
 		* [Spring Boot REST: подключаем WebSocket (SockJS + Stomp)](https://www.youtube.com/watch?v=TtcCbDddhrI&t=0s&list=WL&index=8) (Spring Boot WebSocket)
 
+* **PostgreSQL**
+    * posts
+        * [Рекурсивные запросы в PostgreSQL (WITH RECURSIVE)](https://habr.com/post/269497)
+
 * **Liquibase**
     * posts
-        * [Using liquibase to load data and ignore some columns ](http://sadalage.com/blog/2017/05/15/using-liquibase-to-load-data-and-ignore-some-columns)
+        * [Using liquibase to load data and ignore some columns](http://sadalage.com/blog/2017/05/15/using-liquibase-to-load-data-and-ignore-some-columns)
     * videos
         * [UADEVCLUB: Liquibase для міграції БД](https://www.youtube.com/watch?v=ByagQCx7m04)
 
@@ -314,7 +321,24 @@
         * [AWS S3 with Java](http://www.baeldung.com/aws-s3-java)
         * [Amazon S3 – Upload/Download files with SpringBoot Amazon S3 application](http://javasampleapproach.com/spring-framework/spring-cloud/amazon-s3-uploaddownload-files-springboot-amazon-s3-application)
         * [Uploading files to AWS S3 Bucket using Spring Boot](https://medium.com/oril/uploading-files-to-aws-s3-bucket-using-spring-boot-483fcb6f8646)
-   
+
+* **Stripe**
+    * books
+        * [Docs](https://stripe.com/docs/api?lang=java)
+    * posts
+        * [Introduction to the Stripe API for Java](https://www.baeldung.com/java-stripe-api) 
+        * [Stripe: сервис вашей мечты для автоматизации денежных переводов](https://livetyping.com/ru/blog/stripe)
+
+* **Interkassa**
+    * books
+        * [Docs](https://www.interkassa.com/documentation-api)
+    * videos
+        * [Как подключить Interkassa (Интеркассу) на PHP \ Принимаем платежи на сайте](https://www.youtube.com/watch?v=3BD1ZsU2G1k) 
+
+* **LiqPay**
+    * books
+        * [Docs](https://www.liqpay.ua/ru/doc)
+
 * **Twilio**
     * books
         * [Docs](https://www.twilio.com/docs/libraries/java)
