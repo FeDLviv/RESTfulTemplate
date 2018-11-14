@@ -73,6 +73,7 @@
 * [Stripe](https://stripe.com)
 * [Interkassa](https://www.interkassa.com)
 * [LiqPay](https://www.liqpay.ua)
+* [IP Geolocation API](http://ip-api.com/docs)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
 * [Twilio](https://www.twilio.com)
