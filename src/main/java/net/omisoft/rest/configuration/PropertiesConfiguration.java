@@ -88,6 +88,9 @@ public class PropertiesConfiguration {
         private String key;
 
         @NotBlank
+        private String testKey;
+
+        @NotBlank
         @Size(min = 3, max = 3)
         private String currency;
 
