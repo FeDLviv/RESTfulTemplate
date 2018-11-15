@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.net.URL;
 
 @Component
@@ -23,6 +24,8 @@ public class PropertiesConfiguration {
     private Task task;
 
     private FCM fcm;
+
+    private Interkassa interkassa;
 
     @Data
     public static class Amazon {
@@ -72,6 +75,21 @@ public class PropertiesConfiguration {
         @NotNull
         @org.hibernate.validator.constraints.URL
         private String endpoint;
+
+    }
+
+    @Data
+    public static class Interkassa {
+
+        @NotBlank
+        private String id;
+
+        @NotBlank
+        private String key;
+
+        @NotBlank
+        @Size(min = 3, max = 3)
+        private String currency;
 
     }
 
