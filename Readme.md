@@ -333,6 +333,7 @@
 * **Interkassa**
     * books
         * [Docs](https://www.interkassa.com/documentation-api)
+        * [API interkassa](https://api.interkassa.com)
     * videos
         * [Как подключить Interkassa (Интеркассу) на PHP \ Принимаем платежи на сайте](https://www.youtube.com/watch?v=3BD1ZsU2G1k) 
 
