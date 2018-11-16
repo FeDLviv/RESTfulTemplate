@@ -63,6 +63,8 @@ public abstract class BaseTestIT {
     public static final long USER_ID_ADMIN = 1;
     public static final long USER_ID_CLIENT = 2;
     public static final long USER_ID_NOT_EXISTS = 333;
+    public static final String PAYMENT_UUID_EXISTS = "f9da3f46e1b54544824008641ac55419";
+    public static final String PAYMENT_UUID_NOT_EXISTS = "n9da3f18e1b54544824008641ac55666";
     public static final Random RANDOM = new Random();
 
     @TestConfiguration
