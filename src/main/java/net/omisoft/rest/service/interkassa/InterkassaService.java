@@ -1,5 +1,6 @@
 package net.omisoft.rest.service.interkassa;
 
+import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 import java.util.Map;
@@ -10,7 +11,7 @@ public interface InterkassaService {
 
     String getCurrencySymbol();
 
-    Map<String, String> preparedCheckout(double amount, String description, String email, Locale locale) throws NoSuchAlgorithmException;
+    Map<String, String> preparedCheckout(BigDecimal amount, String description, String email, Locale locale) throws NoSuchAlgorithmException;
 
     boolean checkDigitalSignature(Map<String, String> data) throws NoSuchAlgorithmException;
 

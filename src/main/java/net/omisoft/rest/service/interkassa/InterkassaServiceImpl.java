@@ -6,6 +6,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
@@ -25,13 +26,13 @@ public class InterkassaServiceImpl implements InterkassaService {
     }
 
     @Override
-    public Map<String, String> preparedCheckout(double amount, String description, String email, Locale locale) throws NoSuchAlgorithmException {
+    public Map<String, String> preparedCheckout(BigDecimal amount, String description, String email, Locale locale) throws NoSuchAlgorithmException {
         SortedMap<String, String> map = new TreeMap<>();
         String uuid = UUID.randomUUID().toString().replace("-", "");
         map.put("ik_co_id", propertiesConfiguration.getInterkassa().getId());
         map.put("ik_cur", propertiesConfiguration.getInterkassa().getCurrency());
         map.put("ik_pm_no", uuid);
-        map.put("ik_am", Double.toString(amount));
+        map.put("ik_am", amount.toString());
         map.put("ik_desc", description);
         if (email == null || email.trim().length() == 0) {
             email = DEFAULT_EMAIL;
