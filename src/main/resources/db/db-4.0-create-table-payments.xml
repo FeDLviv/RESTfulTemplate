@@ -14,13 +14,13 @@
                 <constraints nullable="false" foreignKeyName="fk_payments_user" references="users(id_user)"
                              deleteCascade="true"/>
             </column>
-            <column name="order" type="CHAR(32)">
+            <column name="uuid" type="CHAR(32)">
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="amount" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="currency" type="CHAR(3)" defaultValue="checkout">
+            <column name="currency" type="CHAR(3)">
                 <constraints nullable="false"/>
             </column>
             <column name="about" type="VARCHAR(15)">
