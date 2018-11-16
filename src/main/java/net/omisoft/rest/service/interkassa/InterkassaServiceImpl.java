@@ -21,6 +21,11 @@ public class InterkassaServiceImpl implements InterkassaService {
     private final PropertiesConfiguration propertiesConfiguration;
 
     @Override
+    public String getId() {
+        return propertiesConfiguration.getInterkassa().getId();
+    }
+
+    @Override
     public String getCurrencySymbol() {
         return Currency.getInstance(propertiesConfiguration.getInterkassa().getCurrency()).getSymbol();
     }

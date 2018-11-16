@@ -9,6 +9,8 @@ public interface InterkassaService {
 
     String[] IP = {"151.80.190.97", "151.80.190.107", "35.233.69.55"};
 
+    String getId();
+
     String getCurrencySymbol();
 
     Map<String, String> preparedCheckout(BigDecimal amount, String description, String email, Locale locale) throws NoSuchAlgorithmException;
