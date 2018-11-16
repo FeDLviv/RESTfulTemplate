@@ -20,10 +20,12 @@
             <column name="amount" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="currency" type="CHAR(3)">
+            <column name="currency" type="CHAR(3)" defaultValue="checkout">
                 <constraints nullable="false"/>
             </column>
-            <column name="about" type="VARCHAR(15)"/>
+            <column name="about" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
             <column name="state" type="VARCHAR(15)"/>
             <column name="created_date" type="TIMESTAMP" defaultValueDate="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
