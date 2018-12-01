@@ -17,7 +17,7 @@
             <column name="uuid" type="CHAR(32)">
                 <constraints nullable="false" unique="true"/>
             </column>
-            <column name="amount" type="INT">
+            <column name="amount" type="INT" remarks="amount in cents">
                 <constraints nullable="false"/>
             </column>
             <column name="currency" type="CHAR(3)">
