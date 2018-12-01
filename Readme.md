@@ -2,7 +2,7 @@
 
 * RESTful
 * Database
-* Testing (unit, integration)
+* Testing (unit, integration, performance)
 * Documentation
 * Deployment
 
@@ -40,6 +40,7 @@
 * [AssertJ](http://joel-costigliola.github.io/assertj)
 * [Mockito](http://site.mockito.org)
 * [Hamcrest](http://hamcrest.org/JavaHamcrest)
+* [JMeter](https://jmeter.apache.org)
 
 ***
 
@@ -90,6 +91,7 @@
         * [Шпаргалка по созданию RESTful API](https://noteskeeper.ru/1161)
         * [How to Design a Localization-Ready System](http://www.vertabelo.com/blog/technical-articles/data-modeling-for-multiple-languages-how-to-design-a-localization-ready-system)
         * [Token-Based Authentication(JWT)](https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
+        * [Простым языком об HTTP](https://habr.com/post/215117)
         * [Шпаргалка по кодам відповіді стану HTTP](https://sebweo.com/shpargalka-po-kodam-vidpovidi-stanu-http)
         * [Що таке SSL сертифікат і навіщо він потрібен?](https://css.in.ua/article/shcho-take-ssl-sertyfikat-i-navishcho-vin-potriben_4)
         * [Что такое SSL-сертификат и зачем он нужен](https://ssl.com.ua/info/what-is-ssl/#)
@@ -114,6 +116,8 @@
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* posts
 	    * [Советы по оптимизации кода на Java: как не наступать на грабли](https://habr.com/company/piter/blog/358898)
+	    * [Как использовать BigDecimal в Java](http://dmilvdv.narod.ru/Translate/MISC/how_to_use_java_bigdecimal.html)
+	    * [Java Money and the Currency API](https://www.baeldung.com/java-money-and-currency)
 	    * [Introduction to the Java 8 Date/Time API](https://www.baeldung.com/java-8-date-time-intro)
 	    * [Java и время: часть первая](https://habr.com/post/274811)
 	    * [Java и время: часть вторая](https://habr.com/post/274905)
@@ -230,6 +234,8 @@
 	    * *Async*
 	        * [How To Do @Async in Spring](http://www.baeldung.com/spring-async)
 	        * [How to start Spring Async with Spring Boot](http://javasampleapproach.com/java-integration/start-spring-async-spring-boot)
+	    * *Microservices*
+	        * [Переписываем домашний проект на микросервисы (Java, Spring Boot, Gradle)](https://habr.com/post/332482)
 	    * *Content*
 	        * [Spring Content](https://paulcwarren.github.io/spring-content)
 	* list videos
@@ -255,6 +261,16 @@
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
 		* [Spring Boot REST: подключаем WebSocket (SockJS + Stomp)](https://www.youtube.com/watch?v=TtcCbDddhrI&t=0s&list=WL&index=8) (Spring Boot WebSocket)
 
+* **MySQL**
+    * posts
+        * [Как использовать SHOW PROFILE в MySQL?](https://ruhighload.com/%D0%9A%D0%B0%D0%BA+%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C+show+profile+%D0%B2+mysql%3F)
+        * [EXPLAIN — Самая мощная команда MySQL](https://habr.com/post/31129)
+        * [Релиз JSON Labs: JSON-функции, Часть 1 — Обработка JSON-данных.](https://sqlinfo.ru/articles/info/20.html)
+        * [Использование JSON в MySQL](https://phptoday.ru/post/ispolzovanie-json-v-mysql)
+        * [Вышла первая стабильная версия серии MySQL 8](https://sqlinfo.ru/news/info/106.html)
+    * videos
+        * [Что нового в MySQL 8.0? / Дмитрий Ленев (Oracle)](https://www.youtube.com/watch?v=IgQi4BpNgRQ)
+
 * **PostgreSQL**
     * posts
         * [Рекурсивные запросы в PostgreSQL (WITH RECURSIVE)](https://habr.com/post/269497)
@@ -272,6 +288,16 @@
 * **AssertJ**
     * posts
         * [Introduction to AssertJ](http://www.baeldung.com/introduction-to-assertj)
+
+* **JMeter**
+    * posts
+        * [Intro to Performance Testing using JMeter](https://www.baeldung.com/jmeter)
+        * [Jmeter](https://www.quality-assurance-group.com/jmeter-navantazhuvaty-sajty-po-max)
+        * [JMeter — опис параметрів потоку, головних елементів та меню](https://www.quality-assurance-group.com/jmeter-opys-parametriv-potoku-golovnyh-elementiv-ta-menyu)
+        * [Інсталювання JMeter на Windows, Linux, Mac — детально](https://www.quality-assurance-group.com/instalyuvannya-jmeter-na-windows-linux-mac)
+        * [Шпаргалка для тестувальників — питання на співбесіді QA по JMeter -у](https://www.quality-assurance-group.com/jmeter-shpargalka-dlya-testuvalnikiv)
+    * list videos
+        * [JMeter уроки](https://www.youtube.com/watch?v=vxCZl27qPd8&list=PL55b2m_9SYspMgqtwdBcUR15wGb5Mq-Gy)
 		
 * **SpringFox (swagger)**
     * books
