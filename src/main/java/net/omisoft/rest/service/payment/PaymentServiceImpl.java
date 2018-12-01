@@ -55,6 +55,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
+    @Transactional
     public void updatePaymentState(String ip, String uuid, Map<String, String> data) {
         if (Arrays.stream(InterkassaService.IP).anyMatch(ip::equals)) {
             try {
@@ -65,17 +66,17 @@ public class PaymentServiceImpl implements PaymentService {
             }
             if (uuid.equals(data.get("ik_pm_no"))) {
                 PaymentEntity payment = paymentRepository.findByUuid(uuid)
-                        .orElseThrow(() -> new ResourceNotFoundException("exception.payment.not_exists"));
+                        .orElseThrow(() -> new ResourceNotFoundException(message.getMessage("exception.payment.not_exists")));
                 if (payment.getAmount().compareTo(new BigDecimal(data.get("ik_am"))) != 0) {
-                    throw new BadRequestException("exception.payment.sum");
+                    throw new BadRequestException(message.getMessage("exception.payment.sum"));
                 }
                 if (!interkassaService.getId().equals(data.get("ik_co_id"))) {
-                    throw new BadRequestException("exception.payment.wrong_id_office");
+                    throw new BadRequestException(message.getMessage("exception.payment.wrong_id_office"));
                 }
                 payment.setState(InterkassaState.valueOf(data.get("ik_inv_st")));
                 paymentRepository.save(payment);
             } else {
-                throw new BadRequestException("exception.payment.wrong_id");
+                throw new BadRequestException(message.getMessage("exception.payment.wrong_id"));
             }
         } else {
             throw new ResourceNotFoundException(HttpStatus.NOT_FOUND.getReasonPhrase());
