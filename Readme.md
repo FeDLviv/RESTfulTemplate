@@ -293,8 +293,8 @@
     * posts
         * [Intro to Performance Testing using JMeter](https://www.baeldung.com/jmeter)
         * [Jmeter](https://www.quality-assurance-group.com/jmeter-navantazhuvaty-sajty-po-max)
-        * [JMeter — опис параметрів потоку, головних елементів та меню](https://www.quality-assurance-group.com/jmeter-opys-parametriv-potoku-golovnyh-elementiv-ta-menyu)
         * [Інсталювання JMeter на Windows, Linux, Mac — детально](https://www.quality-assurance-group.com/instalyuvannya-jmeter-na-windows-linux-mac)
+        * [JMeter — опис параметрів потоку, головних елементів та меню](https://www.quality-assurance-group.com/jmeter-opys-parametriv-potoku-golovnyh-elementiv-ta-menyu)
         * [Шпаргалка для тестувальників — питання на співбесіді QA по JMeter -у](https://www.quality-assurance-group.com/jmeter-shpargalka-dlya-testuvalnikiv)
     * list videos
         * [JMeter уроки](https://www.youtube.com/watch?v=vxCZl27qPd8&list=PL55b2m_9SYspMgqtwdBcUR15wGb5Mq-Gy)

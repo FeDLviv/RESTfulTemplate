@@ -17,14 +17,19 @@ import java.net.URL;
 @Data
 public class PropertiesConfiguration {
 
+    @NotNull
     private Amazon amazon;
 
+    @NotNull
     private Token token;
 
+    @NotNull
     private Task task;
 
+    @NotNull
     private FCM fcm;
 
+    @NotNull
     private Interkassa interkassa;
 
     @Data
