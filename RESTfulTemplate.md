@@ -110,3 +110,15 @@ openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out KeyStore.p12 -n
 ```sh
 java -Dserver.port=443 -Dmanagement.server.port=-1 -Dserver.ssl.key-store={PATH} -Dserver.ssl.key-store-password={PASSWORD} -Dserver.ssl.key-store-type={TYPE} -Dserver.ssl.key-alias={ALIAS} -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```
+
+* Build Docker image (example):
+
+```sh
+docker build -f Dockerfile -t rest-ful-template .
+```
+
+* Run Docker container (example):
+
+```sh
+docker run -p 9000:8080 --name api rest-ful-template
+```
