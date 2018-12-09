@@ -23,11 +23,14 @@ public class RemoteIpArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         HttpServletRequest request = (HttpServletRequest) webRequest.getNativeRequest();
-        String ip = request.getHeader(HttpHeaders.X_FORWARDED_FOR);
-        if (ip == null || ip.trim().length() == 0 || !InetAddressValidator.getInstance().isValid(ip)) {
-            ip = request.getRemoteAddr();
+        String data = request.getHeader(HttpHeaders.X_FORWARDED_FOR);
+        if (data == null || data.trim().length() == 0) {
+            return request.getRemoteAddr();
+        } else if (InetAddressValidator.getInstance().isValid(data.split(",")[0])) {
+            return data.split(",")[0];
+        } else {
+            return request.getRemoteAddr();
         }
-        return ip;
     }
 
 }
