@@ -12,6 +12,8 @@
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [Gradle](https://gradle.org/)/[Maven](https://maven.apache.org/)
 * [GitLab](https://gitlab.com/)/[GitHub](https://github.com/)
+* [Docker](https://www.docker.com)
+* [Nginx](http://nginx.org)/[Apache HTTP Server](https://httpd.apache.org)/[Apache Tomcat](http://tomcat.apache.org)
 
 ***
 
@@ -115,14 +117,18 @@
 	* blogs
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* posts
+	    * [Шпаргалки Java программиста 9: Java SE — Шпаргалка для собеседований и повторений](https://habr.com/post/314386)
+	    * [Шпаргалка Java программиста 3. Коллекции в Java (стандартные, guava, apache, trove, gs-collections и другие)](https://habr.com/company/luxoft/blog/256877)
 	    * [Советы по оптимизации кода на Java: как не наступать на грабли](https://habr.com/company/piter/blog/358898)
 	    * [Как использовать BigDecimal в Java](http://dmilvdv.narod.ru/Translate/MISC/how_to_use_java_bigdecimal.html)
+	    * [Разработка Java приложений](http://it-simulator.com/#/article/1/3)
 	    * [Java Money and the Currency API](https://www.baeldung.com/java-money-and-currency)
 	    * [Introduction to the Java 8 Date/Time API](https://www.baeldung.com/java-8-date-time-intro)
 	    * [Java и время: часть первая](https://habr.com/post/274811)
 	    * [Java и время: часть вторая](https://habr.com/post/274905)
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
 	    * [Шпаргалка Java программиста 4. Java Stream API](https://habr.com/company/luxoft/blog/270383)
+	    * [Шпаргалка Java программиста 8. Библиотеки для работы с Json (Gson, Fastjson, LoganSquare, Jackson, JsonPath и другие)](https://habr.com/company/luxoft/blog/280782)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
 	* videos
@@ -133,6 +139,7 @@
         * [IntelliJ IDEA default keymap](https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf)
     * videos
         * [Антон Архипов — Эффективная работа с IDE(A)](https://www.youtube.com/watch?v=_rj7dx6c5R8)
+        * [Горячие клавиши в Intellij IDEA [видео от учеников JavaRush]](https://www.youtube.com/watch?v=vQksLDvacTo)
 		
 * **Gradle**
     * posts
@@ -140,6 +147,7 @@
         * [Переход с Maven на Gradle](http://it-simulator.com/#/articlefull/145)
         * [Gradle: управляя зависимостями](https://habr.com/company/redmadrobot/blog/275515)
         * [Heroku Gradle Plugin](https://github.com/heroku/heroku-gradle)
+        * [Gradle 5.0 — что нового](https://habr.com/company/haulmont/blog/432024)
 	* videos
 		* [Евгений Борисов — Power of Gradle](https://www.youtube.com/watch?v=NZJTYPLb0iE)
 
@@ -151,6 +159,15 @@
     * list videos
         * [Базовый курс по Git](https://www.youtube.com/watch?v=en6gms6e54Q&list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR)
 
+* **Docker**
+    * posts
+        * [Установка и использование Docker в Ubuntu 18.04](https://www.8host.com/blog/ustanovka-i-ispolzovanie-docker-v-ubuntu-18-04)
+        * [Полное практическое руководство по Docker: с нуля до кластера на AWS](https://habr.com/post/310460)
+        * [Dockerizing a Spring Boot Application](https://www.baeldung.com/dockerizing-spring-boot-application)
+    * videos
+		* [Dmytro Naumenko "First steps with Docker" [Workshop]](https://www.youtube.com/watch?time_continue=1010&v=EaxY9mbQYVY)
+		* [How to create Docker Image and run Java App (Spring Boot Jar) in a Docker Engine | Tech Primers](https://www.youtube.com/watch?v=FlSup_eelYE) 
+   
 * **Spring Boot**
 	* books
 		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/pdf/spring-boot-reference.pdf) (Spring Boot)
@@ -176,9 +193,13 @@
     	* [EasyJava](https://easyjava.ru)
     	* [Блог Анатолия Корсакова](https://akorsa.ru)
     	* [Блог про програмування](http://wp-blog.pp.ua)
+    	* [Vlad Mihalcea High-Performance Java Persistence and Hibernate](https://vladmihalcea.com)
 	* posts
+	    * [Собеседование по Java EE — Spring Framework (вопросы и ответы). Часть 1](http://javastudy.ru/interview/jee-spring-questions-answers)
+	    * [Собеседование по Java EE — Spring Framework (вопросы и ответы). Часть 2](http://javastudy.ru/interview/jee-spring-questions-answers-2)
+	    * [Spring изнутри. Этапы инициализации контекста](https://habr.com/post/222579)
 	    * [Learn Spring Boot](http://www.baeldung.com/spring-boot)
-	    * [Spring Boot Tutorial – Bootstrap a Simple Application](http://www.baeldung.com/spring-boot-start)
+        * [Spring Boot Tutorial – Bootstrap a Simple Application](http://www.baeldung.com/spring-boot-start)
 	    * *Web*
 	        * [Как писать на Spring в 2017](https://habrahabr.ru/post/333756)
         	* [Обратная сторона Spring](https://habrahabr.ru/post/334448)
@@ -208,6 +229,7 @@
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [A Guide to SqlResultSetMapping](https://www.baeldung.com/jpa-sql-resultset-mapping)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
+            * [Блокировки в JPA](https://easyjava.ru/data/jpa/blokirovki-v-jpa)
             * [Spring AOP. Маленький вопросик с собеседования](https://habr.com/post/347752/)
             * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
 	    * *Security*
@@ -270,6 +292,7 @@
         * [Вышла первая стабильная версия серии MySQL 8](https://sqlinfo.ru/news/info/106.html)
     * videos
         * [Что нового в MySQL 8.0? / Дмитрий Ленев (Oracle)](https://www.youtube.com/watch?v=IgQi4BpNgRQ)
+        * [9. Базы данных. MySQL и сравнение с PostgreSQL | Технострим](https://www.youtube.com/watch?v=mkI2q6twyc0)
 
 * **PostgreSQL**
     * posts
