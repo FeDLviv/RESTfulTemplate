@@ -13,6 +13,7 @@
 * [Gradle](https://gradle.org/)/[Maven](https://maven.apache.org/)
 * [GitLab](https://gitlab.com/)/[GitHub](https://github.com/)
 * [Docker](https://www.docker.com)
+* [Jenkins](https://jenkins.io)
 * [Nginx](http://nginx.org)/[Apache HTTP Server](https://httpd.apache.org)/[Apache Tomcat](http://tomcat.apache.org)
 
 ***
@@ -169,7 +170,11 @@
     * videos
 		* [Dmytro Naumenko "First steps with Docker" [Workshop]](https://www.youtube.com/watch?time_continue=1010&v=EaxY9mbQYVY)
 		* [How to create Docker Image and run Java App (Spring Boot Jar) in a Docker Engine | Tech Primers](https://www.youtube.com/watch?v=FlSup_eelYE) 
-   
+ 
+ * **Jenkins**
+     * list videos
+         * [Jenkins Bootcamp: Полностью автоматизируем сборку - Видеоуроки](https://coursehunters.net/course/jenkins-bootcamp-polnostyu-avtomatiziruem-sborku)
+ 
 * **Spring Boot**
 	* books
 		* [Reference Guide](https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/pdf/spring-boot-reference.pdf) (Spring Boot)
