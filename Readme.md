@@ -234,6 +234,11 @@
             * [Блокировки в JPA](https://easyjava.ru/data/jpa/blokirovki-v-jpa)
             * [Spring AOP. Маленький вопросик с собеседования](https://habr.com/post/347752/)
             * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
+            * [Spring Boot communications link failure with MySQL and Hibernate](http://blog.netgloo.com/2015/07/09/spring-boot-communications-link-failure-with-mysql-and-hibernate)
+            * [9 High-Performance Tips when using MySQL with JPA and Hibernate](https://vladmihalcea.com/9-high-performance-tips-when-using-mysql-with-jpa-and-hibernate)
+            * [Hibernate Inheritance Mapping](https://www.baeldung.com/hibernate-inheritance)
+            * [Handling entities inheritance with Spring Data JPA](http://blog.netgloo.com/2014/12/18/handling-entities-inheritance-with-spring-data-jpa)
+            * [The best way to use entity inheritance with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-use-entity-inheritance-with-jpa-and-hibernate)
 	    * *Security*
     	    * [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
             * [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
