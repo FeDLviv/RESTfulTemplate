@@ -1,4 +1,4 @@
-package net.omisoft.rest.converter.base;
+package net.omisoft.rest.mapper.base;
 
 import org.mapstruct.MapperConfig;
 import org.mapstruct.ReportingPolicy;
@@ -10,4 +10,3 @@ import org.mapstruct.ReportingPolicy;
 )
 public interface BaseMapper {
 }
-

@@ -1,7 +1,7 @@
-package net.omisoft.rest.converter;
+package net.omisoft.rest.mapper;
 
-import net.omisoft.rest.converter.base.BaseMapper;
 import net.omisoft.rest.dto.fcm.FCMTokenCreateDto;
+import net.omisoft.rest.mapper.base.BaseMapper;
 import net.omisoft.rest.model.FCMTokenEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -1,8 +1,8 @@
 package net.omisoft.rest.service.push;
 
 import lombok.AllArgsConstructor;
-import net.omisoft.rest.converter.FCMTokenMapper;
 import net.omisoft.rest.dto.fcm.FCMTokenCreateDto;
+import net.omisoft.rest.mapper.FCMTokenMapper;
 import net.omisoft.rest.model.FCMTokenEntity;
 import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.model.base.OS;
