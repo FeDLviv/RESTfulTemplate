@@ -28,6 +28,7 @@
 	* [Actuator](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator)
     * [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
     * [Spring Boot Configuration Processor](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor)
+    * [WebSocket](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket)
     * [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 
@@ -78,6 +79,7 @@
 * [LiqPay](https://www.liqpay.ua)
 * [IP Geolocation API](http://ip-api.com/docs)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
+* [Gradle plugin Git properties](https://github.com/n0mer/gradle-git-properties)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
 * [Twilio](https://www.twilio.com)
 * [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
@@ -389,6 +391,13 @@
 * **LiqPay**
     * books
         * [Docs](https://www.liqpay.ua/ru/doc)
+        
+* **Spring Boot Admin**
+    * posts
+        * [A Guide to Spring Boot Admin](https://www.baeldung.com/spring-boot-admin)
+        * [Spring Boot Admin Tutorial](https://www.vojtechruzicka.com/spring-boot-admin/)
+    * videos
+        * [Spring Boot® Admin - Monitoring and Configuring Spring Boot Applications at Runtime](https://www.youtube.com/watch?v=PWd9Q8_4OFo&list=PLD9VybHH2wnZXa0uunc8GjFwcdZI1-2tW&via=tb)
 
 * **Twilio**
     * books
