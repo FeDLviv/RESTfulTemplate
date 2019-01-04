@@ -294,6 +294,7 @@
 		* [Spring Boot EhCache cache example](https://www.youtube.com/watch?v=qu_wQNFxJxw)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
 		* [Spring Boot REST: подключаем WebSocket (SockJS + Stomp)](https://www.youtube.com/watch?v=TtcCbDddhrI&t=0s&list=WL&index=8) (Spring Boot WebSocket)
+		* [Николай Алименков — Нужен ли нам JMS в мире современных Java-технологий?](https://www.youtube.com/watch?v=ExjPxDxkmFo) (JMS)
 
 * **MySQL**
     * posts
