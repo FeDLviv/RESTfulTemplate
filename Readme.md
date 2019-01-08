@@ -29,6 +29,7 @@
 	* [Actuator](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator)
     * [Thymeleaf](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf)
     * [Spring Boot Configuration Processor](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor)
+    * [HATEOAS](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas)
     * [WebSocket](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket)
     * [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
@@ -259,9 +260,11 @@
         	* [Мониторинг приложения с помощью Spring Boot Actuator](https://o7planning.org/ru/11757/monitoring-application-with-spring-boot-actuator)
             * [Actuator in Spring boot 2.0](https://aboullaite.me/actuator-in-spring-boot-2-0)
 	    * *Thymeleaf*
-	        * [Учебник: Использование Thymeleaf](https://habr.com/post/350862)     
+	        * [Учебник: Использование Thymeleaf](https://habr.com/post/350862)
+	    * *HATEOAS*
+   	        * [An Intro to Spring HATEOAS](https://www.baeldung.com/spring-hateoas-tutorial)     
 	    * *Retry*
-	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)   
+	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)       
         * *Custom Starter*        	
             * [Creating a Custom Starter with Spring Boot](https://www.youtube.com/watch?v=mi0GfmTv2wg)
 	    * *Scheduled Tasks*
