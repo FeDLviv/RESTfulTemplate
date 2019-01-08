@@ -53,7 +53,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void findByEmail() {
+    public void findByEmailIgnoreCase() {
         //test
         UserEntity user = repository.findByEmailIgnoreCase(EMAIL_EXISTS).get();
         //validate
@@ -96,6 +96,42 @@ public class UserRepositoryTest {
         assertThat(encoder.matches(WRONG_PASSWORD, entity.getPassword()))
                 .isEqualTo(true);
 
+    }
+
+    @Test
+    public void existsByEmailIgnoreCaseIfEmailNull() {
+        //test
+        boolean result = repository.existsByEmailIgnoreCase(null);
+        //validate
+        assertThat(result)
+                .isFalse();
+    }
+
+    @Test
+    public void existsByEmailIgnoreCaseIfEmailNotExists() {
+        //test
+        boolean result = repository.existsByEmailIgnoreCase(BaseTestIT.EMAIL_NOT_EXISTS);
+        //validate
+        assertThat(result)
+                .isFalse();
+    }
+
+    @Test
+    public void existsByEmailIgnoreCaseIfEmailToUpperCase() {
+        //test
+        boolean result = repository.existsByEmailIgnoreCase(EMAIL_EXISTS.toUpperCase());
+        //validate
+        assertThat(result)
+                .isTrue();
+    }
+
+    @Test
+    public void existsByEmailIgnoreCase() {
+        //test
+        boolean result = repository.existsByEmailIgnoreCase(EMAIL_EXISTS);
+        //validate
+        assertThat(result)
+                .isTrue();
     }
 
 }
