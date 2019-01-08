@@ -1,15 +1,21 @@
 package net.omisoft.rest.configuration;
 
+import com.fasterxml.classmate.TypeResolver;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
+import org.springframework.hateoas.Link;
+import org.springframework.http.HttpMethod;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.AlternateTypeRules;
 import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -22,7 +28,6 @@ import springfox.documentation.swagger.web.UiConfigurationBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static net.omisoft.rest.ApplicationConstants.*;
@@ -42,6 +47,7 @@ public class SwaggerConfiguration {
     };
 
     private final Environment environment;
+    private final TypeResolver typeResolver;
 
     @Bean
     public Docket docket() {
@@ -53,7 +59,11 @@ public class SwaggerConfiguration {
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .alternateTypeRules(
+                        AlternateTypeRules.newRule(typeResolver.resolve(List.class, Link.class),
+                                typeResolver.resolve(Map.class, String.class, LinkAlternative.class))
+                );
     }
 
     @Bean
@@ -70,7 +80,7 @@ public class SwaggerConfiguration {
                 environment.getProperty("info.app.name") + " API Documentation",
                 "Spring Boot RESTful API for " + environment.getProperty("info.app.name") +
                         "\n\n**Access:**\n" +
-                        Arrays.stream(AUTH_ICON).collect(Collectors.joining("\n")),
+                        String.join("\n", AUTH_ICON),
                 environment.getProperty("info.app.version"),
                 "",
                 new Contact("OmiSoft", "http://www.omisoft.net", "omisoftnet@gmail.com"),
@@ -103,6 +113,17 @@ public class SwaggerConfiguration {
         );
 
         return parameters;
+    }
+
+    @Data
+    private class LinkAlternative {
+
+        @ApiModelProperty(notes = "Hyper reference", value = "http://example/api/v1/users", example = "http://example/api/v1/users", required = true, position = 0)
+        private String href;
+
+        @ApiModelProperty(notes = "HTTP Method", value = "POST", example = "POST", required = true, position = 1)
+        private HttpMethod type;
+
     }
 
 }
