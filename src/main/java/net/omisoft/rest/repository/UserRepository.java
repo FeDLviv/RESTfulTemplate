@@ -14,6 +14,8 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     Optional<UserEntity> findByEmailIgnoreCase(String email);
 
+    boolean existsByEmailIgnoreCase(String email);
+
     @Modifying
     @Query("UPDATE UserEntity u SET u.password = :#{#user.password} WHERE u.id = :#{#user.id}")
     int updatePassword(@Param("user") UserEntity user);
