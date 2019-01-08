@@ -28,7 +28,7 @@ public class RequestLoggingFilterConfiguration {
 
     @Bean
     public FilterRegistrationBean loggingFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean(loggingFilter());
+        FilterRegistrationBean registration = new FilterRegistrationBean<>(loggingFilter());
         registration.addUrlPatterns(API_V1_BASE_PATH + "*");
         return registration;
     }

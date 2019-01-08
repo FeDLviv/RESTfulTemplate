@@ -61,7 +61,7 @@ public class InterkassaServiceImpl implements InterkassaService {
 
     @Override
     public boolean checkDigitalSignature(Map<String, String> data) throws NoSuchAlgorithmException {
-        SortedMap<String, String> map = new TreeMap(data);
+        SortedMap<String, String> map = new TreeMap<>(data);
         map.remove("ik_sign");
         String result = map.values().stream().collect(Collectors.joining(":"));
         String key = propertiesConfiguration.getInterkassa().getTestKey().equals("-1") ? propertiesConfiguration.getInterkassa().getKey() : propertiesConfiguration.getInterkassa().getTestKey();
