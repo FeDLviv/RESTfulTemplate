@@ -7,6 +7,8 @@ import org.springframework.cache.annotation.CacheEvict;
 
 public interface UserService {
 
+    UserEntity create(UserEntity data);
+
     @CacheEvict(value = "tokens", allEntries = true)
     void deleteById(long idUser, UserEntity currentUser);
 

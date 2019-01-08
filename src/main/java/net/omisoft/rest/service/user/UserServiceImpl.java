@@ -30,6 +30,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    public UserEntity create(UserEntity data) {
+        if (userRepository.existsByEmailIgnoreCase(data.getEmail())) {
+            throw new BadRequestException(message.getMessage("exception.email.exists"));
+        }
+        return userRepository.save(data);
+
+    }
+
+    @Override
+    @Transactional
     public void deleteById(long idUser, UserEntity currentUser) {
         if (idUser == currentUser.getId() || currentUser.getRole().equals(UserRole.ROLE_ADMIN)) {
             try {
