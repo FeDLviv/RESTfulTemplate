@@ -150,10 +150,14 @@
 * **Gradle**
     * posts
         * [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle)
+        * [Introduction to Gradle](https://www.baeldung.com/gradle)
+        * [Writing Custom Gradle Plugins](https://www.baeldung.com/gradle-create-plugin)
+        * [Spring Boot Gradle Plugin](https://www.baeldung.com/spring-boot-gradle-plugin)
         * [Переход с Maven на Gradle](http://it-simulator.com/#/articlefull/145)
         * [Gradle: управляя зависимостями](https://habr.com/company/redmadrobot/blog/275515)
-        * [Heroku Gradle Plugin](https://github.com/heroku/heroku-gradle)
         * [Gradle 5.0 — что нового](https://habr.com/company/haulmont/blog/432024)
+        * [Gradle Download Task](https://github.com/michel-kraemer/gradle-download-task)
+        * [Heroku Gradle Plugin](https://github.com/heroku/heroku-gradle)
 	* videos
 		* [Евгений Борисов — Power of Gradle](https://www.youtube.com/watch?v=NZJTYPLb0iE)
 
@@ -299,6 +303,7 @@
 		* [Spring Boot EhCache cache example](https://www.youtube.com/watch?v=qu_wQNFxJxw)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
 		* [Spring Boot REST: подключаем WebSocket (SockJS + Stomp)](https://www.youtube.com/watch?v=TtcCbDddhrI&t=0s&list=WL&index=8) (Spring Boot WebSocket)
+		* [Владимир Цукур — Путь от CRUD к Hypermedia API с Spring](https://www.youtube.com/watch?v=G9apMqwRedA)
 		* [Николай Алименков — Нужен ли нам JMS в мире современных Java-технологий?](https://www.youtube.com/watch?v=ExjPxDxkmFo) (JMS)
 
 * **MySQL**
