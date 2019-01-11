@@ -111,6 +111,24 @@ openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out KeyStore.p12 -n
 java -Dserver.port=443 -Dmanagement.server.port=-1 -Dserver.ssl.key-store={PATH} -Dserver.ssl.key-store-password={PASSWORD} -Dserver.ssl.key-store-type={TYPE} -Dserver.ssl.key-alias={ALIAS} -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```
 
+* Modify application test plan (example):
+
+```sh
+./gradlew jmEdit
+```
+
+* Run performance test application (example):
+
+```sh
+./gradlew jmRun
+```
+
+* Open HTML report in browser (example):
+
+```sh
+./gradlew jmShow
+```
+
 * Build Docker image (example):
 
 ```sh
