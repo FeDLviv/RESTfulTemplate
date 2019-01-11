@@ -1,0 +1,173 @@
+import java.awt.*
+
+apply plugin: JMeterPlugin
+
+jmeterConfig {
+    pathJMeter = "${System.properties['user.home']}/apache-jmeter-5.0/bin/jmeter.sh"
+    pathJmx = project.projectDir.toString() + '/src/test/jmeter/local.jmx'
+    pathJtl = project.buildDir.toString() + '/jmeter/local.jtl'
+    pathReport = project.buildDir.toString() + '/jmeter/report'
+}
+
+class JMeterPluginExtension {
+    String pathJMeter = ""
+    String pathJmx = ""
+    String pathJtl = ""
+    String pathReport = ""
+}
+
+@SuppressWarnings("unused")
+class JMeterPlugin implements Plugin<Project> {
+
+    static final String TASK_GROUP = 'JMeter'
+
+    @Override
+    void apply(Project project) {
+
+        JMeterPluginExtension extension = project.getExtensions().create("jmeterConfig", JMeterPluginExtension.class)
+
+        project.getTasks().create("jmEdit", TaskEdit.class) {
+            group = TASK_GROUP
+            description = 'Open test plan'
+            project.afterEvaluate {
+                pathJMeter = "${extension.pathJMeter}"
+                pathJmx = "${extension.pathJmx}"
+            }
+        }
+
+        def taskRun = project.getTasks().create("jmRun", TaskRun.class) {
+            group = TASK_GROUP
+            description = 'Run test'
+            project.afterEvaluate {
+                pathJMeter = "${extension.pathJMeter}"
+                pathJmx = "${extension.pathJmx}"
+                pathJtl = "${extension.pathJtl}"
+                pathReport = "${extension.pathReport}"
+            }
+        }
+
+        project.getTasks().create("jmShowReport", TaskShowReport.class) {
+            group = TASK_GROUP
+            description = 'Open page with report'
+            project.afterEvaluate {
+                File file = new File("${extension.pathReport}", "/index.html")
+                if (!file.exists()) {
+                    dependsOn taskRun
+                }
+                pathReport = "${extension.pathReport}"
+            }
+
+        }
+    }
+
+}
+
+class TaskRun extends DefaultTask {
+
+    String pathJMeter
+    String pathJmx
+    String pathJtl
+    String pathReport
+
+    void check() {
+        File file = new File(pathJMeter)
+        if (!file.exists()) {
+            throw new InvalidUserDataException("JMeter file not exists")
+        }
+        file = new File(pathJmx)
+        if (!file.exists()) {
+            throw new InvalidUserDataException("File with test plan not exists")
+        }
+    }
+
+    void prepared() {
+        File file = new File(pathJtl)
+        if (file.exists()) {
+            file.delete()
+        }
+        File directory = new File(pathReport)
+        if (directory.exists()) {
+            deleteDirectory(directory)
+        } else {
+            if (directory.mkdirs()) {
+                println "Create " + directory.toString()
+            } else {
+                throw new InvalidUserDataException("Cannot create " + directory.toString())
+            }
+        }
+    }
+
+    boolean deleteDirectory(File directoryToBeDeleted) {
+        File[] allContents = directoryToBeDeleted.listFiles()
+        if (allContents != null) {
+            for (File file : allContents) {
+                deleteDirectory(file)
+            }
+        }
+        return directoryToBeDeleted.delete()
+    }
+
+    @SuppressWarnings("unused")
+    @TaskAction
+    void start() {
+        try {
+            check()
+            prepared()
+            project.exec {
+                ignoreExitValue = false
+                commandLine "${pathJMeter}", '-n', '-t', "${pathJmx}", "-l", "${pathJtl}", '-e', '-o', "${pathReport}"
+            }
+        } catch (Exception ex) {
+            throw new GradleException(ex.getLocalizedMessage())
+        }
+    }
+
+}
+
+class TaskEdit extends DefaultTask {
+
+    String pathJMeter
+    String pathJmx
+
+    void check() {
+        File file = new File(pathJMeter)
+        if (!file.exists()) {
+            throw new InvalidUserDataException("JMeter file not exists")
+        }
+        file = new File(pathJmx)
+        if (!file.exists()) {
+            throw new InvalidUserDataException("File with test plan not exists")
+        }
+    }
+
+    @SuppressWarnings("unused")
+    @TaskAction
+    void start() {
+        try {
+            check()
+            ProcessBuilder pb = new ProcessBuilder("${pathJMeter}", '-t', "${pathJmx}")
+            pb.start()
+        }
+        catch (Exception ex) {
+            throw new GradleException(ex.getLocalizedMessage())
+        }
+    }
+
+}
+
+class TaskShowReport extends DefaultTask {
+
+    String pathReport
+
+    @SuppressWarnings("unused")
+    @TaskAction
+    void start() {
+        try {
+            Desktop.desktop.browse "file:///${pathReport}/index.html".toURI()
+        }
+        catch (Exception ex) {
+            throw new GradleException(ex.getLocalizedMessage())
+        }
+    }
+
+}
