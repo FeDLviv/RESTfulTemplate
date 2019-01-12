@@ -3,10 +3,9 @@ package net.omisoft.rest.repository.payment;
 import net.omisoft.rest.model.PaymentEntity;
 import net.omisoft.rest.repository.BaseTestData;
 import net.omisoft.rest.repository.PaymentRepository;
+import org.apache.logging.log4j.util.Strings;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.NoSuchElementException;
 
 import static net.omisoft.rest.controller.BaseTestIT.PAYMENT_UUID_EXISTS;
 import static net.omisoft.rest.controller.BaseTestIT.PAYMENT_UUID_NOT_EXISTS;
@@ -17,22 +16,37 @@ public class FindByUuidTest extends BaseTestData {
     @Autowired
     private PaymentRepository repository;
 
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void findByUuidIfUuidNull() {
         //test
-        repository.findByUuid(null).get();
+        boolean result = repository.findByUuid(null).isPresent();
+        //validate
+        assertThat(result)
+                .isFalse();
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test
+    public void findByUuidIfUuidIsEmpty() {
+        //test
+        boolean result = repository.findByUuid(Strings.EMPTY).isPresent();
+        //validate
+        assertThat(result)
+                .isFalse();
+    }
+
+    @Test
     public void findByUuidIfUuidNotExists() {
         //test
-        repository.findByUuid(PAYMENT_UUID_NOT_EXISTS).get();
+        boolean result = repository.findByUuid(PAYMENT_UUID_NOT_EXISTS).isPresent();
+        //validate
+        assertThat(result)
+                .isFalse();
     }
 
     @Test
     public void findByUuid() {
         //test
-        PaymentEntity payment = repository.findByUuid(PAYMENT_UUID_EXISTS).get();
+        PaymentEntity payment = repository.findByUuid(PAYMENT_UUID_EXISTS).orElseThrow(NullPointerException::new);
         //validate
         assertThat(payment)
                 .isNotNull();
