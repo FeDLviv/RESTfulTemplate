@@ -1,5 +1,6 @@
 package net.omisoft.rest.service.payment;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
@@ -7,6 +8,7 @@ import net.omisoft.rest.exception.ResourceNotFoundException;
 import net.omisoft.rest.model.PaymentEntity;
 import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.repository.PaymentRepository;
+import net.omisoft.rest.service.interkassa.InterkassaLog;
 import net.omisoft.rest.service.interkassa.InterkassaService;
 import net.omisoft.rest.service.interkassa.InterkassaState;
 import net.omisoft.rest.service.interkassa.InterkassaUrl;
@@ -14,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -23,6 +26,8 @@ import java.util.Map;
 @Service
 @AllArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
+
+    private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private final InterkassaService interkassaService;
     private final PaymentRepository paymentRepository;
@@ -57,7 +62,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     @Transactional
     public void updatePaymentState(String ip, String uuid, Map<String, String> data) {
-        if (Arrays.stream(InterkassaService.IP).anyMatch(ip::equals)) {
+        if (Arrays.asList(InterkassaService.IP).contains(ip)) {
             try {
                 if (!interkassaService.checkDigitalSignature(data)) {
                     throw new BadRequestException(message.getMessage("exception.payment.digital_signature"));
@@ -74,6 +79,11 @@ public class PaymentServiceImpl implements PaymentService {
                     throw new BadRequestException(message.getMessage("exception.payment.wrong_id_office"));
                 }
                 payment.setState(InterkassaState.valueOf(data.get("ik_inv_st")));
+                try {
+                    InterkassaLog log = MAPPER.readValue(MAPPER.writeValueAsString(data), InterkassaLog.class);
+                    payment.setResponse(log);
+                } catch (IOException e) {
+                }
                 paymentRepository.save(payment);
             } else {
                 throw new BadRequestException(message.getMessage("exception.payment.wrong_id"));
