@@ -1,6 +1,7 @@
 package net.omisoft.rest.exception.custom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonParseException;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
 import net.omisoft.rest.exception.PermissionException;
@@ -100,7 +101,7 @@ public class CustomExceptionHandler {
         String message = ex.getConstraintViolations().stream()
                 .map(x -> {
                     String property = x.getPropertyPath().toString();
-                    if (property.indexOf(".") != -1) {
+                    if (property.contains(".")) {
                         property = property.substring(property.indexOf(".") + 1);
                     }
                     return property + " - " + x.getMessage();
@@ -115,6 +116,14 @@ public class CustomExceptionHandler {
     })
     protected CustomMessage handleMaxUploadSizeException(MaxUploadSizeExceededException ex) {
         return new CustomMessage(message.getMessage("exception.max.upload.size", new Object[]{sizeMax}));
+    }
+
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({
+            JsonParseException.class,
+    })
+    protected CustomMessage handleJsonParseException(JsonParseException ex) {
+        return new CustomMessage(ex.getMessage());
     }
 
 }
