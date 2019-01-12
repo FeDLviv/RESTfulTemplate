@@ -14,6 +14,7 @@ public interface UserMapper {
             @Mapping(target = "role", expression = "java( net.omisoft.rest.model.base.UserRole.ROLE_CLIENT )"),
             @Mapping(target = "password", expression = "java( new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder().encode(data.getPassword()) )"),
             @Mapping(target = "id", ignore = true),
+            @Mapping(target = "payments", ignore = true),
             @Mapping(target = "created", ignore = true),
             @Mapping(target = "updated", ignore = true),
     })
