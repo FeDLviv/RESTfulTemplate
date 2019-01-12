@@ -3,6 +3,7 @@ package net.omisoft.rest.model;
 import lombok.*;
 import net.omisoft.rest.model.base.BaseEntity;
 import net.omisoft.rest.model.converter.MoneyConverter;
+import net.omisoft.rest.service.interkassa.InterkassaLog;
 import net.omisoft.rest.service.interkassa.InterkassaState;
 import net.omisoft.rest.service.interkassa.InterkassaUrl;
 import org.hibernate.annotations.ColumnTransformer;
@@ -44,6 +45,10 @@ public class PaymentEntity extends BaseEntity {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "state", nullable = true)
     private InterkassaState state;
+
+    @Column(name = "log", nullable = true)
+    @ColumnTransformer(forColumn = "log", write = "CAST(? AS jsonb)")
+    private InterkassaLog response;
 
     @NonNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
