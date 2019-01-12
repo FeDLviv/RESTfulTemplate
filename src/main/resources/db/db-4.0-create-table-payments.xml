@@ -6,6 +6,9 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <changeSet id="create_payments_table" author="Pyshnyi Fedir">
+        <sql dbms="h2">
+            CREATE DOMAIN JSONB AS VARCHAR
+        </sql>
         <createTable tableName="payments">
             <column name="id_payment" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
@@ -27,6 +30,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="state" type="VARCHAR(15)"/>
+            <column name="log" type="JSONB"/>
             <column name="created_date" type="TIMESTAMP" defaultValueDate="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
@@ -34,6 +38,13 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <sql dbms="postgresql, h2">
+            ALTER TABLE payments ADD CONSTRAINT payment_about_check CHECK (about = 'checkout' OR about = 'success' OR
+            about = 'fail' OR about = 'pending' OR about = 'interaction');
+            ALTER TABLE payments ADD CONSTRAINT payment_state_check CHECK (state = 'success' OR state = 'canceled' OR
+            state = 'expired' OR state = 'refund');
+        </sql>
+
     </changeSet>
 
 </databaseChangeLog>
