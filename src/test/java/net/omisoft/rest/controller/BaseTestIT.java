@@ -52,6 +52,7 @@ public abstract class BaseTestIT {
 
     private static final Locale LOCALE = new Locale("en", "UK");
     private static final Logger LOGGER = Logger.getLogger(BaseTestIT.class.getName());
+    private static final Random RANDOM = new Random();
 
     protected static final String URI = API_V1_BASE_PATH;
 
@@ -63,9 +64,9 @@ public abstract class BaseTestIT {
     public static final long USER_ID_ADMIN = 1;
     public static final long USER_ID_CLIENT = 2;
     public static final long USER_ID_NOT_EXISTS = 333;
-    public static final String PAYMENT_UUID_EXISTS = "f9da3f46e1b54544824008641ac55419";
-    public static final String PAYMENT_UUID_NOT_EXISTS = "n9da3f18e1b54544824008641ac55666";
-    public static final Random RANDOM = new Random();
+    public static final String PAYMENT_UUID_EXISTS = "cc17f52bf21f4d8392d7bc28936cd621";
+    public static final String PAYMENT_UUID_WITH_RESPONSE_BODY = "6414d12b1f144b45bc105fc5ef5d64bc";
+    public static final String PAYMENT_UUID_NOT_EXISTS = "3e3df2f4a6004ab6b2a73a933ba5e167";
 
     @TestConfiguration
     public static class BaseTestITContextConfiguration {
@@ -131,7 +132,7 @@ public abstract class BaseTestIT {
 
     protected void insertToken(String token, long idUser, Date expired) {
         LOGGER.info("START - INSERT JWT TOKEN TO DB");
-        UserEntity user = userRepository.findById(idUser).get();
+        UserEntity user = userRepository.findById(idUser).orElseThrow(NullPointerException::new);
         accessTokenRepository.save(new AccessTokenEntity(token, user, expired));
         LOGGER.info("STOP - INSERT JWT TOKEN TO DB");
     }
