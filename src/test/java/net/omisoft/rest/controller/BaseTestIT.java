@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import net.omisoft.rest.HibernateQueryCounterInterceptor;
 import net.omisoft.rest.SQLQueryCounter;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
+import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.model.AccessTokenEntity;
 import net.omisoft.rest.model.UserEntity;
 import net.omisoft.rest.repository.AccessTokenRepository;
@@ -89,6 +90,9 @@ public abstract class BaseTestIT {
 
     @Autowired
     protected MessageSourceConfiguration message;
+
+    @Autowired
+    protected PropertiesConfiguration propertiesConfiguration;
 
     @Autowired
     protected SQLQueryCounter sqlQueryCounter;
