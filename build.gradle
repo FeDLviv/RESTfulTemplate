@@ -13,6 +13,7 @@ buildscript {
 plugins {
     id "com.heroku.sdk.heroku-gradle" version "1.0.3"
     id "de.undercouch.download" version "3.4.3"
+    id "org.liquibase.gradle" version "2.0.1"
 }
 
 apply plugin: 'java'
@@ -147,4 +148,24 @@ project.tasks.jmRun.dependsOn(downloadAndUnzipFile)
 
 jmeterConfig {
     pathJMeter = buildDir.toString() + "/apache-jmeter-5.0/bin/jmeter.sh"
+}
+
+task postgres_db {
+    doLast {
+        liquibase {
+            activities {
+                main {
+                    changeLogFile "$projectDir/src/main/resources/db/changelog/db.changelog-master.xml"
+                    url 'jdbc:postgresql://localhost:5432/xxx?currentSchema=public'
+                    username 'postgres'
+                    password 'postgres'
+                }
+            }
+            dependencies {
+                liquibaseRuntime 'org.liquibase:liquibase-core:3.6.1'
+                liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.0.1'
+                liquibaseRuntime 'org.postgresql:postgresql'
+            }
+        }
+    }
 }
