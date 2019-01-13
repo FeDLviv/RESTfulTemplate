@@ -111,6 +111,12 @@ openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out KeyStore.p12 -n
 java -Dserver.port=443 -Dmanagement.server.port=-1 -Dserver.ssl.key-store={PATH} -Dserver.ssl.key-store-password={PASSWORD} -Dserver.ssl.key-store-type={TYPE} -Dserver.ssl.key-alias={ALIAS} -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```
 
+* Drop all tables (example - PostgreSQL):
+
+```sh
+./gradlew postgres_db dropAll
+```
+
 * Modify application test plan (example):
 
 ```sh
