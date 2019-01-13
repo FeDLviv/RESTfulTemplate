@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="insert_payments" author="Pyshnyi Fedir" context="!prod">
+        <loadData tableName="payments"
+                  file="../data/payments.csv"
+                  separator="," relativeToChangelogFile="true">
+            <column name="id_payment" type="NUMERIC"/>
+            <column name="id_user" type="NUMERIC"/>
+            <column name="uuid" type="STRING"/>
+            <column name="amount" type="NUMERIC"/>
+            <column name="currency" type="STRING"/>
+            <column name="about" type="STRING"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

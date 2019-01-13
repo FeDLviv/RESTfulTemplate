@@ -5,15 +5,16 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="insert_payments" author="Pyshnyi Fedir" context="!prod">
-        <loadData tableName="payments"
-                  file="db/data/payments.csv"
-                  separator=",">
+    <!--CHANGE ROLE -->
+
+    <changeSet id="insert_users" author="Pyshnyi Fedir" context="!prod">
+        <loadData tableName="users"
+                  file="../data/users.csv"
+                  separator="," relativeToChangelogFile="true">
             <column name="id_user" type="NUMERIC"/>
-            <column name="uuid" type="STRING"/>
-            <column name="amount" type="NUMERIC"/>
-            <column name="currency" type="STRING"/>
-            <column name="about" type="STRING"/>
+            <column name="email" type="STRING"/>
+            <column name="password" type="STRING"/>
+            <column name="role" type="STRING"/>
         </loadData>
     </changeSet>
 

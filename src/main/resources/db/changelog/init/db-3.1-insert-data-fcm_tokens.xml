@@ -7,8 +7,9 @@
 
     <changeSet id="insert_fcm_tokens" author="Pyshnyi Fedir" context="!prod">
         <loadData tableName="fcm_tokens"
-                  file="db/data/fcm_tokens.csv"
-                  separator=",">
+                  file="../data/fcm_tokens.csv"
+                  separator="," relativeToChangelogFile="true">
+            <column name="id_fcm_token" type="NUMERIC"/>
             <column name="token" type="STRING"/>
             <column name="device" type="STRING"/>
             <column name="device_os" type="STRING"/>

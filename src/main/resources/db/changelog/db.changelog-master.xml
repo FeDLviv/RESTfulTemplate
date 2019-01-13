@@ -14,14 +14,12 @@
             C-name of the table
     -->
 
-    <!-- IF TABLE EXISTS -->
-    <!--<include file="dev.postgresql-mysql-databasechangeloglock.xml" relativeToChangelogFile="true"/>-->
-    <include file="db/db-1.0-create-table-users.xml"/>
-    <include file="db/db-1.1-insert-data-users.xml"/>
-    <include file="db/db-2.0-create-table-access_tokens.xml"/>
-    <include file="db/db-3.0-create-table-fcm_tokens.xml"/>
-    <include file="db/db-3.1-insert-data-fcm_tokens.xml"/>
-    <include file="db/db-4.0-create-table-payments.xml"/>
-    <include file="db/db-4.1-insert-data-payments.xml"/>
+    <include file="init/db-1.0-create-table-users.xml" relativeToChangelogFile="true"/>
+    <include file="init/db-1.1-insert-data-users.xml" relativeToChangelogFile="true"/>
+    <include file="init/db-2.0-create-table-access_tokens.xml" relativeToChangelogFile="true"/>
+    <include file="init/db-3.0-create-table-fcm_tokens.xml" relativeToChangelogFile="true"/>
+    <include file="init/db-3.1-insert-data-fcm_tokens.xml" relativeToChangelogFile="true"/>
+    <include file="init/db-4.0-create-table-payments.xml" relativeToChangelogFile="true"/>
+    <include file="init/db-4.1-insert-data-payments.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

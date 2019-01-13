@@ -1,0 +1,3 @@
+id_user,email,password,role
+1,fed.lviv@gmail.com,$2a$10$1HIemVflscpZtPRT/qhZ7OEJtOXWt6XINAOIoR974MhZ.Y1ETdNNa,ROLE_ADMIN
+2,fed_lviv@mail.ru,$2a$10$1HIemVflscpZtPRT/qhZ7OEJtOXWt6XINAOIoR974MhZ.Y1ETdNNa,ROLE_CLIENT
