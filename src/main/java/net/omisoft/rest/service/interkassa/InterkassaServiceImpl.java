@@ -10,13 +10,10 @@ import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class InterkassaServiceImpl implements InterkassaService {
-
-    private static final String DEFAULT_EMAIL = "default@email.com";
 
     private final PropertiesConfiguration propertiesConfiguration;
 
@@ -52,7 +49,7 @@ public class InterkassaServiceImpl implements InterkassaService {
         map.put("ik_pnd_m", "post");
         map.put("ik_ia_u", ServletUriComponentsBuilder.fromCurrentRequestUri().toUriString() + "/" + InterkassaUrl.interaction + "/" + uuid);
         map.put("ik_ia_m", "post");
-        String result = map.values().stream().collect(Collectors.joining(":"));
+        String result = String.join(":", map.values());
         result += ":" + propertiesConfiguration.getInterkassa().getKey();
         byte[] digest = MessageDigest.getInstance("MD5").digest(result.getBytes());
         map.put("ik_sign", Base64.getEncoder().encodeToString(digest));
@@ -63,7 +60,7 @@ public class InterkassaServiceImpl implements InterkassaService {
     public boolean checkDigitalSignature(Map<String, String> data) throws NoSuchAlgorithmException {
         SortedMap<String, String> map = new TreeMap<>(data);
         map.remove("ik_sign");
-        String result = map.values().stream().collect(Collectors.joining(":"));
+        String result = String.join(":", map.values());
         String key = propertiesConfiguration.getInterkassa().getTestKey().equals("-1") ? propertiesConfiguration.getInterkassa().getKey() : propertiesConfiguration.getInterkassa().getTestKey();
         result += ":" + key;
         byte[] digest = MessageDigest.getInstance("MD5").digest(result.getBytes());

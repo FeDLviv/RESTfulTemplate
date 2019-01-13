@@ -9,6 +9,8 @@ public interface InterkassaService {
 
     String[] IP = {"151.80.190.97", "151.80.190.107", "35.233.69.55"};
 
+    String DEFAULT_EMAIL = "default@email.com";
+
     String getId();
 
     String getCurrencySymbol();
