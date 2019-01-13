@@ -156,6 +156,7 @@
         * [Переход с Maven на Gradle](http://it-simulator.com/#/articlefull/145)
         * [Gradle: управляя зависимостями](https://habr.com/company/redmadrobot/blog/275515)
         * [Gradle 5.0 — что нового](https://habr.com/company/haulmont/blog/432024)
+        * [Liquibase Gradle Plugin](https://github.com/liquibase/liquibase-gradle-plugin)
         * [Gradle Download Task](https://github.com/michel-kraemer/gradle-download-task)
         * [Heroku Gradle Plugin](https://github.com/heroku/heroku-gradle)
 	* videos
