@@ -9,6 +9,7 @@
 ## Technologies
 
 * [Java SE 8](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html)
+* [Kotlin](https://kotlinlang.org)
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [Gradle](https://gradle.org/)/[Maven](https://maven.apache.org/)
 * [GitLab](https://gitlab.com/)/[GitHub](https://github.com/)
@@ -82,6 +83,8 @@
 * [IP Geolocation API](http://ip-api.com/docs)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Gradle plugin Git properties](https://github.com/n0mer/gradle-git-properties)
+* [FFmpeg Java](https://github.com/bramp/ffmpeg-cli-wrapper)
+* [VAST](https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector?hl=uk)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
 * [Twilio](https://www.twilio.com)
 * [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
@@ -139,6 +142,15 @@
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
 	* videos
 	    * [Java 8 Stream API или краткость - сестра таланта [GeekBrains]](https://www.youtube.com/watch?v=gTdXjRif_yo)
+
+* **Kotlin**
+    * books
+        * Kotlin в действии
+        * [Руководство по языку Kotlin](https://kotlinlang.ru)
+    * blogs
+    	* [Kotlin](https://www.baeldung.com/category/kotlin)
+	* list videos
+		* [Базовый курс по Kotlin](https://www.youtube.com/playlist?list=PLIU76b8Cjem4ZOt3tlWykUX1AjL9zE19t)
 
 * **IntelliJ IDEA**
     * cheat sheet
