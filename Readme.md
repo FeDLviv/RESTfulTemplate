@@ -80,6 +80,7 @@
 * [Stripe](https://stripe.com)
 * [Interkassa](https://www.interkassa.com)
 * [LiqPay](https://www.liqpay.ua)
+* [ModelMapper](http://modelmapper.org)
 * [IP Geolocation API](http://ip-api.com/docs)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Gradle plugin Git properties](https://github.com/n0mer/gradle-git-properties)
@@ -99,6 +100,7 @@
         * [REST API Tutorial](https://restfulapi.net)
         * [Изучаем REST: Руководство по созданию RESTful сервиса](http://www.restapitutorial.ru)
         * [Шпаргалка по созданию RESTful API](https://noteskeeper.ru/1161)
+        * [RPC, Messaging, REST: Терминология](https://habr.com/ru/post/264181)
         * [How to Design a Localization-Ready System](http://www.vertabelo.com/blog/technical-articles/data-modeling-for-multiple-languages-how-to-design-a-localization-ready-system)
         * [Token-Based Authentication(JWT)](https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
         * [Простым языком об HTTP](https://habr.com/post/215117)
@@ -137,18 +139,30 @@
 	    * [Загубить производительность](https://habr.com/post/423305)
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
 	    * [Шпаргалка Java программиста 4. Java Stream API](https://habr.com/company/luxoft/blog/270383)
+	    * [Лямбда-выражения Java 8 — это замыкания?](https://habr.com/ru/company/piter/blog/281026)
 	    * [Шпаргалка Java программиста 8. Библиотеки для работы с Json (Gson, Fastjson, LoganSquare, Jackson, JsonPath и другие)](https://habr.com/company/luxoft/blog/280782)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
 	* videos
 	    * [Java 8 Stream API или краткость - сестра таланта [GeekBrains]](https://www.youtube.com/watch?v=gTdXjRif_yo)
+	    * [Шаблоны проектирования Java](https://www.youtube.com/watch?v=QSsDiWIzWcU&list=PLwcDaxeEINactCC4mly7RQon5juIpH-Q3)
 
 * **Kotlin**
     * books
         * Kotlin в действии
         * [Руководство по языку Kotlin](https://kotlinlang.ru)
+        * [Keywords and Operators](https://kotlinlang.org/docs/reference/keyword-reference.html)
     * blogs
     	* [Kotlin](https://www.baeldung.com/category/kotlin)
+    * posts
+        * [Guide to the Kotlin Exposed Framework](https://www.baeldung.com/kotlin-exposed-persistence)
+        * [KOTLIN THURSDAYS: INTRODUCTION TO TORNADOFX PART 1](https://medium.com/@hinchman_amanda/kotlin-tuesdays-introduction-to-tornadofx-part-1-34236eeb822a)
+        * [Spring Boot and Kotlin](https://www.baeldung.com/spring-boot-kotlin)
+        * [Послевкусие от Kotlin, часть 1](https://habr.com/ru/post/331280)
+        * [Почему Kotlin отстой](https://habr.com/ru/post/322256)
+    * videos
+        * [Светлана Исакова — Kotlin: что понимается под современным языком программирования](https://www.youtube.com/watch?v=IXFIUF_KW_o&t=514s)
+        * [KotlinConf 2017 - Kotlin Types: Exposed by Svetlana Isakova](https://www.youtube.com/watch?v=Uizh2WlJtnk) (Kotlin)    
 	* list videos
 		* [Базовый курс по Kotlin](https://www.youtube.com/playlist?list=PLIU76b8Cjem4ZOt3tlWykUX1AjL9zE19t)
 
@@ -264,6 +278,7 @@
             * [Hibernate Inheritance Mapping](https://www.baeldung.com/hibernate-inheritance)
             * [Handling entities inheritance with Spring Data JPA](http://blog.netgloo.com/2014/12/18/handling-entities-inheritance-with-spring-data-jpa)
             * [The best way to use entity inheritance with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-use-entity-inheritance-with-jpa-and-hibernate)
+            * [Best Performance Practices for Hibernate 5 and Spring Boot 2 (Part 1)](https://dzone.com/articles/50-best-performance-practices-for-hibernate-5-amp)
 	    * *Security*
     	    * [Краткий обзор Spring Security](https://habrahabr.ru/post/203318)
             * [Аутентификация с использованием Spring Security и JWT-токенов](https://habrahabr.ru/post/278411)
@@ -323,6 +338,7 @@
     * posts
         * [Как использовать SHOW PROFILE в MySQL?](https://ruhighload.com/%D0%9A%D0%B0%D0%BA+%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C+show+profile+%D0%B2+mysql%3F)
         * [EXPLAIN — Самая мощная команда MySQL](https://habr.com/post/31129)
+        * [Несколько заметок о MySQL](https://habr.com/ru/post/310954)
         * [Релиз JSON Labs: JSON-функции, Часть 1 — Обработка JSON-данных.](https://sqlinfo.ru/articles/info/20.html)
         * [Использование JSON в MySQL](https://phptoday.ru/post/ispolzovanie-json-v-mysql)
         * [Вышла первая стабильная версия серии MySQL 8](https://sqlinfo.ru/news/info/106.html)
@@ -425,7 +441,11 @@
 * **LiqPay**
     * books
         * [Docs](https://www.liqpay.ua/ru/doc)
-        
+
+* **ModelMapper**
+    * posts
+        * [ModelMapper: путешествие туда и обратно](https://habr.com/ru/post/438808)
+
 * **Spring Boot Admin**
     * posts
         * [A Guide to Spring Boot Admin](https://www.baeldung.com/spring-boot-admin)
