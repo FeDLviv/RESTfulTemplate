@@ -136,11 +136,13 @@
 	    * [Introduction to the Java 8 Date/Time API](https://www.baeldung.com/java-8-date-time-intro)
 	    * [Java и время: часть первая](https://habr.com/post/274811)
 	    * [Java и время: часть вторая](https://habr.com/post/274905)
+	    * [RxJava. Убираем магию](https://habr.com/ru/post/317928)
 	    * [Загубить производительность](https://habr.com/post/423305)
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
 	    * [Шпаргалка Java программиста 4. Java Stream API](https://habr.com/company/luxoft/blog/270383)
 	    * [Лямбда-выражения Java 8 — это замыкания?](https://habr.com/ru/company/piter/blog/281026)
 	    * [Шпаргалка Java программиста 8. Библиотеки для работы с Json (Gson, Fastjson, LoganSquare, Jackson, JsonPath и другие)](https://habr.com/company/luxoft/blog/280782)
+	    * [90 новых фич (и API) в JDK 11](https://habr.com/ru/post/424683)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
 	* videos
@@ -452,6 +454,7 @@
         * [Spring Boot Admin Tutorial](https://www.vojtechruzicka.com/spring-boot-admin/)
     * videos
         * [Spring Boot® Admin - Monitoring and Configuring Spring Boot Applications at Runtime](https://www.youtube.com/watch?v=PWd9Q8_4OFo&list=PLD9VybHH2wnZXa0uunc8GjFwcdZI1-2tW&via=tb)
+        * [Monitoring Spring Boot Applications with Spring Boot Admin by Johannes Edmeier @ Spring I/O 2018](https://www.youtube.com/watch?v=__zkypwjSMs&feature=youtu.be)
 
 * **Twilio**
     * books
