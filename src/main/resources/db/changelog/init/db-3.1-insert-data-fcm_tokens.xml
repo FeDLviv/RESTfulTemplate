@@ -15,6 +15,9 @@
             <column name="device_os" type="STRING"/>
             <column name="id_user" type="NUMERIC"/>
         </loadData>
+        <sql dbms="postgresql">
+            SELECT SETVAL('fcm_tokens_id_fcm_token_seq', (SELECT MAX(id_fcm_token) FROM fcm_tokens));
+        </sql>
     </changeSet>
 
 </databaseChangeLog>

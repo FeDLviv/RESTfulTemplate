@@ -16,6 +16,9 @@
             <column name="password" type="STRING"/>
             <column name="role" type="STRING"/>
         </loadData>
+        <sql dbms="postgresql">
+            SELECT SETVAL('users_id_user_seq', (SELECT MAX(id_user) FROM users));
+        </sql>
     </changeSet>
 
 </databaseChangeLog>
