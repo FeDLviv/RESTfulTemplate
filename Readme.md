@@ -84,6 +84,7 @@
 * [IP Geolocation API](http://ip-api.com/docs)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Gradle plugin Git properties](https://github.com/n0mer/gradle-git-properties)
+* [JHipster](https://www.jhipster.tech)
 * [FFmpeg Java](https://github.com/bramp/ffmpeg-cli-wrapper)
 * [VAST](https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector?hl=uk)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
@@ -455,6 +456,21 @@
     * videos
         * [Spring Boot® Admin - Monitoring and Configuring Spring Boot Applications at Runtime](https://www.youtube.com/watch?v=PWd9Q8_4OFo&list=PLD9VybHH2wnZXa0uunc8GjFwcdZI1-2tW&via=tb)
         * [Monitoring Spring Boot Applications with Spring Boot Admin by Johannes Edmeier @ Spring I/O 2018](https://www.youtube.com/watch?v=__zkypwjSMs&feature=youtu.be)
+    
+* **JHipster**
+    * books
+        * [The JHipster Mini-Book](https://www.infoq.com/minibooks/jhipster-mini-book-5)
+    * posts
+        * [Welcome to JHipster Online](https://start.jhipster.tech/#/)
+        * [JDL Studio](https://start.jhipster.tech/jdl-studio/)
+        * [The JHipster Registry](https://www.jhipster.tech/jhipster-registry/)
+        * [Создать приложение Spring Boot с помощью jHipster в Mac OS](https://riptutorial.com/ru/spring-boot/example/21756/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-spring-boot-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-jhipster-%D0%B2-mac-os)
+        * [Marketplace](https://www.jhipster.tech/modules/marketplace/#/list)
+        * [generator-jhipster-primeng-charts](https://www.npmjs.com/package/generator-jhipster-primeng-charts)
+    * videos
+        * [Get Started with JHipster 5](https://www.youtube.com/watch?time_continue=61&v=-VQ_SVkaXbs)
+        * [JHipster - волшебный пендель вашему проекту – Николай Ищенко](https://www.youtube.com/watch?v=LnWvwDTf_5I)
+        * [Создаем web-приложение с помощью JHipster — за несколько консольных команд](https://www.youtube.com/watch?v=I5bgy2z2nIE)
 
 * **Twilio**
     * books
