@@ -12,7 +12,7 @@
 * [Kotlin](https://kotlinlang.org)
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [Gradle](https://gradle.org/)/[Maven](https://maven.apache.org/)
-* [GitLab](https://gitlab.com/)/[GitHub](https://github.com/)
+* [GitLab](https://gitlab.com/)/[GitHub](https://github.com/)/[Bitbucket](https://bitbucket.org)
 * [Docker](https://www.docker.com)
 * [Jenkins](https://jenkins.io)
 * [Nginx](http://nginx.org)/[Apache HTTP Server](https://httpd.apache.org)/[Apache Tomcat](http://tomcat.apache.org)
@@ -139,6 +139,7 @@
 	    * [Java и время: часть вторая](https://habr.com/post/274905)
 	    * [RxJava. Убираем магию](https://habr.com/ru/post/317928)
 	    * [Загубить производительность](https://habr.com/post/423305)
+	    * [How to control Java heap size (memory) allocation (xmx, xms)](https://alvinalexander.com/blog/post/java/java-xmx-xms-memory-heap-size-control)
 	    * [Полное руководство по Java 8 Stream API в картинках и примерах](https://annimon.com/article/2778#top)
 	    * [Шпаргалка Java программиста 4. Java Stream API](https://habr.com/company/luxoft/blog/270383)
 	    * [Лямбда-выражения Java 8 — это замыкания?](https://habr.com/ru/company/piter/blog/281026)
@@ -146,9 +147,11 @@
 	    * [90 новых фич (и API) в JDK 11](https://habr.com/ru/post/424683)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
+		* [Java 8 Tactics](https://www.youtube.com/watch?v=G-FnwHrAVwE&list=PLjXUjSTUHs0Qq8-ml-MzfldcudrQBtW_V)
 	* videos
 	    * [Java 8 Stream API или краткость - сестра таланта [GeekBrains]](https://www.youtube.com/watch?v=gTdXjRif_yo)
 	    * [Шаблоны проектирования Java](https://www.youtube.com/watch?v=QSsDiWIzWcU&list=PLwcDaxeEINactCC4mly7RQon5juIpH-Q3)
+	    * [Уменьшение расхода оперативной памяти в Java приложениях](https://www.youtube.com/watch?list=PLYj3Bx1JM6Y6GnD37EKDM_rWRpBivBf6z&v=8kRFHqM35WQ)
 
 * **Kotlin**
     * books
@@ -313,6 +316,11 @@
 	    * *Content*
 	        * [Spring Content](https://paulcwarren.github.io/spring-content)
 	* list videos
+	    * [REST With Spring](https://www.youtube.com/watch?v=2Mz3V-faNFo&list=PLjXUjSTUHs0QaXI9xrioHpvsJ9Hs_r0_0)
+	    * [Spring App Tactics](https://www.youtube.com/watch?v=YyE8fyYJsbE&list=PLjXUjSTUHs0SBkPlUEnkXcDqQKlyUOyAS)
+	    * [Learn Spring Security](https://www.youtube.com/watch?v=hs1Ypa12iSI&list=PLjXUjSTUHs0SjCsFDcWI8Sq06Cknk1vkk)
+	    * [Jackson Serialization and Deserialization](https://www.youtube.com/watch?v=5dnJusuGbIY&list=PLjXUjSTUHs0TQl-W-B5u-d6acs23Y-1te)
+	    * [Performance and Monitoring for a Spring Boot 2 Application](https://www.youtube.com/watch?v=CWPyBXNAo_o&list=PLjXUjSTUHs0QM2C81zBW4JXXb-db8XjF1)
 		* [Spring на практике](https://www.youtube.com/playlist?list=PLaWfw53gNyzaDTEmrlCCj1jjqr6770Nnp) (Spring Boot)
 		* [Spring Boot 2](https://www.youtube.com/watch?v=jH17YkBTpI4&list=PLU2ftbIeotGpAYRP9Iv2KLIwK36-o_qYk) (Spring Boot)
 		* [Spring Boot Tutorial(All In One)](https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0) (Spring Boot)
