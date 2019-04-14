@@ -1,51 +1,15 @@
 # API
 
-* Compile application (example):
-
-```sh
-./gradlew build
-```
-
-* Testing application (example):
-
-```sh
-./gradlew test
-```
-
-* Compile application without test (example):
-
-```sh
-./gradlew build -x test
-```
-
-* Deploying applications to Heroku (example):
-
-```sh
-./gradlew build deployHeroku
-```
-*Parameters:*
-```sh
---app=rest-xxx
--Dserver.port=$PORT 
--Dspring.profiles.active=dev
-```
-
-* Run application - executable jar file (example):
-
-```sh
-./RESTfulTemplate-0.0.1-SNAPSHOT.jar &
-```
-
 * Run application (example):
 
 ```sh
 java -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```
 
-* Run application from gradle (example):
+* Run application - executable jar file (example):
 
 ```sh
-./gradlew bootRun
+./RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```
 
 * Find the PID of the process using a specific port (example, port - 8080):
@@ -74,6 +38,77 @@ kill {PID}
 * Read documentation (example):
 
     * http://localhost:8080/swagger-ui.html
+
+## Gradle
+
+* Compile application (example):
+
+```sh
+./gradlew build
+```
+
+* Testing application (example):
+
+```sh
+./gradlew test
+```
+
+* Compile application without test (example):
+
+```sh
+./gradlew build -x test
+```
+
+* Run application from gradle (example):
+
+```sh
+./gradlew bootRun
+```
+
+#### Liquibase
+
+* Drop all tables (example - PostgreSQL):
+
+```sh
+./gradlew postgres_db dropAll
+```
+
+#### JMeter
+
+* Modify application test plan (example):
+
+```sh
+./gradlew jmEdit
+```
+
+* Run performance test application (example):
+
+```sh
+./gradlew jmRun
+```
+
+* Open HTML report in browser (example):
+
+```sh
+./gradlew jmShow
+```
+
+#### Heroku
+
+*Parameters:*
+```sh
+--app=rest-xxx
+-Dserver.port=$PORT 
+-Dspring.profiles.active=dev
+```
+
+* Deploying applications to Heroku (example):
+
+```sh
+./gradlew build deployHeroku
+```
+    
+## SSL
     
 * Generate a self-signed SSL certificate (example, JKS - proprietary format specific for Java):
 
@@ -111,38 +146,22 @@ openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out KeyStore.p12 -n
 java -Dserver.port=443 -Dmanagement.server.port=-1 -Dserver.ssl.key-store={PATH} -Dserver.ssl.key-store-password={PASSWORD} -Dserver.ssl.key-store-type={TYPE} -Dserver.ssl.key-alias={ALIAS} -jar RESTfulTemplate-0.0.1-SNAPSHOT.jar &
 ```
 
-* Drop all tables (example - PostgreSQL):
-
-```sh
-./gradlew postgres_db dropAll
-```
-
-* Modify application test plan (example):
-
-```sh
-./gradlew jmEdit
-```
-
-* Run performance test application (example):
-
-```sh
-./gradlew jmRun
-```
-
-* Open HTML report in browser (example):
-
-```sh
-./gradlew jmShow
-```
+## Docker
 
 * Build Docker image (example):
 
 ```sh
-docker build -f Dockerfile -t rest-ful-template .
+docker build -t omisoft/rest-ful-template .
 ```
 
 * Run Docker container (example):
 
 ```sh
-docker run -p 9000:8080 --name api rest-ful-template
+docker run -p 9000:8080 --name rest omisoft/rest-ful-template
+```
+
+* Build and run app with Compose
+
+```sh
+docker-compose up -d
 ```

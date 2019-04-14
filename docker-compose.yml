@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  api:
+    build: .
+    container_name: 'rest'
+    environment:
+      - 'spring.profiles.active=local'
+    ports:
+      - '9000:8080'
