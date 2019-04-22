@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  minio:
+    image: minio/minio
+    container_name: omisoft-minio
+    ports:
+      - '9000:9000'
+    environment:
+      MINIO_ACCESS_KEY: admin
+      MINIO_SECRET_KEY: admin123
+      MINIO_REGION: eu-central-1
+    command: 'server /export'
