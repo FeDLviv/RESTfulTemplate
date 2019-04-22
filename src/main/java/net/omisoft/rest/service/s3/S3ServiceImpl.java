@@ -3,6 +3,7 @@ package net.omisoft.rest.service.s3;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.*;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.exception.BadRequestException;
@@ -14,12 +15,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.Random;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class S3ServiceImpl implements S3Service {
 
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS");
@@ -84,6 +88,16 @@ public class S3ServiceImpl implements S3Service {
         String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
         fileName = DATE_FORMAT.format(new Date()) + "_" + random.nextInt(9999) + "." + fileExtension;
         return fileName;
+    }
+
+    @Override
+    public URL getPreSignedUrl(String fileName, Instant expiration) {
+        Instant now = Instant.now();
+        if (expiration.isAfter(now.plusSeconds(MAX_EXPIRE)) || expiration.isBefore(now) || expiration.equals(now)) {
+            expiration = Instant.now().plusSeconds(MAX_EXPIRE);
+            log.warn("Expiration set - {}, because the maximum value you can set - seven days", expiration);
+        }
+        return s3client.generatePresignedUrl(propertiesConfiguration.getAmazon().getBucket(), fileName, Date.from(expiration));
     }
 
 }
