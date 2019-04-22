@@ -445,6 +445,7 @@
         * [AWS S3 with Java](http://www.baeldung.com/aws-s3-java)
         * [Amazon S3 – Upload/Download files with SpringBoot Amazon S3 application](http://javasampleapproach.com/spring-framework/spring-cloud/amazon-s3-uploaddownload-files-springboot-amazon-s3-application)
         * [Uploading files to AWS S3 Bucket using Spring Boot](https://medium.com/oril/uploading-files-to-aws-s3-bucket-using-spring-boot-483fcb6f8646)
+        * [Generate a presigned Object URL Using the AWS SDK for Java](https://docs.aws.amazon.com/en_us/AmazonS3/latest/dev/ShareObjectPreSignedURLJavaSDK.html)
 
 * **Stripe**
     * books
@@ -490,6 +491,10 @@
         * [Get Started with JHipster 5](https://www.youtube.com/watch?time_continue=61&v=-VQ_SVkaXbs)
         * [JHipster - волшебный пендель вашему проекту – Николай Ищенко](https://www.youtube.com/watch?v=LnWvwDTf_5I)
         * [Создаем web-приложение с помощью JHipster — за несколько консольных команд](https://www.youtube.com/watch?v=I5bgy2z2nIE)
+
+* **MinIO**
+    * posts
+        * [How to use AWS SDK for Java with MinIO Server](https://docs.min.io/docs/how-to-use-aws-sdk-for-java-with-minio-server.html)
 
 * **Twilio**
     * books
