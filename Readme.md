@@ -10,6 +10,7 @@
 
 * [Java SE 8](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html)
 * [Kotlin](https://kotlinlang.org)
+* [Groovy](http://groovy-lang.org)
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [Gradle](https://gradle.org/)/[Maven](https://maven.apache.org/)
 * [GitLab](https://gitlab.com/)/[GitHub](https://github.com/)/[Bitbucket](https://bitbucket.org)
@@ -87,6 +88,7 @@
 * [JHipster](https://www.jhipster.tech)
 * [FFmpeg Java](https://github.com/bramp/ffmpeg-cli-wrapper)
 * [VAST](https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector?hl=uk)
+* [MinIO](https://github.com/minio/minio)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
 * [Twilio](https://www.twilio.com)
 * [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
@@ -171,6 +173,12 @@
         * [KotlinConf 2017 - Kotlin Types: Exposed by Svetlana Isakova](https://www.youtube.com/watch?v=Uizh2WlJtnk) (Kotlin)    
 	* list videos
 		* [Базовый курс по Kotlin](https://www.youtube.com/playlist?list=PLIU76b8Cjem4ZOt3tlWykUX1AjL9zE19t)
+		
+* **Groovy**
+    * posts
+        * [Groovy за 15 минут – краткий обзор](https://habr.com/ru/post/122127)
+    * videos
+        * [Groovy Tutorial](https://www.youtube.com/watch?v=B98jc8hdu9g)
 
 * **IntelliJ IDEA**
     * cheat sheet
@@ -259,6 +267,7 @@
         	* [Intro to the Jackson ObjectMapper](http://www.baeldung.com/jackson-object-mapper-tutorial)
             * [Jackson Annotation Examples](http://www.baeldung.com/jackson-annotations)
             * [CORS with Spring](http://www.baeldung.com/spring-cors)
+            * [Fixing 401s with CORS Preflights and Spring Security](https://www.baeldung.com/spring-security-cors-preflight)
             * [Spring MVC Custom Validation](http://www.baeldung.com/spring-mvc-custom-validator)
             * [Spring – Log Incoming Requests](http://www.baeldung.com/spring-http-logging)
         * *JDBC*
@@ -300,7 +309,9 @@
 	    * *Thymeleaf*
 	        * [Учебник: Использование Thymeleaf](https://habr.com/post/350862)
 	    * *HATEOAS*
-   	        * [An Intro to Spring HATEOAS](https://www.baeldung.com/spring-hateoas-tutorial)     
+   	        * [An Intro to Spring HATEOAS](https://www.baeldung.com/spring-hateoas-tutorial)
+   	    * *WebSocket*
+           	* [Простая и масштабируемая подписка на события с WebSockets, STOMP, SockJS и Spring Framework 4.0](https://habr.com/ru/post/187822)          
 	    * *Retry*
 	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)       
         * *Custom Starter*        	
