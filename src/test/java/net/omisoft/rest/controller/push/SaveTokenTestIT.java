@@ -66,7 +66,6 @@ public class SaveTokenTestIT extends BaseTestIT {
         List<String> list = Arrays.stream(OS.class.getEnumConstants())
                 .map(Object::toString)
                 .collect(Collectors.toList());
-        String msg = "device_os - " + message.getMessage("exception.enum.wrong", new Object[]{String.join(", ", list)});
         token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         FCMTokenCreateDto body = FCMTokenCreateDto
                 .builder()
@@ -82,7 +81,8 @@ public class SaveTokenTestIT extends BaseTestIT {
                         .content(new ObjectMapper().writeValueAsString(body))
         )
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(msg));
+                .andExpect(jsonPath("$.property").value("device_os"))
+                .andExpect(jsonPath("$.message").value(message.getMessage("exception.enum.wrong", new Object[]{String.join(", ", list)})));
     }
 
     @Override

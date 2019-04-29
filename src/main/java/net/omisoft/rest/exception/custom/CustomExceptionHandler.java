@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.lang.reflect.Field;
-import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class CustomExceptionHandler {
@@ -59,7 +59,7 @@ public class CustomExceptionHandler {
             BadRequestException.class,
     })
     protected CustomMessage handleBadrequestException(BadRequestException ex) {
-        return new CustomMessage(ex.getMessage());
+        return new CustomMessage(ex.getMessage(), ex.getProperty());
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
@@ -81,15 +81,15 @@ public class CustomExceptionHandler {
             String msg = message.getMessage(error.getDefaultMessage());
             return new CustomMessage(msg);
         } catch (NoSuchMessageException e) {
-            String fieldName = error.getField();
+            String propertyName = error.getField();
             try {
-                Field field = result.getTarget().getClass().getDeclaredField(fieldName);
+                Field field = result.getTarget().getClass().getDeclaredField(propertyName);
                 if (field.isAnnotationPresent(JsonProperty.class)) {
-                    fieldName = field.getAnnotation(JsonProperty.class).value();
+                    propertyName = field.getAnnotation(JsonProperty.class).value();
                 }
             } catch (NoSuchFieldException exc) {
             }
-            return new CustomMessage(fieldName + " - " + error.getDefaultMessage());
+            return new CustomMessage(error.getDefaultMessage(), propertyName);
         }
     }
 
@@ -98,16 +98,15 @@ public class CustomExceptionHandler {
             ConstraintViolationException.class
     })
     protected CustomMessage handleViolationException(ConstraintViolationException ex) {
-        String message = ex.getConstraintViolations().stream()
-                .map(x -> {
-                    String property = x.getPropertyPath().toString();
-                    if (property.contains(".")) {
-                        property = property.substring(property.indexOf(".") + 1);
-                    }
-                    return property + " - " + x.getMessage();
-                })
-                .collect(Collectors.joining("\n"));
-        return new CustomMessage(message);
+        ConstraintViolation constraintViolation = ex.getConstraintViolations().stream()
+                .findFirst()
+                .get();
+        String message = constraintViolation.getMessage();
+        String property = constraintViolation.getPropertyPath().toString();
+        if (property.contains(".")) {
+            property = property.substring(property.indexOf(".") + 1);
+        }
+        return new CustomMessage(message, property);
     }
 
     @ResponseStatus(value = HttpStatus.PAYLOAD_TOO_LARGE)

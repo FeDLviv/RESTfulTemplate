@@ -2,7 +2,6 @@ package net.omisoft.rest.controller.user;
 
 import net.omisoft.rest.controller.BaseTestIT;
 import net.omisoft.rest.pojo.CustomMessage;
-import org.hamcrest.core.StringStartsWith;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -61,7 +60,8 @@ public class DeleteUserTestIT extends BaseTestIT {
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message", StringStartsWith.startsWith("id - ")));
+                .andExpect(jsonPath("$.property").value("id"))
+                .andExpect(jsonPath("$.message").exists());
     }
 
     @Test

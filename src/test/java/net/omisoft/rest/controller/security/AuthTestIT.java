@@ -89,7 +89,8 @@ public class AuthTestIT {
         );
         //validate
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(response.getBody().getMessage()).startsWith("password - ");
+        assertThat(response.getBody().getProperty()).startsWith("password");
+        assertThat(response.getBody().getMessage()).isNotEmpty();
     }
 
     @Test
@@ -143,7 +144,8 @@ public class AuthTestIT {
         );
         //validate
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(response.getBody().getMessage()).startsWith("email - ");
+        assertThat(response.getBody().getProperty()).startsWith("email");
+        assertThat(response.getBody().getMessage()).isNotEmpty();
     }
 
 }

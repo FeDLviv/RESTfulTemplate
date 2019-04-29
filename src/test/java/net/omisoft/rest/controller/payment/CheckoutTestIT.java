@@ -23,17 +23,17 @@ public class CheckoutTestIT extends BaseTestIT {
 
     @Test
     public void wrongAmountFormat() throws Exception {
-        incorrectValidationRequestParams("10.003", null, "amount -");
+        incorrectValidationRequestParams("10.003", null, "amount");
     }
 
     @Test
     public void amountZero() throws Exception {
-        incorrectValidationRequestParams("0", null, "amount -");
+        incorrectValidationRequestParams("0", null, "amount");
     }
 
     @Test
     public void amountNegative() throws Exception {
-        incorrectValidationRequestParams("-5", null, "amount -");
+        incorrectValidationRequestParams("-5", null, "amount");
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CheckoutTestIT extends BaseTestIT {
 
     @Test
     public void wrongEmailFormat() throws Exception {
-        incorrectValidationRequestParams("10", "mygmail.com", "email -");
+        incorrectValidationRequestParams("10", "mygmail.com", "email");
     }
 
     @Override
@@ -131,12 +131,12 @@ public class CheckoutTestIT extends BaseTestIT {
                 .andExpect(model().attribute("data", hasEntry(equalTo("ik_am"), equalTo(amount))));
     }
 
-    private void incorrectValidationRequestParams(String amount, String email, String msgStart) throws Exception {
+    private void incorrectValidationRequestParams(String amount, String email, String propertyName) throws Exception {
         //prepare
         token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         String url = String.format(URL, amount, email);
         url = url.replaceAll("amount=null&|&email=null", "");
-        ResultMatcher matcher = msgStart == null ? jsonPath("$").doesNotExist() : jsonPath("$.message").value(startsWith(msgStart));
+        ResultMatcher matcher = propertyName == null ? jsonPath("$").doesNotExist() : jsonPath("$.property").value(startsWith(propertyName));
         //test + validate
         mvc.perform(
                 get(url)
