@@ -85,6 +85,7 @@
 * [IP Geolocation API](http://ip-api.com/docs)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 * [Gradle plugin Git properties](https://github.com/n0mer/gradle-git-properties)
+* [Args4j](https://args4j.kohsuke.org)
 * [JHipster](https://www.jhipster.tech)
 * [FFmpeg Java](https://github.com/bramp/ffmpeg-cli-wrapper)
 * [VAST](https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector?hl=uk)
@@ -381,6 +382,7 @@
 * **JUnit**
     * posts
         * [Testing in Spring Boot](http://www.baeldung.com/spring-boot-testing)
+        * [Правила (Rules) в JUnit 4](https://urvanov.ru/2018/01/12/%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-rules-%D0%B2-junit-4)
 
 * **AssertJ**
     * posts
