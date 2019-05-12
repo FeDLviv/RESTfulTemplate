@@ -2,7 +2,7 @@
 
 * RESTful
 * Database
-* Testing (unit, integration, performance)
+* Testing (unit, integration, acceptance, performance)
 * Documentation
 * Deployment
 
@@ -47,6 +47,7 @@
 * [AssertJ](http://joel-costigliola.github.io/assertj)
 * [Mockito](http://site.mockito.org)
 * [Hamcrest](http://hamcrest.org/JavaHamcrest)
+* [Cucumber](https://cucumber.io)
 * [JMeter](https://jmeter.apache.org)
 
 ***
@@ -90,6 +91,7 @@
 * [FFmpeg Java](https://github.com/bramp/ffmpeg-cli-wrapper)
 * [VAST](https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector?hl=uk)
 * [MinIO](https://github.com/minio/minio)
+* [Hazelcast](https://hazelcast.org)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
 * [Twilio](https://www.twilio.com)
 * [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
@@ -387,6 +389,12 @@
 * **AssertJ**
     * posts
         * [Introduction to AssertJ](http://www.baeldung.com/introduction-to-assertj)
+        
+* **Cucumber**
+    * posts
+        * [Руководство: Cucumber + Java](https://habr.com/ru/post/332754)
+        * [Cucumber Spring Integration](https://www.baeldung.com/cucumber-spring-integration)
+        * [Cucumber Tests in Spring Boot with Dependency Injection](https://thepracticaldeveloper.com/2018/03/31/cucumber-tests-spring-boot-dependency-injection)
 
 * **JMeter**
     * posts
@@ -422,7 +430,8 @@
         
 * **Lombok**
     * posts
-        * [Шпаргалки Java программиста 10: Lombok](https://habrahabr.ru/post/345520/)
+        * [Шпаргалки Java программиста 10: Lombok](https://habrahabr.ru/post/345520)
+        * [Lombok возвращает величие Java](https://habr.com/ru/post/438870)
 
 * **MapStruct**
     * books
@@ -497,6 +506,14 @@
 * **MinIO**
     * posts
         * [How to use AWS SDK for Java with MinIO Server](https://docs.min.io/docs/how-to-use-aws-sdk-for-java-with-minio-server.html)
+        
+* **Hazelcast**
+    * posts
+        * [Guide to Hazelcast with Java](https://www.baeldung.com/java-hazelcast)
+        * [Spring Boot with Hazelcast](https://medium.com/@igorkosandyak/spring-boot-with-hazelcast-b04d13927745)
+        * [Spring Boot Hazelcast Caching Example Configuration](https://memorynotfound.com/spring-boot-hazelcast-caching-example-configuration)
+    * videos
+        * [Hazelcast и Java](https://www.youtube.com/watch?v=iMJmA31hBlE)
 
 * **Twilio**
     * books
