@@ -33,6 +33,7 @@
     * [Spring Boot Configuration Processor](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor)
     * [HATEOAS](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas)
     * [WebSocket](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket)
+    * [AMQP](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp)
     * [DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 	* [Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 
@@ -88,10 +89,12 @@
 * [Gradle plugin Git properties](https://github.com/n0mer/gradle-git-properties)
 * [Args4j](https://args4j.kohsuke.org)
 * [JHipster](https://www.jhipster.tech)
+* [RabbitMQ](https://www.rabbitmq.com)
 * [FFmpeg Java](https://github.com/bramp/ffmpeg-cli-wrapper)
 * [VAST](https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector?hl=uk)
 * [MinIO](https://github.com/minio/minio)
 * [Hazelcast](https://hazelcast.org)
+* [Akka](https://akka.io)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
 * [Twilio](https://www.twilio.com)
 * [Jackson Dataformat CSV](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv)
@@ -140,8 +143,10 @@
 	    * [Разработка Java приложений](http://it-simulator.com/#/article/1/3)
 	    * [Java Money and the Currency API](https://www.baeldung.com/java-money-and-currency)
 	    * [Introduction to the Java 8 Date/Time API](https://www.baeldung.com/java-8-date-time-intro)
+	    * [How to Replace Many if Statements in Java](https://www.baeldung.com/java-replace-if-statements)
 	    * [Java и время: часть первая](https://habr.com/post/274811)
 	    * [Java и время: часть вторая](https://habr.com/post/274905)
+	    * [Работа с Java в командной строке](https://habr.com/ru/post/125210)
 	    * [RxJava. Убираем магию](https://habr.com/ru/post/317928)
 	    * [Загубить производительность](https://habr.com/post/423305)
 	    * [How to control Java heap size (memory) allocation (xmx, xms)](https://alvinalexander.com/blog/post/java/java-xmx-xms-memory-heap-size-control)
@@ -152,10 +157,10 @@
 	    * [90 новых фич (и API) в JDK 11](https://habr.com/ru/post/424683)
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
+		* [Шаблоны проектирования Java](https://www.youtube.com/watch?v=QSsDiWIzWcU&list=PLwcDaxeEINactCC4mly7RQon5juIpH-Q3)
 		* [Java 8 Tactics](https://www.youtube.com/watch?v=G-FnwHrAVwE&list=PLjXUjSTUHs0Qq8-ml-MzfldcudrQBtW_V)
 	* videos
 	    * [Java 8 Stream API или краткость - сестра таланта [GeekBrains]](https://www.youtube.com/watch?v=gTdXjRif_yo)
-	    * [Шаблоны проектирования Java](https://www.youtube.com/watch?v=QSsDiWIzWcU&list=PLwcDaxeEINactCC4mly7RQon5juIpH-Q3)
 	    * [Уменьшение расхода оперативной памяти в Java приложениях](https://www.youtube.com/watch?list=PLYj3Bx1JM6Y6GnD37EKDM_rWRpBivBf6z&v=8kRFHqM35WQ)
 
 * **Kotlin**
@@ -192,6 +197,7 @@
 		
 * **Gradle**
     * posts
+        * [Краткое знакомство с Gradle](https://javarush.ru/groups/posts/2126-kratkoe-znakomstvo-s-gradle)
         * [Building Java Projects with Gradle](https://spring.io/guides/gs/gradle)
         * [Introduction to Gradle](https://www.baeldung.com/gradle)
         * [Writing Custom Gradle Plugins](https://www.baeldung.com/gradle-create-plugin)
@@ -210,6 +216,8 @@
         * [Pro Git](https://git-scm.com/book/uk/v2)
     * posts
         * [Git How To](https://githowto.com/uk)
+        * [Как склеить коммиты и зачем это нужно](https://htmlacademy.ru/blog/27-how-to-squash-commits-and-why-it-is-needed)
+        * [Tutorial: Organize your commits through git rebasing and Jetbrains IDEs](https://medium.com/@rafaelideleon/tutorial-organize-you-commits-through-git-rebasing-and-jetbrains-ides-e88e1f806b57)
     * list videos
         * [Базовый курс по Git](https://www.youtube.com/watch?v=en6gms6e54Q&list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR)
 
@@ -315,6 +323,8 @@
    	        * [An Intro to Spring HATEOAS](https://www.baeldung.com/spring-hateoas-tutorial)
    	    * *WebSocket*
            	* [Простая и масштабируемая подписка на события с WebSockets, STOMP, SockJS и Spring Framework 4.0](https://habr.com/ru/post/187822)          
+        * *AMQP*
+            * [Build a Chat Application using Spring Boot + WebSocket + RabbitMQ](https://medium.com/@rameez.s.shaikh/build-a-chat-application-using-spring-boot-websocket-rabbitmq-2b82c142f85a)
 	    * *Retry*
 	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)       
         * *Custom Starter*        	
@@ -356,6 +366,7 @@
 		* [Spring Boot EhCache cache example](https://www.youtube.com/watch?v=qu_wQNFxJxw)
 		* [Spring Boot - Handling Interceptor](https://www.youtube.com/watch?v=45uvLhYUP9o) (Spring Boot Web)
 		* [Spring Boot REST: подключаем WebSocket (SockJS + Stomp)](https://www.youtube.com/watch?v=TtcCbDddhrI&t=0s&list=WL&index=8) (Spring Boot WebSocket)
+		* [How to Integrate RabbitMQ with Springboot ?](https://www.youtube.com/watch?v=21Ml0Urdkbc) (Spring Boot AMQP)
 		* [Владимир Цукур — Путь от CRUD к Hypermedia API с Spring](https://www.youtube.com/watch?v=G9apMqwRedA)
 		* [Николай Алименков — Нужен ли нам JMS в мире современных Java-технологий?](https://www.youtube.com/watch?v=ExjPxDxkmFo) (JMS)
 
@@ -503,6 +514,14 @@
         * [JHipster - волшебный пендель вашему проекту – Николай Ищенко](https://www.youtube.com/watch?v=LnWvwDTf_5I)
         * [Создаем web-приложение с помощью JHipster — за несколько консольных команд](https://www.youtube.com/watch?v=I5bgy2z2nIE)
 
+* **RabbitMQ**
+    * posts
+        * [RabbitMQ для начинающих](http://ajaxblog.ru/php/rabbitmq-tutorial)
+        * [Introduction](https://www.rabbitmq.com/tutorials/tutorial-one-java.html)
+        * [RabbitMQ Cheat Sheet (russian)](https://gist.github.com/kyptov/9fdfd3893823997bfeb9e8a797bb3260)  
+    * videos
+        * [Первые шаги с RabbitMQ quick start - Светкин А 2017/01/27](https://www.youtube.com/watch?v=dIqTzEuz8ew)
+
 * **MinIO**
     * posts
         * [How to use AWS SDK for Java with MinIO Server](https://docs.min.io/docs/how-to-use-aws-sdk-for-java-with-minio-server.html)
@@ -514,6 +533,12 @@
         * [Spring Boot Hazelcast Caching Example Configuration](https://memorynotfound.com/spring-boot-hazelcast-caching-example-configuration)
     * videos
         * [Hazelcast и Java](https://www.youtube.com/watch?v=iMJmA31hBlE)
+        
+* **Akka**
+    * posts
+        * [Akka для Java разработчика (часть 1)](https://habr.com/ru/post/125717)
+    * videos
+        * [Масштабируемое приложение за 15 минут (используем AKKA под Java)](https://www.youtube.com/watch?v=rxkUJM0xqV0)
 
 * **Twilio**
     * books
