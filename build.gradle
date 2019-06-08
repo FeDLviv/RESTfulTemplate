@@ -41,11 +41,11 @@ heroku {
 }
 
 ext {
-    ehcacheVersion = '2.10.5'
+    ehcacheVersion = '2.10.6'
     swaggerVersion = '2.9.2'
-    mapStructVersion = '1.2.0.Final'
+    mapStructVersion = '1.3.0.Final'
     jjwtVersion = '0.9.1'
-    awsVersion = '1.11.538'
+    awsVersion = '1.11.567'
     apacheValidatorVersion = '1.6'
 }
 
@@ -127,16 +127,16 @@ bootJar {
 }
 
 task downloadZipFile(type: Download) {
-    src 'http://apache.cp.if.ua//jmeter/binaries/apache-jmeter-5.0.zip'
-    dest new File(buildDir, 'apache-jmeter-5.0.zip')
+    src 'http://apache.cp.if.ua//jmeter/binaries/apache-jmeter-5.1.zip'
+    dest new File(buildDir, 'apache-jmeter-5.1.zip')
 }
 
 task downloadAndUnzipFile(type: Copy) {
-    File zip = new File(buildDir, 'apache-jmeter-5.0.zip')
+    File zip = new File(buildDir, 'apache-jmeter-5.1.zip')
     if (!zip.exists()) {
         dependsOn downloadZipFile
     }
-    File file = new File(buildDir, 'apache-jmeter-5.0/bin/jmeter.sh')
+    File file = new File(buildDir, 'apache-jmeter-5.1/bin/jmeter.sh')
     if (!file.exists()) {
         from zipTree(downloadZipFile.dest)
         into buildDir
@@ -147,7 +147,7 @@ project.tasks.jmEdit.dependsOn(downloadAndUnzipFile)
 project.tasks.jmRun.dependsOn(downloadAndUnzipFile)
 
 jmeterConfig {
-    pathJMeter = buildDir.toString() + "/apache-jmeter-5.0/bin/jmeter.sh"
+    pathJMeter = buildDir.toString() + "/apache-jmeter-5.1/bin/jmeter.sh"
 }
 
 task postgres_db {

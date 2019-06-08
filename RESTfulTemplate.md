@@ -81,7 +81,7 @@ kill {PID}
 ./gradlew jmEdit
 ```
 
-* Run performance test application (example):
+* Run performance test application (example). Important - run the application before running command:
 
 ```sh
 ./gradlew jmRun
