@@ -68,6 +68,7 @@
 * [MapStruct](http://mapstruct.org/)
 * [JJWT](https://java.jsonwebtoken.io/jwt101.html)
 * [FCM](https://firebase.google.com/docs/cloud-messaging)
+* [Specification Argument Resolver](https://github.com/tkaczmarzyk/specification-arg-resolver#interface-inheritance-tree)
 * [Jackson Datatype: JSR310](https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310)
 * [Spring Content Filesystem](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-fs-boot-starter)
 * [Spring Content S3](https://mvnrepository.com/artifact/com.github.paulcwarren/spring-content-s3-boot-starter)
@@ -368,6 +369,7 @@
 		* [Spring Boot REST: подключаем WebSocket (SockJS + Stomp)](https://www.youtube.com/watch?v=TtcCbDddhrI&t=0s&list=WL&index=8) (Spring Boot WebSocket)
 		* [How to Integrate RabbitMQ with Springboot ?](https://www.youtube.com/watch?v=21Ml0Urdkbc) (Spring Boot AMQP)
 		* [Владимир Цукур — Путь от CRUD к Hypermedia API с Spring](https://www.youtube.com/watch?v=G9apMqwRedA)
+		* [О разработке REST-сервисов Maturity Level 3 на Spring REST](https://www.youtube.com/watch?time_continue=2799&v=F_fBmu3g_rw)
 		* [Николай Алименков — Нужен ли нам JMS в мире современных Java-технологий?](https://www.youtube.com/watch?v=ExjPxDxkmFo) (JMS)
 
 * **MySQL**
@@ -461,7 +463,11 @@
         * [Web PUSH Notifications быстро и просто](https://habr.com/post/321924)
         * [Send Push Notification In Android And iOS Using Spring Boot Application ](https://www.oodlestechnologies.com/blogs/Send-Push-Notification-In-Android-And-iOS-Using-Spring-Boot-Application)
         * [Firebase Cloud Messaging – Spring Server to Push Notification Example | Spring Boot](http://javasampleapproach.com/spring-framework/spring-boot/firebase-cloud-messaging-server-spring-to-push-notification-example-spring-boot)
-   
+ 
+* **Specification Argument Resolver**
+    * posts
+        * [Effective RESTful Search API In Spring](https://blog.tratif.com/2017/11/23/effective-restful-search-api-in-spring)
+          
 * **AWS SDK For Java**
     * posts
         * [AWS S3 with Java](http://www.baeldung.com/aws-s3-java)
