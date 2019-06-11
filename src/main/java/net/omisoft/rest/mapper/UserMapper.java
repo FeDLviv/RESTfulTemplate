@@ -1,11 +1,14 @@
 package net.omisoft.rest.mapper;
 
+import net.omisoft.rest.dto.user.UserBasicDto;
 import net.omisoft.rest.dto.user.UserCreateDto;
 import net.omisoft.rest.mapper.base.BaseMapper;
 import net.omisoft.rest.model.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+
+import java.util.List;
 
 @Mapper(config = BaseMapper.class)
 public interface UserMapper {
@@ -19,5 +22,9 @@ public interface UserMapper {
             @Mapping(target = "updated", ignore = true),
     })
     UserEntity convert(UserCreateDto data);
+
+    UserBasicDto convert(UserEntity user);
+
+    List<UserBasicDto> convert(List<UserEntity> user);
 
 }

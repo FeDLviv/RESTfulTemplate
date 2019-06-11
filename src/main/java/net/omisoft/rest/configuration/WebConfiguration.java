@@ -1,6 +1,7 @@
 package net.omisoft.rest.configuration;
 
 import lombok.AllArgsConstructor;
+import net.kaczmarzyk.spring.data.jpa.web.SpecificationArgumentResolver;
 import net.omisoft.rest.resolver.RemoteIpArgumentResolver;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -25,6 +26,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(remoteIpArgumentResolver);
+        resolvers.add(new SpecificationArgumentResolver());
     }
 
 }

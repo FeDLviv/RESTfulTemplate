@@ -47,6 +47,7 @@ ext {
     jjwtVersion = '0.9.1'
     awsVersion = '1.11.567'
     apacheValidatorVersion = '1.6'
+    specificationArgumentResolverVersion = '2.1.1'
 }
 
 repositories {
@@ -102,6 +103,9 @@ dependencies {
 
     //Apache Commons Validator
     compile("commons-validator:commons-validator:${apacheValidatorVersion}")
+    
+    //Specification Argument Resolver
+    compile("net.kaczmarzyk:specification-arg-resolver:${specificationArgumentResolverVersion}")
 
     //Develop
     runtime('org.springframework.boot:spring-boot-devtools')

@@ -12,11 +12,14 @@ import net.omisoft.rest.pojo.AuthResponse;
 import net.omisoft.rest.pojo.PasswordRequest;
 import net.omisoft.rest.repository.AccessTokenRepository;
 import net.omisoft.rest.repository.UserRepository;
+import net.omisoft.rest.repository.specification.UserEmailAndRolesSpecification;
 import net.omisoft.rest.service.security.JWTService;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -50,6 +53,12 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new PermissionException(message.getMessage("exception.auth.permission"));
         }
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<UserEntity> getUsers(UserEmailAndRolesSpecification userSpecification) {
+        return userRepository.findAll(userSpecification);
     }
 
     @Override
