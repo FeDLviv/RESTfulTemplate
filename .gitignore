@@ -1,6 +1,7 @@
 .gradle
 /out/
 /build/
+/cucumber/report/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
