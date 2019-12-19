@@ -17,9 +17,9 @@ import springfox.documentation.annotations.ApiIgnore;
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 
 @RestController
-@RequestMapping(value = API_V1_BASE_PATH + "push", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = API_V1_BASE_PATH + "push", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-@Api(tags = "3.PUSH", description = "Operations associated with push message")
+@Api(tags = "3.PUSH")
 @AllArgsConstructor
 public class PushController {
 

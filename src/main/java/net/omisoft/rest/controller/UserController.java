@@ -31,9 +31,9 @@ import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 @RestController
-@RequestMapping(value = API_V1_BASE_PATH + "users", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = API_V1_BASE_PATH + "users", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-@Api(tags = "2.USER", description = "Operations associated with user")
+@Api(tags = "2.USER")
 @AllArgsConstructor
 public class UserController {
 

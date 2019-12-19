@@ -12,6 +12,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpMethod;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -27,7 +28,10 @@ import springfox.documentation.swagger.web.UiConfiguration;
 import springfox.documentation.swagger.web.UiConfigurationBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 import static net.omisoft.rest.ApplicationConstants.*;
@@ -76,17 +80,14 @@ public class SwaggerConfiguration {
     }
 
     private ApiInfo getApiInfo() {
-        return new ApiInfo(
-                environment.getProperty("info.app.name") + " API Documentation",
-                "Spring Boot RESTful API for " + environment.getProperty("info.app.name") +
+        return new ApiInfoBuilder()
+                .title(environment.getProperty("info.app.name") + " API Documentation")
+                .description("Spring Boot RESTful API for " + environment.getProperty("info.app.name") +
                         "\n\n**Access:**\n" +
-                        String.join("\n", AUTH_ICON),
-                environment.getProperty("info.app.version"),
-                "",
-                new Contact("OmiSoft", "http://www.omisoft.net", "omisoftnet@gmail.com"),
-                null,
-                null,
-                Collections.emptyList());
+                        String.join("\n", AUTH_ICON))
+                .version(environment.getProperty("info.app.version"))
+                .contact(new Contact("OmiSoft", "http://www.omisoft.net", "omisoftnet@gmail.com"))
+                .build();
     }
 
     private List<Parameter> getParameters() {

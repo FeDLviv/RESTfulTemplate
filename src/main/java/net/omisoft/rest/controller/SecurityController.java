@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 
 @RestController
-@RequestMapping(value = API_V1_BASE_PATH + "security", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = API_V1_BASE_PATH + "security", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-@Api(tags = "1.SECURITY", description = "Operations associated with authentication")
+@Api(tags = "1.SECURITY")
 @AllArgsConstructor
 public class SecurityController {
 
