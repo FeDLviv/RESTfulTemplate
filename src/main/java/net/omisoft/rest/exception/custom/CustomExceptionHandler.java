@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -72,24 +74,42 @@ public class CustomExceptionHandler {
 
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ExceptionHandler({
-            MethodArgumentNotValidException.class
+            MethodArgumentNotValidException.class,
+            BindException.class
     })
-    protected CustomMessage handleValidationException(MethodArgumentNotValidException ex) {
-        BindingResult result = ex.getBindingResult();
-        FieldError error = result.getFieldError();
-        try {
-            String msg = message.getMessage(error.getDefaultMessage());
-            return new CustomMessage(msg);
-        } catch (NoSuchMessageException e) {
-            String propertyName = error.getField();
+    protected CustomMessage handleValidationException(Exception ex) throws Exception {
+        BindingResult result;
+        switch (ex.getClass().getSimpleName()) {
+            case "MethodArgumentNotValidException":
+                result = ((MethodArgumentNotValidException) ex).getBindingResult();
+                break;
+            case "BindException":
+                result = ((BindException) ex).getBindingResult();
+                break;
+            default:
+                throw ex;
+        }
+        FieldError fieldError = result.getFieldError();
+        if (fieldError != null) {
             try {
-                Field field = result.getTarget().getClass().getDeclaredField(propertyName);
-                if (field.isAnnotationPresent(JsonProperty.class)) {
-                    propertyName = field.getAnnotation(JsonProperty.class).value();
+                String msg = message.getMessage(fieldError.getDefaultMessage());
+                return new CustomMessage(msg);
+            } catch (NoSuchMessageException e) {
+                String propertyName = fieldError.getField();
+                try {
+                    Field field = result.getTarget().getClass().getDeclaredField(propertyName);
+                    if (field.isAnnotationPresent(JsonProperty.class)) {
+                        propertyName = field.getAnnotation(JsonProperty.class).value();
+                    }
+                } catch (NoSuchFieldException exc) {
                 }
-            } catch (NoSuchFieldException exc) {
+                return new CustomMessage(fieldError.getDefaultMessage(), propertyName);
             }
-            return new CustomMessage(error.getDefaultMessage(), propertyName);
+        } else {
+            ObjectError objectError = result.getAllErrors().stream()
+                    .findFirst()
+                    .get();
+            return new CustomMessage(objectError.getDefaultMessage());
         }
     }
 
