@@ -81,9 +81,12 @@
 * [ZXing Core](https://mvnrepository.com/artifact/com.google.zxing/core)
 * [ZXing Java SE Extensions](https://mvnrepository.com/artifact/com.google.zxing/javase)
 * [Jsoup](https://jsoup.org)
+* [Quartz](http://www.quartz-scheduler.org)
 * [Stripe](https://stripe.com)
+* [Paymentwall](https://www.paymentwall.com)
 * [Interkassa](https://www.interkassa.com)
 * [LiqPay](https://www.liqpay.ua)
+* [MyFatoorah](https://www.myfatoorah.com)
 * [ModelMapper](http://modelmapper.org)
 * [IP Geolocation API](http://ip-api.com/docs)
 * [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
@@ -94,6 +97,7 @@
 * [FFmpeg Java](https://github.com/bramp/ffmpeg-cli-wrapper)
 * [VAST](https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector?hl=uk)
 * [MinIO](https://github.com/minio/minio)
+* [Redis](https://redis.io)
 * [Hazelcast](https://hazelcast.org)
 * [Akka](https://akka.io)
 * [Bucket4J](https://github.com/vladimir-bukhtoyarov/bucket4j)
@@ -137,8 +141,10 @@
 	* blogs
 		* [Yuriy Tkach Blog](http://blog.yuriytkach.com)
 	* posts
+	    * [Вопросы для собеседования на Java Developer](https://github.com/enhorse/java-interview)
 	    * [Шпаргалки Java программиста 9: Java SE — Шпаргалка для собеседований и повторений](https://habr.com/post/314386)
 	    * [Шпаргалка Java программиста 3. Коллекции в Java (стандартные, guava, apache, trove, gs-collections и другие)](https://habr.com/company/luxoft/blog/256877)
+	    * [Thread'ом Java не испортишь: Часть V — Executor, ThreadPool, Fork Join](https://javarush.ru/groups/posts/2078-threadom-java-ne-isportishjh--chastjh-v---executor-threadpool-fork-join-pool)
 	    * [Советы по оптимизации кода на Java: как не наступать на грабли](https://habr.com/company/piter/blog/358898)
 	    * [Как использовать BigDecimal в Java](http://dmilvdv.narod.ru/Translate/MISC/how_to_use_java_bigdecimal.html)
 	    * [Разработка Java приложений](http://it-simulator.com/#/article/1/3)
@@ -228,8 +234,11 @@
         * [Полное практическое руководство по Docker: с нуля до кластера на AWS](https://habr.com/post/310460)
         * [Dockerizing a Spring Boot Application](https://www.baeldung.com/dockerizing-spring-boot-application)
     * videos
+        * [Просто о виртуализации. Docker](https://www.youtube.com/watch?v=Sa7uOGczoHc)
 		* [Dmytro Naumenko "First steps with Docker" [Workshop]](https://www.youtube.com/watch?time_continue=1010&v=EaxY9mbQYVY)
-		* [How to create Docker Image and run Java App (Spring Boot Jar) in a Docker Engine | Tech Primers](https://www.youtube.com/watch?v=FlSup_eelYE) 
+		* [How to create Docker Image and run Java App (Spring Boot Jar) in a Docker Engine | Tech Primers](https://www.youtube.com/watch?v=FlSup_eelYE)
+	* list videos
+	    * [Docker уроки от А до Я ](https://www.youtube.com/watch?v=EbEZgdTOHzE&list=PLD5U-C5KK50XMCBkY0U-NLzglcRHzOwAg) 
  
  * **Jenkins**
      * list videos
@@ -264,6 +273,7 @@
 	* posts
 	    * [Собеседование по Java EE — Spring Framework (вопросы и ответы). Часть 1](http://javastudy.ru/interview/jee-spring-questions-answers)
 	    * [Собеседование по Java EE — Spring Framework (вопросы и ответы). Часть 2](http://javastudy.ru/interview/jee-spring-questions-answers-2)
+	    * [Подготовка к Spring Professional Certification. Контейнер, IoC, бины](https://habr.com/ru/post/470305)
 	    * [Spring изнутри. Этапы инициализации контекста](https://habr.com/post/222579)
 	    * [Learn Spring Boot](http://www.baeldung.com/spring-boot)
         * [Spring Boot Tutorial – Bootstrap a Simple Application](http://www.baeldung.com/spring-boot-start)
@@ -297,6 +307,7 @@
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [A Guide to SqlResultSetMapping](https://www.baeldung.com/jpa-sql-resultset-mapping)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
+            * [Spring Data JPA: что такое хорошо, и что такое плохо](https://habr.com/ru/post/441386/)
             * [Блокировки в JPA](https://easyjava.ru/data/jpa/blokirovki-v-jpa)
             * [Spring AOP. Маленький вопросик с собеседования](https://habr.com/post/347752/)
             * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
@@ -323,11 +334,18 @@
 	    * *HATEOAS*
    	        * [An Intro to Spring HATEOAS](https://www.baeldung.com/spring-hateoas-tutorial)
    	    * *WebSocket*
+   	        * [WebSockets — полноценный асинхронный веб](https://habr.com/ru/post/79038)
+   	        * [WebSocket](https://learn.javascript.ru/websocket)
+   	        * [Введение в Spring WebSocket](https://springgears.com/websockets-introduction)
            	* [Простая и масштабируемая подписка на события с WebSockets, STOMP, SockJS и Spring Framework 4.0](https://habr.com/ru/post/187822)          
         * *AMQP*
             * [Build a Chat Application using Spring Boot + WebSocket + RabbitMQ](https://medium.com/@rameez.s.shaikh/build-a-chat-application-using-spring-boot-websocket-rabbitmq-2b82c142f85a)
 	    * *Retry*
-	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)       
+	        * [Guide to Spring Retry](http://www.baeldung.com/spring-retry)     
+	    * *Spring Batch*
+            * [Spring Batch 3.0 – Часть 1: Пример использования](http://javainside.ru/primer-ispolzovaniya-spring-batch-3-0-chast-1/)
+        * *Redis*
+            * [Redis и Spring Data с самого начала. Часть 1](https://otus.ru/nest/post/715)  
         * *Custom Starter*        	
             * [Creating a Custom Starter with Spring Boot](https://www.youtube.com/watch?v=mi0GfmTv2wg)
 	    * *Scheduled Tasks*
@@ -387,6 +405,8 @@
 * **PostgreSQL**
     * posts
         * [Рекурсивные запросы в PostgreSQL (WITH RECURSIVE)](https://habr.com/post/269497)
+    * list videos
+        * [Администрирование PostgreSQL 9.4. Базовый Курс](https://www.youtube.com/watch?v=h_GdEaF1Ymc&list=PLaFqU3KCWw6KzGwUubZm-9-vKsi6vh5qC&index=1)
 
 * **Liquibase**
     * posts
@@ -524,9 +544,11 @@
     * posts
         * [RabbitMQ для начинающих](http://ajaxblog.ru/php/rabbitmq-tutorial)
         * [Introduction](https://www.rabbitmq.com/tutorials/tutorial-one-java.html)
-        * [RabbitMQ Cheat Sheet (russian)](https://gist.github.com/kyptov/9fdfd3893823997bfeb9e8a797bb3260)  
+        * [RabbitMQ Cheat Sheet (russian)](https://gist.github.com/kyptov/9fdfd3893823997bfeb9e8a797bb3260)
+        * [Обрабатываем заказы из интернет магазина с помощью RabbitMQ и TypeScript](https://habr.com/ru/post/469991)  
     * videos
         * [Первые шаги с RabbitMQ quick start - Светкин А 2017/01/27](https://www.youtube.com/watch?v=dIqTzEuz8ew)
+        * [101 способ приготовления RabbitMQ и о pipeline-архитектуре / Павел Филонов (Positive Technologies)](https://www.youtube.com/watch?v=jMZviSKf3QU)
 
 * **MinIO**
     * posts
