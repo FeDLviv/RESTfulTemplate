@@ -160,13 +160,19 @@ docker build -t omisoft/rest-ful-template .
 docker run -p 9000:8080 --name rest omisoft/rest-ful-template
 ```
 
-* Build and run app with Compose
+* Build (if the images do not exist) and run app with Compose
 
 ```sh
 docker-compose up -d
 ```
 
-* Build and run MinIO with Compose
+* Rebuild images and run app with Compose
+
+```sh
+docker-compose up -d --build
+```
+
+* Run MinIO with Compose
 
 ```sh
 docker-compose -f docker-compose-minio.yml up -d

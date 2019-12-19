@@ -40,7 +40,7 @@ public class CucumberTest {
             HttpResponse response = null;
             while (response == null) {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                     client = HttpClientBuilder.create().build();
                     response = client.execute(new HttpGet(S3_ENDPOINT));
                 } catch (Exception ex) {
