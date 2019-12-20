@@ -3,8 +3,6 @@ package net.omisoft.rest.controller;
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import net.omisoft.rest.HibernateQueryCounterInterceptor;
-import net.omisoft.rest.SQLQueryCounter;
 import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.model.AccessTokenEntity;
@@ -21,8 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -69,16 +65,6 @@ public abstract class BaseTestIT {
     public static final String PAYMENT_UUID_WITH_RESPONSE_BODY = "6414d12b1f144b45bc105fc5ef5d64bc";
     public static final String PAYMENT_UUID_NOT_EXISTS = "3e3df2f4a6004ab6b2a73a933ba5e167";
 
-    @TestConfiguration
-    public static class BaseTestITContextConfiguration {
-
-        @Bean
-        public SQLQueryCounter sqlQueryCounter() {
-            return new HibernateQueryCounterInterceptor();
-        }
-
-    }
-
     @Autowired
     private UserRepository userRepository;
 
@@ -93,9 +79,6 @@ public abstract class BaseTestIT {
 
     @Autowired
     protected PropertiesConfiguration propertiesConfiguration;
-
-    @Autowired
-    protected SQLQueryCounter sqlQueryCounter;
 
     @Value("${app.token.secret}")
     protected String secret;

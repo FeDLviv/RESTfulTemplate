@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import static net.omisoft.rest.ApplicationConstants.API_V1_BASE_PATH;
 
 @Component
-@Endpoint(id = "api-trace")
+@Endpoint(id = "apiTrace")
 public class ApiTraceEndpoint {
 
     @Autowired
