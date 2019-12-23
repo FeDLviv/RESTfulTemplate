@@ -17,6 +17,7 @@
 *.iws
 *.iml
 *.ipr
+/src/main/generated/
 
 ### NetBeans ###
 nbproject/private/
