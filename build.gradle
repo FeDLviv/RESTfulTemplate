@@ -4,6 +4,7 @@ plugins {
     id 'java'
     id "org.liquibase.gradle" version "2.0.2"
     id "de.undercouch.download" version "4.0.2"
+    id "com.gorylenko.gradle-git-properties" version "2.2.0"
     id "com.heroku.sdk.heroku-gradle" version "1.0.4"
 }
 
@@ -38,6 +39,7 @@ heroku {
 }
 
 ext {
+    adminVersion = '2.1.6'
     ehcacheVersion = '2.10.6'
     swaggerVersion = '2.9.2'
     mapStructVersion = '1.3.1.Final'
@@ -79,6 +81,9 @@ dependencies {
 
     //Retry
     implementation 'org.springframework.retry:spring-retry'
+
+    //Spring Boot Admin
+    implementation "de.codecentric:spring-boot-admin-starter-client:${adminVersion}"
 
     //Lombok
     compileOnly 'org.projectlombok:lombok'
