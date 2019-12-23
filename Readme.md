@@ -372,6 +372,8 @@
 		* [Java+JDBC+Hibernate+Spring Data JPA](https://www.youtube.com/watch?v=lhtB6RD1rH4&list=PLwwk4BHih4fjSk8XVWIp1N5Im-oMf5KL1) (Spring Data JPA)
 		* [Hibernate](https://www.youtube.com/watch?v=C-wEZjEOhWc&list=PLRukC9wg1mbE2uioTUsbyrYY4uv2P2X_M) (Hibernate)
 		* [Evgeny Borisov](https://www.youtube.com/watch?v=hRtQFIVJ0ws&list=PLRukC9wg1mbFMPNQVT_mhTAMGaOQ3Jbpm) (Spring)
+		* [Spring Boot Microservices Level 1: Communication and Discovery](https://www.youtube.com/watch?v=y8IQb4ofjDo&list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas)
+		* [Spring Boot Microservices Level 2: Fault Tolerance and Resilience](https://www.youtube.com/watch?v=o8RO38KbWvA&list=PLqq-6Pq4lTTbXZY_elyGv7IkKrfkSrX5e)
 	* videos
 	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
@@ -389,6 +391,7 @@
 		* [Владимир Цукур — Путь от CRUD к Hypermedia API с Spring](https://www.youtube.com/watch?v=G9apMqwRedA)
 		* [О разработке REST-сервисов Maturity Level 3 на Spring REST](https://www.youtube.com/watch?time_continue=2799&v=F_fBmu3g_rw)
 		* [Николай Алименков — Нужен ли нам JMS в мире современных Java-технологий?](https://www.youtube.com/watch?v=ExjPxDxkmFo) (JMS)
+		* [Секция JAVA: Spring cloud raider](https://www.youtube.com/watch?v=jqKZ-tHZMBw)
 
 * **MySQL**
     * posts
