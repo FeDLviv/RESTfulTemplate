@@ -8,9 +8,7 @@ import net.omisoft.rest.exception.PermissionException;
 import net.omisoft.rest.exception.ResourceNotFoundException;
 import net.omisoft.rest.exception.UnauthorizedException;
 import net.omisoft.rest.pojo.CustomMessage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.NoSuchMessageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -30,14 +28,16 @@ import java.lang.reflect.Field;
 public class CustomExceptionHandler {
 
     private final MessageSourceConfiguration message;
-    private final String sizeMax;
+    private final String maxFileSize;
+    private final String maxRequestSize;
 
-    //TODO change max file size
-    @Autowired
+    //TODO change max file size and max request size
     public CustomExceptionHandler(MessageSourceConfiguration message,
-                                  @Value(value = "${spring.servlet.multipart.max-file-size}") final String sizeMax) {
+                                  @Value(value = "${spring.servlet.multipart.max-file-size}") String maxFileSize,
+                                  @Value(value = "${spring.servlet.multipart.max-request-size}") String maxRequestSize) {
         this.message = message;
-        this.sizeMax = sizeMax;
+        this.maxFileSize = maxFileSize;
+        this.maxRequestSize = maxRequestSize;
     }
 
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
@@ -91,20 +91,16 @@ public class CustomExceptionHandler {
         }
         FieldError fieldError = result.getFieldError();
         if (fieldError != null) {
+            String msg = message.getMessage(fieldError.getDefaultMessage());
+            String propertyName = fieldError.getField();
             try {
-                String msg = message.getMessage(fieldError.getDefaultMessage());
-                return new CustomMessage(msg);
-            } catch (NoSuchMessageException e) {
-                String propertyName = fieldError.getField();
-                try {
-                    Field field = result.getTarget().getClass().getDeclaredField(propertyName);
-                    if (field.isAnnotationPresent(JsonProperty.class)) {
-                        propertyName = field.getAnnotation(JsonProperty.class).value();
-                    }
-                } catch (NoSuchFieldException exc) {
+                Field field = result.getTarget().getClass().getDeclaredField(propertyName);
+                if (field.isAnnotationPresent(JsonProperty.class)) {
+                    propertyName = field.getAnnotation(JsonProperty.class).value();
                 }
-                return new CustomMessage(fieldError.getDefaultMessage(), propertyName);
+            } catch (NoSuchFieldException exc) {
             }
+            return new CustomMessage(msg, propertyName);
         } else {
             ObjectError objectError = result.getAllErrors().stream()
                     .findFirst()
@@ -118,7 +114,7 @@ public class CustomExceptionHandler {
             ConstraintViolationException.class
     })
     protected CustomMessage handleViolationException(ConstraintViolationException ex) {
-        ConstraintViolation constraintViolation = ex.getConstraintViolations().stream()
+        ConstraintViolation<?> constraintViolation = ex.getConstraintViolations().stream()
                 .findFirst()
                 .get();
         String message = constraintViolation.getMessage();
@@ -134,7 +130,7 @@ public class CustomExceptionHandler {
             MaxUploadSizeExceededException.class
     })
     protected CustomMessage handleMaxUploadSizeException(MaxUploadSizeExceededException ex) {
-        return new CustomMessage(message.getMessage("exception.max.upload.size", new Object[]{sizeMax}));
+        return new CustomMessage(message.getMessage("exception.max.upload.size", new Object[]{maxFileSize, maxRequestSize}));
     }
 
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)

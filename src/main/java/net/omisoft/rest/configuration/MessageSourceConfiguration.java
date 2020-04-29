@@ -15,7 +15,7 @@ public class MessageSourceConfiguration {
 
     public String getMessage(String id, Object[] args) {
         Locale currentLocale = LocaleContextHolder.getLocale();
-        return messageSource.getMessage(id, args, currentLocale);
+        return messageSource.getMessage(id, args, id, currentLocale);
     }
 
     public String getMessage(String id) {
