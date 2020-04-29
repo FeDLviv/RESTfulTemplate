@@ -165,9 +165,12 @@
 	* list videos
 		* [Java для тестировщиков](https://www.youtube.com/watch?v=DKy4KzIn1qg&list=PLB0276A0A62BDEF06)
 		* [Шаблоны проектирования Java](https://www.youtube.com/watch?v=QSsDiWIzWcU&list=PLwcDaxeEINactCC4mly7RQon5juIpH-Q3)
+		* [Java Interview](https://www.youtube.com/watch?v=XRsA7x6Ntx4&list=PLys5YE64sQSLe6pmxj7Ikk-rFkK82fvhm)
 		* [Java 8 Tactics](https://www.youtube.com/watch?v=G-FnwHrAVwE&list=PLjXUjSTUHs0Qq8-ml-MzfldcudrQBtW_V)
 	* videos
 	    * [Java 8 Stream API или краткость - сестра таланта [GeekBrains]](https://www.youtube.com/watch?v=gTdXjRif_yo)
+	    * [Spring Tips: Java 14 (or: Can Your Java Do This?)](https://www.youtube.com/watch?v=mr-7kGy8Yao)
+	    * [Новое в JDK 14 (синтаксис)](https://www.youtube.com/watch?v=qN8x-aIrhxk&t=52s)
 	    * [Уменьшение расхода оперативной памяти в Java приложениях](https://www.youtube.com/watch?list=PLYj3Bx1JM6Y6GnD37EKDM_rWRpBivBf6z&v=8kRFHqM35WQ)
 
 * **Kotlin**
@@ -221,8 +224,10 @@
 * **Git**
     * books
         * [Pro Git](https://git-scm.com/book/uk/v2)
+        * [LearnGitBranching](https://learngitbranching.js.org)
     * posts
         * [Git How To](https://githowto.com/uk)
+        * [3 режима команды git reset: --soft, --mixed(по умолчанию), --hard](https://habr.com/ru/post/203282)
         * [Как склеить коммиты и зачем это нужно](https://htmlacademy.ru/blog/27-how-to-squash-commits-and-why-it-is-needed)
         * [Tutorial: Organize your commits through git rebasing and Jetbrains IDEs](https://medium.com/@rafaelideleon/tutorial-organize-you-commits-through-git-rebasing-and-jetbrains-ides-e88e1f806b57)
     * list videos
@@ -307,13 +312,16 @@
             * [Использование JPA Criteria в Spring Data Jpa](https://easyjava.ru/spring/spring-data-project/ispolzovanie-jpa-criteria-v-spring-data-jpa)
             * [A Guide to SqlResultSetMapping](https://www.baeldung.com/jpa-sql-resultset-mapping)
             * [Стратегии загрузки коллекций в JPA](https://dou.ua/lenta/articles/jpa-fetch-types)
-            * [Spring Data JPA: что такое хорошо, и что такое плохо](https://habr.com/ru/post/441386/)
+            * [Spring Data JPA: что такое хорошо, и что такое плохо](https://habr.com/ru/post/441386)
+            * [Spring Data JPA: доводим напильником](https://habr.com/ru/post/444240)
+            * [Что нового в JPA 2.2](https://habr.com/ru/company/otus/blog/423195)
             * [Блокировки в JPA](https://easyjava.ru/data/jpa/blokirovki-v-jpa)
             * [Spring AOP. Маленький вопросик с собеседования](https://habr.com/post/347752/)
             * [Hibernate — о чем молчат туториалы](https://habr.com/post/416851)
             * [Spring Boot communications link failure with MySQL and Hibernate](http://blog.netgloo.com/2015/07/09/spring-boot-communications-link-failure-with-mysql-and-hibernate)
             * [9 High-Performance Tips when using MySQL with JPA and Hibernate](https://vladmihalcea.com/9-high-performance-tips-when-using-mysql-with-jpa-and-hibernate)
             * [Hibernate Inheritance Mapping](https://www.baeldung.com/hibernate-inheritance)
+            * [Наследование в Hibernate: выбор стратегии](https://habr.com/ru/post/337488)
             * [Handling entities inheritance with Spring Data JPA](http://blog.netgloo.com/2014/12/18/handling-entities-inheritance-with-spring-data-jpa)
             * [The best way to use entity inheritance with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-use-entity-inheritance-with-jpa-and-hibernate)
             * [Best Performance Practices for Hibernate 5 and Spring Boot 2 (Part 1)](https://dzone.com/articles/50-best-performance-practices-for-hibernate-5-amp)
@@ -358,6 +366,20 @@
 	        * [Переписываем домашний проект на микросервисы (Java, Spring Boot, Gradle)](https://habr.com/post/332482)
 	    * *Content*
 	        * [Spring Content](https://paulcwarren.github.io/spring-content)
+	    * *Cloud*
+	        * [Микросервисная архитектура, Spring Cloud и Docker](https://habr.com/ru/post/280786)
+	        * [Spring Cloud Netflix: Eureka по-русски](https://medium.com/@kirill.sereda/spring-cloud-netflix-eureka-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-5b7829481717)
+	        * [Spring Cloud Config Server и Config Client](https://medium.com/@kirill.sereda/spring-cloud-config-server-%D0%B8-config-client-2a45ac2891d1)
+	        * [Spring Cloud Netflix: Feign по-русски](https://medium.com/@kirill.sereda/spring-cloud-netflix-feign-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-7b8272e8e110)
+	        * [Spring Cloud Netflix: Zuul API Gateway по-русски](https://medium.com/@kirill.sereda/spring-cloud-netflix-zuul-api-gateway-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-c1e819f042e1)
+	        * [Spring Cloud Netflix: Hystrix по-русски + Feign Client](https://medium.com/@kirill.sereda/spring-cloud-netflix-hystrix-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-e60e91a6770f)
+	        * [Spring Cloud Netflix: Ribbon по-русски](https://medium.com/@kirill.sereda/spring-cloud-netflix-ribbon-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-2ded121e1377)
+	        * [Spring Cloud Netflix Microservices — start project (серия статей) — часть 1](https://medium.com/@kirill.sereda/spring-cloud-netflix-microservices-start-project-%D1%81%D0%B5%D1%80%D0%B8%D1%8F-%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9-%D1%87%D0%B0%D1%81%D1%82%D1%8C-1-7a892ad5f16)
+	        * [Spring Cloud Netflix Microservices — start project (серия статей) — часть 2](https://medium.com/@kirill.sereda/spring-cloud-netflix-microservices-start-project-%D1%81%D0%B5%D1%80%D0%B8%D1%8F-%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9-%D1%87%D0%B0%D1%81%D1%82%D1%8C-2-bfcad9a2c67f)
+	        * [Spring Cloud Netflix Microservices — start project (серия статей) — часть 3](https://medium.com/@kirill.sereda/spring-cloud-netflix-microservices-start-project-%D1%81%D0%B5%D1%80%D0%B8%D1%8F-%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9-%D1%87%D0%B0%D1%81%D1%82%D1%8C-3-6bbdccc8ce16?source=---------4------------------)
+	        * [Spring Cloud Sleuth + Zipkin по-русски](https://medium.com/@kirill.sereda/spring-cloud-sleuth-zipkin-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-9f8504581dae)
+	        * [Spring Cloud Stream по-русски](https://medium.com/@kirill.sereda/spring-cloud-stream-%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8-570568977e3f)
+	        * [Микросервисы с Netflix, часть 1: Feign](https://www.shortn0tes.com/2018/01/netflix-microservices-part-1-feign-ru.html)
 	* list videos
 	    * [REST With Spring](https://www.youtube.com/watch?v=2Mz3V-faNFo&list=PLjXUjSTUHs0QaXI9xrioHpvsJ9Hs_r0_0)
 	    * [Spring App Tactics](https://www.youtube.com/watch?v=YyE8fyYJsbE&list=PLjXUjSTUHs0SBkPlUEnkXcDqQKlyUOyAS)
@@ -374,6 +396,7 @@
 		* [Evgeny Borisov](https://www.youtube.com/watch?v=hRtQFIVJ0ws&list=PLRukC9wg1mbFMPNQVT_mhTAMGaOQ3Jbpm) (Spring)
 		* [Spring Boot Microservices Level 1: Communication and Discovery](https://www.youtube.com/watch?v=y8IQb4ofjDo&list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas)
 		* [Spring Boot Microservices Level 2: Fault Tolerance and Resilience](https://www.youtube.com/watch?v=o8RO38KbWvA&list=PLqq-6Pq4lTTbXZY_elyGv7IkKrfkSrX5e)
+		* [Spring Boot Microservices Level 3: Microservice Сonfiguration](https://www.youtube.com/watch?v=upoIwn4rWCo&list=PLqq-6Pq4lTTaoaVoQVfRJPqvNTCjcTvJB)
 	* videos
 	    * [Открытый урок «Веб-приложения и микросервисы на Spring Boot 2.0»](https://www.youtube.com/watch?v=zgd9SfSxO0Y)
 		* [Евгений Борисов — Spring Data? Да, та!](https://www.youtube.com/watch?v=nwM7A4TwU3M) (Spring Data JPA)
@@ -392,15 +415,21 @@
 		* [О разработке REST-сервисов Maturity Level 3 на Spring REST](https://www.youtube.com/watch?time_continue=2799&v=F_fBmu3g_rw)
 		* [Николай Алименков — Нужен ли нам JMS в мире современных Java-технологий?](https://www.youtube.com/watch?v=ExjPxDxkmFo) (JMS)
 		* [Секция JAVA: Spring cloud raider](https://www.youtube.com/watch?v=jqKZ-tHZMBw)
+		* [Разработка микросервисов при помощи Spring Cloud. Андрей Саксонов, Java Expert, DataArt](https://www.youtube.com/watch?v=Ib0vRG-oVtU)
+		* [Spring Tips: Server Sent Events (SSE) in Spring MVC and Spring WebFlux](https://www.youtube.com/watch?time_continue=5&v=2To3_mYT2hc&feature=emb_logo)
 
 * **MySQL**
     * posts
+        * [Построение таблиц «Один-к-разным»](https://habr.com/ru/post/28023)
         * [Как использовать SHOW PROFILE в MySQL?](https://ruhighload.com/%D0%9A%D0%B0%D0%BA+%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C+show+profile+%D0%B2+mysql%3F)
         * [EXPLAIN — Самая мощная команда MySQL](https://habr.com/post/31129)
+        * [Использование EXPLAIN. Улучшение запросов](https://habr.com/ru/post/211022)
+        * [Generating test data from the mysql> prompt](https://www.percona.com/blog/2014/09/10/generating-test-data-from-the-mysql-prompt)
         * [Несколько заметок о MySQL](https://habr.com/ru/post/310954)
         * [Релиз JSON Labs: JSON-функции, Часть 1 — Обработка JSON-данных.](https://sqlinfo.ru/articles/info/20.html)
         * [Использование JSON в MySQL](https://phptoday.ru/post/ispolzovanie-json-v-mysql)
         * [Вышла первая стабильная версия серии MySQL 8](https://sqlinfo.ru/news/info/106.html)
+        * [MySQL 8.0.16 Introducing CHECK constraint](https://mysqlserverteam.com/mysql-8-0-16-introducing-check-constraint/#comment-105700)
     * videos
         * [Что нового в MySQL 8.0? / Дмитрий Ленев (Oracle)](https://www.youtube.com/watch?v=IgQi4BpNgRQ)
         * [9. Базы данных. MySQL и сравнение с PostgreSQL | Технострим](https://www.youtube.com/watch?v=mkI2q6twyc0)
