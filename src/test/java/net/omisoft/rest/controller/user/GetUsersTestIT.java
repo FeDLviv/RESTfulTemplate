@@ -3,6 +3,8 @@ package net.omisoft.rest.controller.user;
 import net.omisoft.rest.controller.BaseTestIT;
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Date;
 
@@ -24,40 +26,40 @@ public class GetUsersTestIT extends BaseTestIT {
     @Test
     public void withSomeEmailValue() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         String emailValue = "fed.";
         //test + validate
         mvc.perform(
-                get(URL + "?email=" + emailValue)
+                MockMvcRequestBuilders.get(URL + "?email=" + emailValue)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].email").value(EMAIL_EXISTS));
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].email").value(EMAIL_EXISTS));
     }
 
     @Test
     public void withSomeEmailValueWrongMinLimit() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         String emailValue = "fe";
         //test + validate
         mvc.perform(
-                get(URL + "?email=" + emailValue)
+                MockMvcRequestBuilders.get(URL + "?email=" + emailValue)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").exists())
-                .andExpect(jsonPath("$.property").value("email"));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.property").value("email"));
     }
 
     @Test
     public void withRoleValueIsClient() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         String roleValue = "ROLE_CLIENT";
         //test + validate
         mvc.perform(
-                get(URL + "?role=" + roleValue)
+                MockMvcRequestBuilders.get(URL + "?role=" + roleValue)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
                 .andExpect(status().isOk())
@@ -67,27 +69,27 @@ public class GetUsersTestIT extends BaseTestIT {
     @Test
     public void withIncorrectRoleValue() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         String roleValue = "vctOLE_WSAfsd";
         //test + validate
         mvc.perform(
                 get(URL + "?role=" + roleValue)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").exists())
-                .andExpect(jsonPath("$.property", Matchers.startsWith("role")));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.property", Matchers.startsWith("role")));
     }
 
     @Test
     public void withSomeEmailValueAndRoleValueIsClient() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         String emailValue = "fed.";
         String roleValue = "ROLE_CLIENT";
         //test + validate
         mvc.perform(
-                get(URL + "?email=" + emailValue + "&role=" + roleValue)
+                MockMvcRequestBuilders.get(URL + "?email=" + emailValue + "&role=" + roleValue)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
                 .andExpect(status().isOk())
@@ -97,21 +99,21 @@ public class GetUsersTestIT extends BaseTestIT {
     @Override
     public void expireToken() throws Exception {
         //prepare
-        String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date());
+        String token = generateAdminToken(USER_ID_ADMIN, new Date());
         //test + validate
         mvc.perform(
                 get(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.expire")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.expire")));
     }
 
     @Override
     public void wrongToken() throws Exception {
         //test + validate
         mvc.perform(
-                get(URL)
+                MockMvcRequestBuilders.get(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + WRONG_TOKEN)
         )
                 .andExpect(status().isUnauthorized())
@@ -121,14 +123,14 @@ public class GetUsersTestIT extends BaseTestIT {
     @Override
     public void tokenNotExists() throws Exception {
         //prepare
-        String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        String token = generateAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate
         mvc.perform(
-                get(URL)
+                MockMvcRequestBuilders.get(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
     }
 
     @Override
@@ -144,27 +146,27 @@ public class GetUsersTestIT extends BaseTestIT {
     @Override
     public void authorizedAdmin() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate (before delete client)
         mvc.perform(
-                get(URL)
+                MockMvcRequestBuilders.get(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(2)));
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)));
     }
 
     @Override
     public void authorizedClient() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertClientToken(USER_ID_CLIENT, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate
         mvc.perform(
-                get(URL)
+                MockMvcRequestBuilders.get(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
         )
-                .andExpect(status().isForbidden())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.auth.permission")));
+                .andExpect(MockMvcResultMatchers.status().isForbidden())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.auth.permission")));
     }
 
 }

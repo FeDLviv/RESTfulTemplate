@@ -7,6 +7,7 @@ import net.omisoft.rest.configuration.MessageSourceConfiguration;
 import net.omisoft.rest.configuration.PropertiesConfiguration;
 import net.omisoft.rest.model.AccessTokenEntity;
 import net.omisoft.rest.model.UserEntity;
+import net.omisoft.rest.model.base.UserRole;
 import net.omisoft.rest.repository.AccessTokenRepository;
 import net.omisoft.rest.repository.UserRepository;
 import org.junit.Before;
@@ -100,7 +101,7 @@ public abstract class BaseTestIT {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
 
-    protected String generateToken(long idUser, String role, Date expire) {
+    private String generateToken(long idUser, UserRole role, Date expire) {
         byte[] decodedKey = BaseEncoding.base64().decode(secret);
         return Jwts.builder()
                 .setId(String.valueOf(idUser))
@@ -111,17 +112,33 @@ public abstract class BaseTestIT {
                 .compact();
     }
 
-    protected String generateAndInsertToken(long idUser, String role, Date expire) {
+    private String generateAndInsertToken(long idUser, UserRole role, Date expire) {
         String token = generateToken(idUser, role, expire);
         insertToken(token, idUser, expire);
         return token;
     }
 
-    protected void insertToken(String token, long idUser, Date expired) {
+    private void insertToken(String token, long idUser, Date expired) {
         LOGGER.info("START - INSERT JWT TOKEN TO DB");
         UserEntity user = userRepository.findById(idUser).orElseThrow(NullPointerException::new);
         accessTokenRepository.save(new AccessTokenEntity(token, user, expired));
         LOGGER.info("STOP - INSERT JWT TOKEN TO DB");
+    }
+
+    protected String generateClientToken(long idUser, Date expire) {
+        return generateToken(idUser, UserRole.ROLE_CLIENT, expire);
+    }
+
+    protected String generateAdminToken(long idUser, Date expire) {
+        return generateToken(idUser, UserRole.ROLE_ADMIN, expire);
+    }
+
+    protected String generateAndInsertClientToken(long idUser, Date expire) {
+        return generateAndInsertToken(idUser, UserRole.ROLE_CLIENT, expire);
+    }
+
+    protected String generateAndInsertAdminToken(long idUser, Date expire) {
+        return generateAndInsertToken(idUser, UserRole.ROLE_ADMIN, expire);
     }
 
     @Test

@@ -7,6 +7,8 @@ import net.omisoft.rest.dto.user.UserCreateDto;
 import org.apache.logging.log4j.util.Strings;
 import org.junit.Test;
 import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Date;
 import java.util.Random;
@@ -14,9 +16,6 @@ import java.util.stream.Collectors;
 
 import static net.omisoft.rest.ApplicationConstants.*;
 import static org.hamcrest.Matchers.hasSize;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /*
 INTEGRATION TEST
@@ -34,17 +33,17 @@ public class CreateUserTestIT extends BaseTestIT {
                 .email(EMAIL_EXISTS)
                 .password(PASSWORD_EXISTS)
                 .build();
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.property").doesNotExist())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.email.exists")));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.property").doesNotExist())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.email.exists")));
     }
 
     @Test
@@ -105,7 +104,7 @@ public class CreateUserTestIT extends BaseTestIT {
     @Override
     public void expireToken() throws Exception {
         //prepare
-        token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date());
+        token = generateAdminToken(USER_ID_ADMIN, new Date());
         UserCreateDto body = UserCreateDto
                 .builder()
                 .email(EMAIL_NOT_EXISTS)
@@ -113,13 +112,13 @@ public class CreateUserTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.expire")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.expire")));
     }
 
     @Override
@@ -132,19 +131,19 @@ public class CreateUserTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + WRONG_TOKEN)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.wrong")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.wrong")));
     }
 
     @Override
     public void tokenNotExists() throws Exception {
         //prepare
-        token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         UserCreateDto body = UserCreateDto
                 .builder()
                 .email(EMAIL_NOT_EXISTS)
@@ -152,13 +151,13 @@ public class CreateUserTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
     }
 
     @Override
@@ -171,20 +170,20 @@ public class CreateUserTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id").isNumber())
-                .andExpect(jsonPath("$._links").isMap())
-                .andExpect(jsonPath("$._links.*", hasSize(2)));
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._links").isMap())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._links.*", hasSize(2)));
     }
 
     @Override
     public void authorizedAdmin() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         UserCreateDto body = UserCreateDto
                 .builder()
                 .email(EMAIL_NOT_EXISTS)
@@ -192,21 +191,21 @@ public class CreateUserTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id").isNumber())
-                .andExpect(jsonPath("$._links").isMap())
-                .andExpect(jsonPath("$._links.*", hasSize(2)));
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._links").isMap())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._links.*", hasSize(2)));
     }
 
     @Override
     public void authorizedClient() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertClientToken(USER_ID_CLIENT, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         UserCreateDto body = UserCreateDto
                 .builder()
                 .email(EMAIL_NOT_EXISTS)
@@ -214,15 +213,15 @@ public class CreateUserTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id").isNumber())
-                .andExpect(jsonPath("$._links").isMap())
-                .andExpect(jsonPath("$._links.*", hasSize(2)));
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._links").isMap())
+                .andExpect(MockMvcResultMatchers.jsonPath("$._links.*", hasSize(2)));
     }
 
     private void incorrectValidationBody(String email, String password, String propertyName) throws Exception {
@@ -232,17 +231,17 @@ public class CreateUserTestIT extends BaseTestIT {
                 .email(email)
                 .password(password)
                 .build();
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate
         mvc.perform(
-                post(URL)
+                MockMvcRequestBuilders.post(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.property").value(propertyName))
-                .andExpect(jsonPath("$.message").exists());
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.property").value(propertyName))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists());
     }
 
 }

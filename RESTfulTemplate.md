@@ -139,6 +139,11 @@ sudo certbot certonly --standalone -d {DOMAIN}
 ```sh
 openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out KeyStore.p12 -name tomcat -CAfile chain.pem -caname root
 ```
+
+* Extract the expiration date from the certificate (example, PKCS12 - industry standard format):
+```sh
+openssl pkcs12 -in keystore.p12 -nodes | openssl x509 -noout -enddate
+```
     
 * Run application with redirect HTTP(80) to HTTPS(443) (example):
 

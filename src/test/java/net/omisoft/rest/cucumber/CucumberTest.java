@@ -40,13 +40,14 @@ public class CucumberTest {
             HttpResponse response = null;
             while (response == null) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                     client = HttpClientBuilder.create().build();
                     response = client.execute(new HttpGet(S3_ENDPOINT));
                 } catch (Exception ex) {
                     response = null;
                 }
             }
+            Thread.sleep(50);
         }
 
         @Override

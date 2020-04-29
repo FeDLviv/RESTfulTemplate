@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Date;
 import java.util.Random;
@@ -16,8 +18,6 @@ import java.util.stream.Collectors;
 import static net.omisoft.rest.ApplicationConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /*
 INTEGRATION TEST
@@ -74,7 +74,7 @@ public class UpdatePasswordTestIT extends BaseTestIT {
     @Rollback
     public void wrongOldPassword() throws Exception {
         //prepare
-        String token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        String token = generateAndInsertClientToken(USER_ID_CLIENT, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
                 .oldPassword(WRONG_PASSWORD)
@@ -82,20 +82,20 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.old_password.wrong")));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.old_password.wrong")));
     }
 
 
     @Override
     public void expireToken() throws Exception {
         //prepare
-        String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date());
+        String token = generateAdminToken(USER_ID_ADMIN, new Date());
         PasswordRequest body = PasswordRequest
                 .builder()
                 .oldPassword(PASSWORD_EXISTS)
@@ -103,13 +103,13 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.expire")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.expire")));
     }
 
     @Override
@@ -122,19 +122,19 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + WRONG_TOKEN)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.wrong")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.wrong")));
     }
 
     @Override
     public void tokenNotExists() throws Exception {
         //prepare
-        String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        String token = generateAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
                 .oldPassword(PASSWORD_EXISTS)
@@ -142,13 +142,13 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
     }
 
     @Override
@@ -161,18 +161,18 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.auth.required")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.auth.required")));
     }
 
     @Override
     public void authorizedAdmin() throws Exception {
         //prepare
-        String token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        String token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
                 .oldPassword(PASSWORD_EXISTS)
@@ -180,14 +180,14 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                 .build();
         //test + validate
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.token").isNotEmpty())
-                .andExpect(jsonPath("$.duration").isNumber());
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.token").isNotEmpty())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.duration").isNumber());
     }
 
     @Override
@@ -195,7 +195,7 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         //prepare
         String oldPassword = PASSWORD_EXISTS;
         String newPassword = WRONG_PASSWORD;
-        token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertClientToken(USER_ID_CLIENT, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
                 .oldPassword(oldPassword)
@@ -203,14 +203,14 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                 .build();
         //test + validate
         MvcResult result = mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.token").isNotEmpty())
-                .andExpect(jsonPath("$.duration").isNumber())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.token").isNotEmpty())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.duration").isNumber())
                 .andReturn();
         //test + validate (with old token)
         mvc.perform(
@@ -219,26 +219,26 @@ public class UpdatePasswordTestIT extends BaseTestIT {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
         //prepare
         String newToken = new ObjectMapper().readTree(result.getResponse().getContentAsString()).path("token").asText();
         body.setOldPassword(newPassword);
         //test + validate (with new token)
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + newToken)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.token").isNotEmpty())
-                .andExpect(jsonPath("$.duration").isNumber());
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.token").isNotEmpty())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.duration").isNumber());
     }
 
     private void incorrectValidationRequiredBody(String oldPassword, String newPassword) throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertClientToken(USER_ID_CLIENT, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         PasswordRequest body = PasswordRequest
                 .builder()
                 .oldPassword(oldPassword)
@@ -247,13 +247,13 @@ public class UpdatePasswordTestIT extends BaseTestIT {
         //test + validate
         assertThat(validator.validate(body).isEmpty()).isFalse();
         mvc.perform(
-                patch(URL)
+                MockMvcRequestBuilders.patch(URL)
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(body))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").exists());
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists());
     }
 
 }

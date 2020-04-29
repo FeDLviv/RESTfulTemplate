@@ -8,7 +8,9 @@ import net.omisoft.rest.service.interkassa.InterkassaService;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.request.RequestPostProcessor;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
@@ -18,9 +20,6 @@ import java.util.*;
 
 import static net.omisoft.rest.ApplicationConstants.AUTH_HEADER;
 import static net.omisoft.rest.ApplicationConstants.TOKEN_PREFIX;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /*
 INTEGRATION TEST
@@ -62,48 +61,48 @@ public class InteractionTestIT extends BaseTestIT {
     public void uuidNull() throws Exception {
         //test + validate
         mvc.perform(
-                post(URL.replaceAll("%s", ""))
+                MockMvcRequestBuilders.post(URL.replaceAll("%s", ""))
                         .params(getParams())
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$").doesNotHaveJsonPath());
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotHaveJsonPath());
     }
 
     @Test
     public void dataNull() throws Exception {
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").isNotEmpty());
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").isNotEmpty());
     }
 
     @Test
     public void ipRemoteWrong() throws Exception {
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .params(getParams())
                         .with(remoteAddr(getRandomIP()))
         )
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message").value(HttpStatus.NOT_FOUND.getReasonPhrase()));
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(HttpStatus.NOT_FOUND.getReasonPhrase()));
     }
 
     @Test
     public void ipHeaderWrong() throws Exception {
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .header(HttpHeaders.X_FORWARDED_FOR, getRandomIP())
                         .params(getParams())
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message").value(HttpStatus.NOT_FOUND.getReasonPhrase()));
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(HttpStatus.NOT_FOUND.getReasonPhrase()));
     }
 
     @Test
@@ -116,12 +115,12 @@ public class InteractionTestIT extends BaseTestIT {
         params.get("ik_sign").set(0, wrongSignature.toString());
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .params(params)
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.payment.digital_signature")));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.payment.digital_signature")));
     }
 
     @Test
@@ -138,12 +137,12 @@ public class InteractionTestIT extends BaseTestIT {
         params.setAll(map);
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .params(params)
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.payment.wrong_id")));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.payment.wrong_id")));
     }
 
     @Test
@@ -160,12 +159,12 @@ public class InteractionTestIT extends BaseTestIT {
         params.setAll(map);
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_NOT_EXISTS))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_NOT_EXISTS))
                         .params(params)
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.payment.not_exists")));
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.payment.not_exists")));
     }
 
     @Test
@@ -182,12 +181,12 @@ public class InteractionTestIT extends BaseTestIT {
         params.setAll(map);
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .params(params)
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.payment.sum")));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.payment.sum")));
     }
 
     @Test
@@ -207,97 +206,97 @@ public class InteractionTestIT extends BaseTestIT {
         params.setAll(map);
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .params(params)
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.payment.wrong_id_office")));
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.payment.wrong_id_office")));
     }
 
     @Override
     public void expireToken() throws Exception {
         //prepare
-        String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date());
+        String token = generateAdminToken(USER_ID_ADMIN, new Date());
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .params(getParams())
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.expire")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.expire")));
     }
 
     @Override
     public void wrongToken() throws Exception {
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .header(AUTH_HEADER, TOKEN_PREFIX + WRONG_TOKEN)
                         .params(getParams())
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.wrong")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.wrong")));
     }
 
     @Override
     public void tokenNotExists() throws Exception {
         //prepare
-        String token = generateToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        String token = generateAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .params(getParams())
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value(message.getMessage("exception.token.not_exists")));
     }
 
     @Override
     public void notAuthorized() throws Exception {
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .params(getParams())
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$").doesNotHaveJsonPath());
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotHaveJsonPath());
     }
 
     @Override
     public void authorizedAdmin() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_ADMIN, "ROLE_ADMIN", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertAdminToken(USER_ID_ADMIN, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .header(HttpHeaders.X_FORWARDED_FOR, InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)])
                         .params(getParams())
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$").doesNotHaveJsonPath());
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotHaveJsonPath());
     }
 
     @Override
     public void authorizedClient() throws Exception {
         //prepare
-        token = generateAndInsertToken(USER_ID_CLIENT, "ROLE_CLIENT", new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
+        token = generateAndInsertClientToken(USER_ID_CLIENT, new Date(new Date().getTime() + Long.parseLong(tokenDuration)));
         //test + validate
         mvc.perform(
-                post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
+                MockMvcRequestBuilders.post(String.format(URL, PAYMENT_UUID_WITH_RESPONSE_BODY))
                         .header(AUTH_HEADER, TOKEN_PREFIX + token)
                         .params(getParams())
                         .with(remoteAddr(InterkassaService.IP[new Random().nextInt(InterkassaService.IP.length)]))
         )
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$").doesNotHaveJsonPath());
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotHaveJsonPath());
     }
 
 }
